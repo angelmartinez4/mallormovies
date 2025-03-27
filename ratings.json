@@ -1,0 +1,59 @@
+[
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "user_001"
+      },
+      "itemReviewed": {
+        "@type": "Movie",
+        "name": "Inception",
+        "sameAs": "https://www.imdb.com/title/tt1375666/"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      },
+      "reviewBody": "Una película increíble con una trama compleja y efectos visuales impresionantes.",
+      "datePublished": "2024-03-10T12:30:00Z"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "user_001"
+      },
+      "itemReviewed": {
+        "@type": "Movie",
+        "name": "The Dark Knight",
+        "sameAs": "https://www.imdb.com/title/tt0468569/"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 4.5
+      },
+      "reviewBody": "Una obra maestra del cine de superhéroes con una actuación legendaria de Heath Ledger.",
+      "datePublished": "2024-03-11T15:45:00Z"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "user_002"
+      },
+      "itemReviewed": {
+        "@type": "Movie",
+        "name": "The Dark Knight",
+        "sameAs": "https://www.imdb.com/title/tt0468569/"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      },
+      "reviewBody": "Un thriller impresionante con una historia intensa y un villano icónico.",
+      "datePublished": "2024-03-12T08:20:00Z"
+    }    
+]

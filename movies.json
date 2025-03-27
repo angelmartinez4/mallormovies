@@ -1,0 +1,75 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Movie",
+    "name": "Inception",
+    "image": "https://example.com/images/inception.jpg",
+    "trailer": {
+      "@type": "VideoObject",
+      "name": "Inception - Official Trailer",
+      "embedUrl": "https://example.com/trailers/inception.mp4",
+      "thumbnailUrl": "https://example.com/images/inception_trailer_thumbnail.jpg",
+      "description": "Trailer oficial de Inception.",
+      "uploadDate": "2010-06-01T00:00:00Z"
+    },
+    "genre": ["Science Fiction", "Thriller"],
+    "director": {
+      "@type": "Person",
+      "name": "Christopher Nolan"
+    },
+    "writer": [
+      {
+        "@type": "Person",
+        "name": "Christopher Nolan"
+      }
+    ],
+    "description": "Un ladrón que roba secretos corporativos a través del uso de la tecnología de sueños inversivos es encargado con la tarea de implantar una idea en la mente de un CEO.",
+    "contentRating": "PG-13",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "8.8",
+      "reviewCount": "2200000"
+    },
+    "sameAs": "https://www.imdb.com/title/tt1375666/"
+  },
+    {
+      "@context": "https://schema.org",
+      "@type": "Movie",
+      "name": "Batman 33",
+      "image": "https://example.com/images/dark_knight.jpg",
+      "trailer": {
+        "@type": "VideoObject",
+        "name": "Batman 33 - Trailer",
+        "embedUrl": "https://example.com/trailers/dark_knight.mp4",
+        "thumbnailUrl": "https://example.com/images/trailer_thumbnail.jpg"
+      },
+      "genre": ["Action", "Crime", "Drama"],
+      "director": {
+        "@type": "Person",
+        "name": "Christopher Nolan"
+      },
+      "writer": [
+        {
+          "@type": "Person",
+          "name": "Jonathan Nolan"
+        },
+        {
+          "@type": "Person",
+          "name": "Christopher Nolan"
+        },
+        {
+          "@type": "Person",
+          "name": "David S. Goyer"
+        }
+      ],
+      "description": "Mitad hombre mitad animal...",
+      "contentRating": "PG-13",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "9.0",
+        "reviewCount": "1500000"
+      },
+      "sameAs": "https://www.imdb.com/title/tt0468569/"
+    }    
+  ]
+  

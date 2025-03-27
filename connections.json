@@ -1,0 +1,68 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "connectedUsers": [
+    {
+      "@type": "Person",
+      "name": "user_001",
+      "location": {
+        "@type": "Place",
+        "name": "Madrid",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Madrid",
+          "addressCountry": "Spain"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 40.4168,
+          "longitude": -3.7038
+        }
+      },
+      "connectionTime": "2024-03-13T18:20:00Z"
+    },
+    {
+      "@type": "Person",
+      "name": "user_002",
+      "location": {
+        "@type": "Place",
+        "name": "Palma de Mallorca",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Palma de Mallorca",
+          "addressCountry": "Spain"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 39.6381,
+          "longitude": 2.6481
+        }
+      },
+      "connectionTime": "2024-03-13T18:25:00Z"
+    }
+  ],
+  "popularLocations": [
+    {
+      "@type": "Place",
+      "name": "Madrid",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Madrid",
+        "addressCountry": "Spain"
+      },
+      "usersConnected": 12
+    },
+    {
+      "@type": "Place",
+      "name": "Palma de Mallorca",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Palma de Mallorca",
+        "addressCountry": "Spain"
+      },
+      "usersConnected": 8
+    }
+  ]
+}
+
+  

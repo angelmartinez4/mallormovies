@@ -1,0 +1,6 @@
+JavaScript Geolocation API: Obtener geolocalización del usuario con precisión variable mediante pop-up.
+
+Leaflet API: dibujo de mapas usando connections.json, fichero con los usuarios conectados y su ubicación
+
+AI chatbot API (por decidir): consultas sobre películas o actores o recomendaciones según gustos. Uso genérico relativo a películas
+
