@@ -1,7 +1,7 @@
 function getCard(item) {
     return `
         <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="service-item rounded overflow-hidden">
+            <div class="service-item rounded overflow-hidden bg-dark">
                 <img class="img-fluid" src="imgs/${item.image}" alt="">
                 <div class="position-relative p-4 pt-0">
                     <div class="service-icon">

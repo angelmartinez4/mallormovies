@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -30,6 +31,9 @@
 
     <!-- Template Stylesheet -->
     <link href="plantilla/css/style.css" rel="stylesheet">
+
+    <!-- Nuestra stylesheet -->
+    <link href="nuestro.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,8 +46,8 @@
     <!-- Spinner End -->
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center border-end px-4 px-lg-5">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary">Pelis Mallorquinas</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -51,16 +55,133 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Video</a>
-                <a href="about.html" class="nav-item nav-link">Mapa interactivo</a>
-                <a href="service.html" class="nav-item nav-link">Amigos</a>
-                <a href="project.html" class="nav-item nav-link">Mis valoraciones</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="video.html" class="nav-item nav-link">Video</a>
+                <a href="mapa.html" class="nav-item nav-link">Mapa</a>
+                <a href="amigos.html" class="nav-item nav-link">Amigos</a>
+                <a href="valoraciones.html" class="nav-item nav-link">Mis valoraciones</a>
+                <!-- <a href="contacto.html" class="nav-item nav-link">Contacto</a> -->
             </div>
-            <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
+
+
+    <div class="container-xxl  mt-5">
+
+        <!-- Top row with info -->
+        <div class="row d-flex align-items-end">
+            <div class="col-lg-9 col-8 d-flex justify-content-between align-items-end">
+                <h4>La isla mínima</h4>
+                <h6>2014 / 115 mins</h6>
+            </div>
+
+            <div class="col-lg-3 col-4">
+                    <h6>
+                        <svg class="pb-1" width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.0007 8C14.0007 9.6569 12.6576 11 11.0007 11C9.3439 11 8.00073 9.6569 8.00073 8C8.00073 6.3431 9.3439 5 11.0007 5C12.6576 5 14.0007 6.3431 14.0007 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.0012 1C6.52354 1 2.73326 3.94288 1.45898 8C2.73324 12.0571 6.52354 15 11.0012 15C15.4788 15 19.2691 12.0571 20.5434 8C19.2691 3.94291 15.4788 1 11.0012 1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        MARCAR VISTA
+                    </h6>
+            </div>
+
+        </div>
+
+        <!-- Image, video, and review summary row -->
+         <div class="row mt-3">
+            <div class="col-3 d-none d-lg-block ps-4">
+                <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid">
+            </div>
+
+            <div class="col-lg-6 col-8">
+                <iframe class="vid" width="100%" height="100%" src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-lg-3 col-4 border">
+                fdfads
+
+            </div>
+
+         </div>
+
+        <!-- Sipnosis and info title row -->
+        <div class="row mt-5">
+
+            <!-- Sipnosis -->
+            <div class="col-lg-6 flex-column">
+                <div class="flex-grow-0 border-bottom border-2 px-2">
+                    <h6>SIPNOSIS</h6>
+                </div>
+
+                <div class="flex-grow-1 mt-2 ps-4 pe-2">
+                    <p>
+                        España, a comienzos de los años 80. Dos policías, ideológicamente  opuestos, son enviados desde Madrid a un remoto pueblo del sur, situado  en las marismas del Guadalquivir, para investigar la desaparición de dos chicas adolescentes. En una comunidad anclada en el pasado, tendrán que enfrentarse no sólo a un cruel asesino, sino también a sus propios  fantasmas. (FILMAFFINITY)
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-1"></div>
+
+            <div class="col-lg-5 ">
+                <div class=" border-bottom border-2 px-2">
+                    <h6>INFORMACIÓN</h6>
+                </div>
+
+                <div class=" mt-2 px-4">
+                    <p>
+                        España, a comienzos de los años 80. 
+                    </p>
+                </div>
+                
+            </div>
+        </div>
+
+
+        <!-- Valoraciones title -->
+        <div class="row mt-5">
+            <div class="col">
+                <div class="border-bottom border-2 ps-2">
+                    <h6>VALORACIONES</h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valoraciones content -->
+         <div class="row row-cols-1 row-cols-lg-2 mt-2">
+            <div class="col mt-4">
+                <div class="card border mx-4 bg-dark">
+                    Valoracion1
+                </div>
+            </div>
+
+            <div class="col mt-4">
+                <div class="card border mx-4 bg-dark">
+                    Valoracion2
+                </div>
+            </div>
+
+            <div class="col mt-4">
+                <div class="card border mx-4 bg-dark">
+                    Valoracion3
+                </div>
+            </div>
+
+            <div class="col mt-4">
+                <div class="card border mx-4 bg-dark">
+                    Valoracion4
+                </div>
+            </div>
+
+            <div class="col mt-4">
+                <div class="card border mx-4 bg-dark">
+                    Valoracion5
+                </div>
+            </div>
+
+         </div>
+    </div>
+
 
     
 
