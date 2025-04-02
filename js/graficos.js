@@ -59,6 +59,7 @@ function generarValoracionMedia(valoracion) {
     const despXDecimales = (MAX_DECIMALES-decimales)*10 // desplaza estrella izq si no hay decimales
     const svg = `
     <svg width="150" height="50" viewBox="0 0 ${125-despXDecimales} 50">
+    <title>Valoración promedio de película: ${valRedondeado}</title>
     <text x="10" y="35" font-size="20" fill="white">${valRedondeado}/10</text>
     <polygon points="${100-despXDecimales},0 ${106-despXDecimales},20 ${125-despXDecimales},20 ${109-despXDecimales},30 ${115-despXDecimales},50
     ${100-despXDecimales},38 ${85-despXDecimales},50 ${91-despXDecimales},30 ${75-despXDecimales},20 ${94-despXDecimales},20" 
