@@ -19,3 +19,8 @@ p {
         width: 100%;
     }
 }
+
+.boton:hover {
+    color: #32C36C;
+    cursor: pointer;
+}

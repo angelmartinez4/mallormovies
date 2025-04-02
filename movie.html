@@ -48,7 +48,7 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">Pelis Mallorquinas</h2>
+            <h2 class="m-0 text-primary">MallorMovies</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -71,16 +71,16 @@
 
         <!-- Top row with info -->
         <div class="row d-flex align-items-end">
-            <div class="col-lg-9 col-8 d-flex justify-content-between align-items-end">
-                <h4>La isla mínima</h4>
+            <div class="col-12 col-md-8 col-lg-9 d-flex justify-content-between align-items-end">
+                <h3>La isla mínima</h3>
                 <h6>2014 / 115 mins</h6>
             </div>
 
-            <div class="col-lg-3 col-4">
-                    <h6>
+            <div class="col-lg-3 col-4 d-none d-md-block">
+                    <h6 class="boton">
                         <svg class="pb-1" width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.0007 8C14.0007 9.6569 12.6576 11 11.0007 11C9.3439 11 8.00073 9.6569 8.00073 8C8.00073 6.3431 9.3439 5 11.0007 5C12.6576 5 14.0007 6.3431 14.0007 8Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M11.0012 1C6.52354 1 2.73326 3.94288 1.45898 8C2.73324 12.0571 6.52354 15 11.0012 15C15.4788 15 19.2691 12.0571 20.5434 8C19.2691 3.94291 15.4788 1 11.0012 1Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.0007 8C14.0007 9.6569 12.6576 11 11.0007 11C9.3439 11 8.00073 9.6569 8.00073 8C8.00073 6.3431 9.3439 5 11.0007 5C12.6576 5 14.0007 6.3431 14.0007 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.0012 1C6.52354 1 2.73326 3.94288 1.45898 8C2.73324 12.0571 6.52354 15 11.0012 15C15.4788 15 19.2691 12.0571 20.5434 8C19.2691 3.94291 15.4788 1 11.0012 1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         MARCAR VISTA
                     </h6>
@@ -90,24 +90,26 @@
 
         <!-- Image, video, and review summary row -->
          <div class="row mt-3">
-            <div class="col-3 d-none d-lg-block ps-4">
+            <div class="col-3 d-none d-lg-block ps-5">
                 <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid">
             </div>
 
-            <div class="col-lg-6 col-8">
+            <div class="col-12 col-md-8 col-lg-6">
                 <iframe class="vid" width="100%" height="100%" src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <div class="col-lg-3 col-4 border">
-                fdfads
-
+            <div class="col-lg-3 col-4 d-none d-md-block">
+                
+                <!-- Div just to show the border without the column's padding -->
+                <div class="border h-100"> 
+                    Resumen valoraciones
+                </div>
             </div>
 
          </div>
 
-        <!-- Sipnosis and info title row -->
-        <div class="row mt-5">
-
+        <!-- Sipnosis and info row -->
+        <div class="row mt-5 pt-3">
             <!-- Sipnosis -->
             <div class="col-lg-6 flex-column">
                 <div class="flex-grow-0 border-bottom border-2 px-2">
@@ -115,7 +117,7 @@
                 </div>
 
                 <div class="flex-grow-1 mt-2 ps-4 pe-2">
-                    <p>
+                    <p class="lh-lg">
                         España, a comienzos de los años 80. Dos policías, ideológicamente  opuestos, son enviados desde Madrid a un remoto pueblo del sur, situado  en las marismas del Guadalquivir, para investigar la desaparición de dos chicas adolescentes. En una comunidad anclada en el pasado, tendrán que enfrentarse no sólo a un cruel asesino, sino también a sus propios  fantasmas. (FILMAFFINITY)
                     </p>
                 </div>
@@ -123,7 +125,8 @@
 
             <div class="col-lg-1"></div>
 
-            <div class="col-lg-5 ">
+            <!-- Informacion -->
+            <div class="col-lg-5 mt-4 mt-lg-0">
                 <div class=" border-bottom border-2 px-2">
                     <h6>INFORMACIÓN</h6>
                 </div>
@@ -147,35 +150,112 @@
             </div>
         </div>
 
+        
+        <div class="card border mx-4 bg-transparent d-md-none mt-4">
+            Resumen valoraciones horizontal
+        </div>
+
         <!-- Valoraciones content -->
          <div class="row row-cols-1 row-cols-lg-2 mt-2">
+
+
+            <!-- Añadir valoracion -->
             <div class="col mt-4">
-                <div class="card border mx-4 bg-dark">
-                    Valoracion1
+                <div class="card mx-3 bg-transparent">
+                    <h5>Añadir valoracion</h5>
+                    <form>
+                        <div class="d-flex mt-3">
+                            <label for="valoracion" class="form-label flex-grow-1">Puntuacion sobre 10</label>
+                            <input type="range" class="form-range flex-grow-0" id="valoracion"  min="0" max="10" step="0.1">
+                        </div>
+                        
+                        <textarea class="form-control bg-transparent text-white" aria-label="With textarea"></textarea>
+                        <div class="d-flex">
+                            <button class="btn btn-primary mt-3 ms-auto me-2" type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!-- Plantilla de una valoracion -->
+            <div class="col mt-4">
+                <div class="card mx-3 bg-transparent">
+                    <div class="d-flex">
+                        <img src="icons/profile.svg" class="flex-grow-0"/>
+                        <h6 class="mt-3 ms-2 flex-grow-0">kjorda02</h6>
+                        <div class="flex-grow-1 d-flex justify-content-end">
+                            Dec 14, 2014
+                            <div class="ms-4">
+
+                                <!-- Esta parte se deberia cambiar por el svg dinamico -->
+                                <span class="text-white align-top">6,6</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ps-5" style="font-size: 0.8rem;">
+                        The Industrial Revolution and its consequences have been a disaster for the human race. They have  greatly increased the life-expectancy of those of us who live in “advanced” countries, but they have  destabilized society, have made life unfulfilling, have subjected human beings to indignities, have led to  widespread psychological suffering (in the Third World to physical suffering as well)...
+                    </p>
                 </div>
             </div>
 
             <div class="col mt-4">
-                <div class="card border mx-4 bg-dark">
-                    Valoracion2
+                <div class="card mx-3 bg-transparent">
+                    <div class="d-flex">
+                        <img src="icons/profile.svg" class="flex-grow-0"/>
+                        <h6 class="mt-3 ms-2 flex-grow-0">serendipity33</h6>
+                        <div class="flex-grow-1 d-flex justify-content-end">
+                            Jun 11, 2017
+                            <div class="ms-4">
+
+                                <!-- Esta parte se deberia cambiar por el svg dinamico -->
+                                <span class="text-white align-top">9,3</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ps-5" style="font-size: 0.8rem;">
+                        I thought Spainards could only produce comedy films. Today I was gratefully surprised.
+                    </p>
                 </div>
             </div>
 
             <div class="col mt-4">
-                <div class="card border mx-4 bg-dark">
-                    Valoracion3
+                <div class="card mx-3 bg-transparent">
+                    <div class="d-flex">
+                        <img src="icons/profile.svg" class="flex-grow-0"/>
+                        <h6 class="mt-3 ms-2 flex-grow-0">Fernando</h6>
+                        <div class="flex-grow-1 d-flex justify-content-end">
+                            Nov 13, 2019
+                            <div class="ms-4">
+
+                                <!-- Esta parte se deberia cambiar por el svg dinamico -->
+                                <span class="text-white align-top">9,3</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ps-5" style="font-size: 0.8rem;">
+                        Ta buena
+                    </p>
                 </div>
             </div>
 
             <div class="col mt-4">
-                <div class="card border mx-4 bg-dark">
-                    Valoracion4
-                </div>
-            </div>
+                <div class="card mx-3 bg-transparent">
+                    <div class="d-flex">
+                        <img src="icons/profile.svg" class="flex-grow-0"/>
+                        <h6 class="mt-3 ms-2 flex-grow-0">Lucia</h6>
+                        <div class="flex-grow-1 d-flex justify-content-end">
+                            Apr 27, 2018
+                            <div class="ms-4">
 
-            <div class="col mt-4">
-                <div class="card border mx-4 bg-dark">
-                    Valoracion5
+                                <!-- Esta parte se deberia cambiar por el svg dinamico -->
+                                <span class="text-white align-top">10</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ps-5" style="font-size: 0.8rem;">
+                        ¡Viva Mallorca!
+                    </p>
                 </div>
             </div>
 
