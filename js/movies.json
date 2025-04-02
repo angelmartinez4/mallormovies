@@ -30,38 +30,7 @@
           "ratingValue": "0",
           "reviewCount": "0"
         },
-        "sameAs": "https://www.filmin.es/pelicula/quest"
-      },
-      {
-        "@type": "Movie",
-        "name": "Pedra i Oli",
-        "image": "poster_0_3.webp",
-        "trailer": {
-          "@type": "VideoObject",
-          "name": "PEDRA I OLI | TEASER TRAILER | YAQ DISTRIBUCIÓN | LARGOMETRAJE | FEATURE FILM",
-          "embedUrl": "https://www.youtube.com/watch?v=rfxoqgajgQc"
-        },
-        "genre": ["Documental"],
-        "director": {
-          "@type": "Person",
-          "name": "Àlex Dioscórides"
-        },
-        "participant": [
-          {
-            "@type": "Person",
-            "name": "Àlex Dioscórides",
-            "birthDate": "1979-09-11",
-            "birthPlace": "Madrid, España",
-            "jobTitle": "Director"
-          }
-        ],
-        "description": "La Serra de Tramuntana en la isla de Mallorca está custodiada desde hace siglos por unos olivos espléndidos...",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "0",
-          "reviewCount": "0"
-        },
-        "sameAs": "https://www.filmin.es/pelicula/pedra-i-oli"
+        "sameAs": "https://www.imdb.com/title/tt16379280/"
       },
       {
         "@type": "Movie",
@@ -83,7 +52,7 @@
           "ratingValue": "0",
           "reviewCount": "0"
         },
-        "sameAs": "https://www.filmin.es/pelicula/un-hombre-llamado-ove"
+        "sameAs": "https://www.imdb.com/title/tt4080728/"
       },
       {
         "@type": "Movie",
@@ -105,7 +74,7 @@
           "ratingValue": "0",
           "reviewCount": "0"
         },
-        "sameAs": "https://www.filmin.es/pelicula/jappeloup-de-padre-a-hijo"
+        "sameAs": "https://www.imdb.com/title/tt2018079/"
       },
       {
         "@type": "Movie",
@@ -127,7 +96,7 @@
           "ratingValue": "0",
           "reviewCount": "0"
         },
-        "sameAs": "https://www.filmin.es/pelicula/la-mujer-de-paja"
+        "sameAs": "https://www.imdb.com/title/tt0058754/"
       },
       {
         "@type": "Movie",
@@ -149,7 +118,7 @@
           "ratingValue": "0",
           "reviewCount": "0"
         },
-        "sameAs": "https://www.filmin.es/pelicula/bert",
+        "sameAs": "https://www.imdb.com/title/tt0772726/",
         "participant": [
           {
             "@type": "Person",
@@ -180,7 +149,7 @@
           "ratingValue": "0",
           "reviewCount": "0"
         },
-        "sameAs": "https://www.filmin.es/pelicula/el-sindrome-baumbacher"
+        "sameAs": "https://www.imdb.com/title/tt9409448/"
       },
       {
         "@type": "Movie",
@@ -211,7 +180,7 @@
           "ratingValue": "6.2",
           "reviewCount": "1500"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film924421.html"
+        "sameAs": "https://www.imdb.com/title/tt5991410/"
       },
       {
         "@type": "Movie",
@@ -242,7 +211,7 @@
           "ratingValue": "5.3",
           "reviewCount": "1200"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film458906.html"
+        "sameAs": "https://www.imdb.com/title/tt13150080/"
       },
       {
         "@type": "Movie",
@@ -274,7 +243,7 @@
           "ratingValue": "7.3",
           "reviewCount": "320"
         },
-        "sameAs": "https://es.wikipedia.org/wiki/El_mar_(pel%C3%ADcula)"
+        "sameAs": "https://www.imdb.com/es-es/title/tt0220631/"
       },
       {
         "@type": "Movie",
@@ -328,7 +297,7 @@
         "ratingValue": "6.5",
         "reviewCount": "120"
       },
-      "sameAs": "https://es.wikipedia.org/wiki/El_perfecto_desconocido"
+      "sameAs": "https://www.imdb.com/title/tt1763217/"
     },
     {
       "@type": "Movie",
@@ -360,7 +329,7 @@
         "ratingValue": "-",
         "reviewCount": "-"
       },
-      "sameAs": "https://es.wikipedia.org/wiki/Mario_(pel%C3%ADcula)"
+      "sameAs": "https://www.imdb.com/title/tt34224006/"
     },
     {
       "@type": "Movie",
@@ -392,7 +361,7 @@
         "ratingValue": "6.7",
         "reviewCount": "1500"
       },
-      "sameAs": "https://es.wikipedia.org/wiki/Indiana_Jones_y_el_dial_del_destino"
+      "sameAs": "https://www.imdb.com/title/tt1462764/"
     },
       {
         "@type": "Movie",
@@ -414,7 +383,7 @@
           "ratingValue": "7.1",
           "reviewCount": "65"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film1391980.html",
+        "sameAs": "https://www.imdb.com/title/tt0075877/",
         "participant": [
           {
             "@type": "Person",
@@ -445,7 +414,7 @@
           "ratingValue": "6.8",
           "reviewCount": "110"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film2634780.html",
+        "sameAs": "https://www.imdb.com/title/tt0087904/",
         "participant": [
           {
             "@type": "Person",
@@ -476,7 +445,7 @@
           "ratingValue": "6.4",
           "reviewCount": "85"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film3414980.html",
+        "sameAs": "https://www.imdb.com/title/tt0078192/",
         "participant": [
           {
             "@type": "Person",
@@ -507,7 +476,7 @@
           "ratingValue": "6.3",
           "reviewCount": "95"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film2040560.html",
+        "sameAs": "https://www.imdb.com/title/tt0455584/",
         "participant": [
           {
             "@type": "Person",
@@ -538,7 +507,7 @@
           "ratingValue": "6.5",
           "reviewCount": "120"
         },
-        "sameAs": "https://www.filmaffinity.com/es/film3774000.html",
+        "sameAs": "https://www.imdb.com/title/tt0294879/",
         "participant": [
           {
             "@type": "Person",
@@ -548,68 +517,6 @@
             "jobTitle": "Director"
           }
         ]
-      },
-        {
-          "@type": "Movie",
-          "name": "La isla del holandés",
-          "image": "la_isla_del_holandes_l_illa_de_l_holandes-482694081-large.webp",
-          "trailer": {
-            "@type": "VideoObject",
-            "name": "La isla del holandés - Tráiler",
-            "embedUrl": "https://www.youtube.com/watch?v=ZpmIn0TeLw4"
-          },
-          "genre": ["Drama", "Thriller"],
-          "director": {
-            "@type": "Person",
-            "name": "Jaume Carrió"
-          },
-          "description": "Un thriller dirigido por Jaume Carrió, que explora los misterios de un lugar aislado, filmado en escenarios de la isla de Mallorca.",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "6.8",
-            "reviewCount": "95"
-          },
-          "sameAs": "https://www.filmaffinity.com/es/film2524997.html",
-          "participant": [
-            {
-              "@type": "Person",
-              "name": "Jaume Carrió",
-              "birthDate": "1976-04-28",
-              "birthPlace": "Palma de Mallorca, España",
-              "jobTitle": "Director"
-            }
-          ]
-        },
-        {
-          "@type": "Movie",
-          "name": "Enxaneta",
-          "image": "enxaneta-239485678-large.webp",
-          "trailer": {
-            "@type": "VideoObject",
-            "name": "Enxaneta - Tráiler",
-            "embedUrl": "https://www.youtube.com/watch?v=5fy2B1w8HBo"
-          },
-          "genre": ["Drama", "Familiar"],
-          "director": {
-            "@type": "Person",
-            "name": "Jaume Carrió"
-          },
-          "description": "Una película sobre las tradiciones y valores de la cultura catalana, dirigida por Jaume Carrió, que ofrece una mirada profunda a la vida de un niño en el mundo de los castellers.",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "7.2",
-            "reviewCount": "102"
-          },
-          "sameAs": "https://www.filmaffinity.com/es/film1394916.html",
-          "participant": [
-            {
-              "@type": "Person",
-              "name": "Jaume Carrió",
-              "birthDate": "1976-04-28",
-              "birthPlace": "Palma de Mallorca, España",
-              "jobTitle": "Director"
-            }
-          ]
-        }      
+      }  
   ]
 }

@@ -3,7 +3,7 @@
  * @param {string} name  nombre de usuario
  * @returns 
  */
-function generarPfpSvg(name) {
+export function generarPfpSvg(name) {
     const firstLetter = name.charAt(0).toUpperCase();
     const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
     const svg = `
@@ -24,7 +24,7 @@ function generarPfpSvg(name) {
  * @param {number[]} valoraciones array, (idx, valor) = (valoracion+1, cantidad)
  * @returns svg con plot de barras de valoraciones
  */
-function generarBarchartValoraciones(valoraciones) {
+export function generarBarchartValoraciones(valoraciones) {
     const xLine = 20
     const xRectDesp = 2
     // valoraciones = [30, 20, 5, 10, 40, 20, 50, 80, 100, 20] // valor de test
@@ -35,9 +35,9 @@ function generarBarchartValoraciones(valoraciones) {
         posY += 10
         svgRectangulos.push(`
         <g aria-label="Valoración de ${i}">
-            <text x="5" y="${posY}" font-size="10" fill="white">${i}</text>    
+            <text x="5" y="${posY}" font-size="8" fill="white">${i}</text>    
             <rect x="${xLine+xRectDesp}" y="${posY-8}"
-            width="${(100-xLine-xRectDesp)*valoraciones[i-1]/maxValoraciones}" height="8" fill="green">
+            width="${(100-xLine-xRectDesp)*valoraciones[i-1]/maxValoraciones}" height="8" fill="#00F36D">
                 <title>${valoraciones[i - 1]} valoraciones</title>
             </rect>
         </g>`)

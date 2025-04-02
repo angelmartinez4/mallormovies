@@ -14,7 +14,7 @@ p {
 }
 
 @media (max-width: 991.98px) {
-    .vid {
+    #vid {
         aspect-ratio: 16 / 9;
         width: 100%;
     }

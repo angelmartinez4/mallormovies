@@ -72,7 +72,7 @@
         <!-- Top row with info -->
         <div class="row d-flex align-items-end">
             <div class="col-12 col-md-8 col-lg-9 d-flex justify-content-between align-items-end">
-                <h3>La isla mínima</h3>
+                <h3 id="titulo">La isla mínima</h3>
                 <h6>2014 / 115 mins</h6>
             </div>
 
@@ -91,18 +91,35 @@
         <!-- Image, video, and review summary row -->
          <div class="row mt-3">
             <div class="col-3 d-none d-lg-block ps-5">
-                <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid">
+                <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid" id="portada">
             </div>
 
             <div class="col-12 col-md-8 col-lg-6">
-                <iframe class="vid" width="100%" height="100%" src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe id="vid" width="100%" height="100%" src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <div class="col-lg-3 col-4 d-none d-md-block">
-                
-                <!-- Div just to show the border without the column's padding -->
-                <div class="border h-100"> 
-                    Resumen valoraciones
+                <div class="ps-2 d-flex flex-column justify-content-between h-100"> 
+                    <div>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6>Valoracion en IMDB</h6>
+                            </div>
+                            <div>
+                                <span id="imdbrating" class="text-white align-top">9,3</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <div>
+                                <h6>Valoracion de los usuarios</h6>
+                            </div>
+                            <div style="min-width: 100px;">
+                                <span id="imdbrating" class="text-white align-top">9,3</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="grafico" class="mb-3" style="width: 65%";></div>
                 </div>
             </div>
 
@@ -117,7 +134,7 @@
                 </div>
 
                 <div class="flex-grow-1 mt-2 ps-4 pe-2">
-                    <p class="lh-lg">
+                    <p class="lh-lg" id="sipnosis">
                         España, a comienzos de los años 80. Dos policías, ideológicamente  opuestos, son enviados desde Madrid a un remoto pueblo del sur, situado  en las marismas del Guadalquivir, para investigar la desaparición de dos chicas adolescentes. En una comunidad anclada en el pasado, tendrán que enfrentarse no sólo a un cruel asesino, sino también a sus propios  fantasmas. (FILMAFFINITY)
                     </p>
                 </div>
@@ -357,7 +374,7 @@
 
     <!-- Template Javascript -->
     <script src="plantilla/js/main.js"></script>
-    <script src="card.js"></script>
+    <script type="module" src="js/movie.js"></script>
 </body>
 
 </html>
