@@ -73,7 +73,7 @@
         <div class="row d-flex align-items-end">
             <div class="col-12 col-md-8 col-lg-9 d-flex justify-content-between align-items-end">
                 <h3 id="titulo">La isla mínima</h3>
-                <h6>2014 / 115 mins</h6>
+                <h6 id="year">---- / --- mins</h6>
             </div>
 
             <div class="col-lg-3 col-4 d-none d-md-block">
@@ -105,16 +105,16 @@
                             <div>
                                 <h6>Valoracion en IMDB</h6>
                             </div>
-                            <div>
-                                <span id="imdbrating" class="text-white align-top">9,3</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            <div class="text-nowrap">
+                                <span id="imdbrating" class="text-white align-top">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
                             <div>
                                 <h6>Valoracion de los usuarios</h6>
                             </div>
-                            <div style="min-width: 100px;">
-                                <span id="imdbrating" class="text-white align-top">9,3</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            <div class="text-nowrap">
+                                <span id="imdbrating" class="text-white align-top">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
                             </div>
                         </div>
                     </div>
@@ -148,10 +148,23 @@
                     <h6>INFORMACIÓN</h6>
                 </div>
 
-                <div class=" mt-2 px-4">
-                    <p>
-                        España, a comienzos de los años 80. 
-                    </p>
+                <div class=" mt-3 d-flex justify-content-center">
+                    <div class="d-flex flex-column text-end gap-2">
+                        <span>DIRECTOR(A)</span>
+                        <span>GENERO(S)</span>
+                        <span class="name">MALLORQUIN(A)</span>
+                        <span class="birthDate">FECHA NACIMIENTO</span>
+                        <span class="birthPlace">LUGAR NACIMIENTO</span>
+                        <span class="jobTitle">ROL</span>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                        <span class="ms-3 text-white" id="director">Antonina Obrador</span>
+                        <span class="ms-3 text-white" id="genero">Drama, Thriller</span>
+                        <span class="ms-3 text-white name">Antonina Obrador</span>
+                        <span class="ms-3 text-white birthDate">1985-04-14</span>
+                        <span class="ms-3 text-white birthPlace">Barcelona, España</span>
+                        <span class="ms-3 text-white jobTitle">Directora</span>
+                    </div>
                 </div>
                 
             </div>
@@ -179,14 +192,14 @@
             <!-- Añadir valoracion -->
             <div class="col mt-4">
                 <div class="card mx-3 bg-transparent">
-                    <h5>Añadir valoracion</h5>
+                    <h5>Añadir valoración</h5>
                     <form>
                         <div class="d-flex mt-3">
-                            <label for="valoracion" class="form-label flex-grow-1">Puntuacion sobre 10</label>
-                            <input type="range" class="form-range flex-grow-0" id="valoracion"  min="0" max="10" step="0.1">
+                            <label for="valoracion" class="form-label flex-grow-1">Puntuación sobre 10</label>
+                            <input type="range" class="form-range flex-grow-0 w-50" id="valoracion"  min="0" max="10" step="0.1">
                         </div>
                         
-                        <textarea class="form-control bg-transparent text-white" aria-label="With textarea"></textarea>
+                        <textarea class="form-control bg-transparent text-white mt-2" aria-label="With textarea"></textarea>
                         <div class="d-flex">
                             <button class="btn btn-primary mt-3 ms-auto me-2" type="submit">Enviar</button>
                         </div>
