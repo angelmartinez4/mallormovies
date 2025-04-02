@@ -49,3 +49,22 @@ export function generarBarchartValoraciones(valoraciones) {
     `;
     return svg;
 }
+
+
+function generarValoracionMedia(valoracion) {
+    const MAX_DECIMALES = 5
+    const valRedondeado = Math.round(valoracion * 10**MAX_DECIMALES) / 10**MAX_DECIMALES
+    const valStr = valRedondeado.toString();
+    const decimales = valStr.includes(".") ? valStr.split(".")[1].length : 0; // Lo siento
+    const despXDecimales = decimales*10 // desplaza estrella derecha segun los decimales
+    const svg = `
+    <svg width="150" height="50" viewBox="0 0 ${125+despXDecimales} 50">
+    <title>Valoración promedio de película: ${valRedondeado}</title>
+    <text x="10" y="35" font-size="20" fill="white">${valRedondeado}/10</text>
+    <polygon points="${80+despXDecimales},0 ${86+despXDecimales},20 ${105+despXDecimales},20 ${89+despXDecimales},30 ${95+despXDecimales},50
+    ${80+despXDecimales},38 ${65+despXDecimales},50 ${71+despXDecimales},30 ${55+despXDecimales},20 ${74+despXDecimales},20" 
+        fill="gold" stroke="black" stroke-width="2"/>
+    </svg>
+    `
+    return svg
+}
