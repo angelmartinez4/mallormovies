@@ -11,7 +11,15 @@
           "name": "Johny Melabo",
           "sameAs": "https://example.com/profiles/user_002"
         }
-      ]
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.36029",
+          "longitude": "-5.84476"
+        }
+      }
     },
     {
       "@type": "Person",
@@ -23,7 +31,15 @@
           "name": "Fernando Alonso",
           "sameAs": "https://example.com/profiles/user_001"
         }
-      ]
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.505940",
+          "longitude": "2.531122"
+        }
+      }
     }
   ]
 }
