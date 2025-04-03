@@ -37,3 +37,9 @@ p {
 .altavoz:hover path {
     stroke: #32C36C;
 }
+
+#navBar-container {
+    position: fixed; /* Fija el div en la pantalla */
+    width: 100%; /* Ocupa todo el ancho */
+    z-index: 1000; /* Se asegura de que esté sobre otros elementos */
+}
