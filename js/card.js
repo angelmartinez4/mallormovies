@@ -1,11 +1,13 @@
+import {generarValoracionMedia} from './graficos.js';
+
 function getCard(item, index) {
     return `
         <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="service-item rounded overflow-hidden bg-dark">
                 <img class="img-fluid" src="imgs/${item.image}" alt="">
                 <div class="position-relative p-4 pt-0">
-                    <div class="service-icon">
-                        <i class="fa fa-solar-panel fa-3x"></i>
+                    <div class="service-icon bg-dark">
+                        ${generarValoracionMedia(item.aggregateRating.ratingValue)}
                     </div>
                     <h4 class="mb-3">${item.name}</h4>
                     <p>${item.description}</p>

@@ -102,24 +102,34 @@
                 <div class="ps-2 d-flex flex-column justify-content-between h-100"> 
                     <div>
                         <div class="d-flex justify-content-between">
-                            <div>
+                            <div class="d-flex flex-column justify-content-center">
                                 <h6>Valoracion en IMDB</h6>
                             </div>
-                            <div class="text-nowrap">
-                                <span id="imdbrating" class="text-white align-top">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            <div class="d-flex flex-column align-items-center ms-2">
+                                <div class="text-nowrap">
+                                    <span class="text-white align-top imdbrating">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>    
+                                </div>
+                                <div class="text-nowrap" style="font-size:0.7rem;">
+                                    <span class="imdbcount">--k valoraciones</span>
+                                </div>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
-                            <div>
+                            <div class="d-flex flex-column justify-content-center">
                                 <h6>Valoracion de los usuarios</h6>
                             </div>
-                            <div class="text-nowrap">
-                                <span id="imdbrating" class="text-white align-top">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            <div class="d-flex flex-column align-items-center ms-2">
+                                <div class="text-nowrap">
+                                    <span class="text-white align-top">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>    
+                                </div>
+                                <div class="text-nowrap" style="font-size:0.7rem;">
+                                    0 valoraciones
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div id="grafico" class="mb-3" style="width: 65%";></div>
+                    <div class="mb-2 grafico" style="width: 65%";></div>
                 </div>
             </div>
 
@@ -127,10 +137,27 @@
 
         <!-- Sipnosis and info row -->
         <div class="row mt-5 pt-3">
+
+            <script>
+                function speak() {
+                    const text = document.getElementById('sipnosis').innerHTML;
+                    
+                    window.speechSynthesis.cancel();
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'es-ES';
+                    window.speechSynthesis.speak(utterance);
+                }
+            </script>
+
             <!-- Sipnosis -->
             <div class="col-lg-6 flex-column">
                 <div class="flex-grow-0 border-bottom border-2 px-2">
-                    <h6>SIPNOSIS</h6>
+                    <h6>
+                        SIPNOSIS
+                        <svg class="ms-2 altavoz" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="speak()">
+                            <path d="M14 7C14.5 7.5 15 8.5 15 10C15 11.5 14.5 12.5 14 13M17 4C18.5 5.5 19 8 19 10C19 12 18.5 14.5 17 16M11 1L5 6H3C1.89543 6 1 6.89543 1 8V12C1 13.1046 1.89543 14 3 14H5L11 19V1Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </h6>
                 </div>
 
                 <div class="flex-grow-1 mt-2 ps-4 pe-2">
@@ -181,8 +208,41 @@
         </div>
 
         
-        <div class="card border mx-4 bg-transparent d-md-none mt-4">
-            Resumen valoraciones horizontal
+        <div class="card mx-4 bg-transparent d-md-none mt-4 ps-2 d-flex justify-content-center gap-5 flex-row">
+                <div>
+                    <div class="d-flex justify-content-between mt-3">
+                        <div class="d-flex flex-column justify-content-center">
+                            <h6>IMDB</h6>
+                        </div>
+                        <div class="text-nowrap ms-4">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="text-nowrap">
+                                    <span class="text-white align-top imdbrating">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>    
+                                </div>
+                                <div class="text-nowrap" style="font-size:0.7rem;">
+                                    <span class="imdbcount">--k valoraciones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <div class="d-flex flex-column justify-content-center">
+                            <h6>Usuarios</h6>
+                        </div>
+                        <div class="text-nowrap ms-4">
+                            <div class="d-flex flex-column align-items-center">
+                                <div class="text-nowrap">
+                                    <span class="text-white align-top">-,-</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>    
+                                </div>
+                                <div class="text-nowrap" style="font-size:0.7rem;">
+                                    <span>--k valoraciones</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3 grafico" style="width: 35%;"></div>
         </div>
 
         <!-- Valoraciones content -->
@@ -195,11 +255,19 @@
                     <h5>Añadir valoración</h5>
                     <form>
                         <div class="d-flex mt-3">
-                            <label for="valoracion" class="form-label flex-grow-1">Puntuación sobre 10</label>
-                            <input type="range" class="form-range flex-grow-0 w-50" id="valoracion"  min="0" max="10" step="0.1">
+                            <label for="valoracion" class="form-label flex-grow-1">
+                                <script>
+                                    function updateRating(num) {
+                                        const e = document.getElementById('punt');
+                                        e.innerHTML = "Puntuación de "+(num.toLocaleString('es-ES'));
+                                    }
+                                </script>
+                                <span class="text-white align-top" id="punt">Puntuación de 5</span><span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img src="icons/star.svg" class="align-baseline"/>
+                            </label>
+                            <input type="range" class="form-range flex-grow-0 w-50" id="valoracion"  min="0" max="10" step="0.1" oninput="updateRating(parseFloat(this.value))">
                         </div>
                         
-                        <textarea class="form-control bg-transparent text-white mt-2" aria-label="With textarea"></textarea>
+                        <textarea class="form-control bg-transparent text-white mt-2 " aria-label="With textarea"></textarea>
                         <div class="d-flex">
                             <button class="btn btn-primary mt-3 ms-auto me-2" type="submit">Enviar</button>
                         </div>
@@ -212,7 +280,7 @@
             <div class="col mt-4">
                 <div class="card mx-3 bg-transparent">
                     <div class="d-flex">
-                        <img src="icons/profile.svg" class="flex-grow-0"/>
+                        <img src="icons/profile.svg" class="flex-grow-0 user-select-none"/>
                         <h6 class="mt-3 ms-2 flex-grow-0">kjorda02</h6>
                         <div class="flex-grow-1 d-flex justify-content-end">
                             Dec 14, 2014

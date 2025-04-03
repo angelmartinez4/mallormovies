@@ -29,3 +29,11 @@ p {
     width: 80%;
     height: 600px;
 }
+
+.altavoz {
+    cursor: pointer;
+}
+
+.altavoz:hover path {
+    stroke: #32C36C;
+}
