@@ -11,12 +11,7 @@
 <body style="background-color: black">
     <div id="mapa"></div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script type="module">
-    import { obtenerCoordenadasUsuarios, dibujarMapa } from "./js/graficos.js";
-    obtenerCoordenadasUsuarios().then(coordenadas => {
-        dibujarMapa(coordenadas, 'mapa');
-    });
-  </script>
+    <script src="js/mapa.js"></script>
 </body>
 
 </html>
