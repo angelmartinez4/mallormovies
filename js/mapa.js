@@ -8,12 +8,12 @@ function obtenerCoordenadasUsuarios() {
         return response.json();
       })
       .then(data => {
-        return data["@graph"]
-          .filter(user => user.homeLocation && user.homeLocation.geo)
-          .map(user => ({
-            name: user.name,
-            latitude: parseFloat(user.homeLocation.geo.latitude),
-            longitude: parseFloat(user.homeLocation.geo.longitude)
+        return Object.entries(data["@graph"])
+          .filter(([username, userdata]) => userdata.homeLocation && userdata.homeLocation.geo)
+          .map(([username, userdata]) => ({
+            name: username,
+            latitude: parseFloat(userdata.homeLocation.geo.latitude),
+            longitude: parseFloat(userdata.homeLocation.geo.longitude)
           }));
       })
       .catch(error => {
@@ -33,7 +33,7 @@ function obtenerCoordenadasUsuarios() {
     coordenadas.forEach(coord => {
            L.marker([coord.latitude, coord.longitude])
             .addTo(mapa)
-            .bindPopup(`<b>${coord.name}</b><br>Lat: ${coord.latitude}<br>Lon: ${coord.longitude}`);        
+            .bindPopup(`<a href="/users?username=${coord.name}"><b>${coord.name}</b></a><br>Lat: ${coord.latitude}<br>Lon: ${coord.longitude}`);        
         puntos.push([coord.latitude, coord.longitude]);
     });
 

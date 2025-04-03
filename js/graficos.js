@@ -60,7 +60,7 @@ export function generarValoracionMedia(valoracion) {
     const valRedondeado = Math.round(valoracion * 10**MAX_DECIMALES) / 10**MAX_DECIMALES
     const valStr = valRedondeado.toString();
     const decimales = valStr.includes(".") ? valStr.split(".")[1].length : 0; // Lo siento
-    const despXDecimales = decimales*10 // desplaza estrella derecha segun los decimales
+    const despXDecimales = decimales*25 // desplaza estrella derecha segun los decimales
     const svg = `
     <svg width="150" height="50" viewBox="0 0 ${125+despXDecimales} 50">
     <title>Valoración promedio de película: ${valRedondeado}</title>
