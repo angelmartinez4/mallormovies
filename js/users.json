@@ -1,84 +1,45 @@
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Fernando Alonso",
-    "image": "https://example.com/images/fernando.jpg",
-    "knows": [
-      {
-        "@type": "Person",
-        "name": "Johny Melabo",
-        "sameAs": "https://example.com/profiles/user_002"
-      }
-    ],
-    "review": [
-      {
-        "@type": "Review",
-        "reviewBody": "Una película increíble con una trama compleja y efectos visuales impresionantes.",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 5
-        },
-        "datePublished": "2024-03-10T12:30:00Z",
-        "itemReviewed": {
-          "@type": "Movie",
-          "name": "Inception",
-          "sameAs": "https://www.imdb.com/title/tt1375666/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Fernando Alonso",
+      "image": "https://example.com/images/fernando.jpg",
+      "knows": [
+        {
+          "@type": "Person",
+          "name": "Johny Melabo",
+          "sameAs": "https://example.com/profiles/user_002"
         }
-      },
-      {
-        "@type": "Review",
-        "reviewBody": "Una obra maestra del cine de superhéroes con una actuación legendaria de Heath Ledger.",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 4.5
-        },
-        "datePublished": "2024-03-11T15:45:00Z",
-        "itemReviewed": {
-          "@type": "Movie",
-          "name": "The Dark Knight",
-          "sameAs": "https://www.imdb.com/title/tt0468569/"
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.36029",
+          "longitude": "-5.84476"
         }
       }
-    ],
-    "hasAccount": {
-      "@type": "Account",
-      "dateCreated": "2022-06-15T14:32:00Z",
-      "url": "https://example.com/profiles/user_001"
+    },
+    {
+      "@type": "Person",
+      "name": "Johny Melabo",
+      "image": "https://example.com/images/johny.jpg",
+      "knows": [
+        {
+          "@type": "Person",
+          "name": "Fernando Alonso",
+          "sameAs": "https://example.com/profiles/user_001"
+        }
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.505940",
+          "longitude": "2.531122"
+        }
+      }
     }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Johny Melabo",
-    "image": "https://example.com/images/johny.jpg",
-    "knows": [
-      {
-        "@type": "Person",
-        "name": "Fernando Alonso",
-        "sameAs": "https://example.com/profiles/user_001"
-      }
-    ],
-    "review": [
-      {
-        "@type": "Review",
-        "reviewBody": "Un thriller impresionante con una historia intensa y un villano icónico.",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 5
-        },
-        "datePublished": "2024-03-12T08:20:00Z",
-        "itemReviewed": {
-          "@type": "Movie",
-          "name": "The Dark Knight",
-          "sameAs": "https://www.imdb.com/title/tt0468569/"
-        }
-      }
-    ],
-    "hasAccount": {
-      "@type": "Account",
-      "dateCreated": "2023-01-10T09:21:00Z",
-      "url": "https://example.com/profiles/user_002"
-    }
-  }
-]  
+  ]
+}

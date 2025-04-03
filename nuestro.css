@@ -24,3 +24,8 @@ p {
     color: #32C36C;
     cursor: pointer;
 }
+
+#mapa {
+    width: 80%;
+    height: 600px;
+}

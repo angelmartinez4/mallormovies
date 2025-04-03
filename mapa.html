@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo</title>
+    <link href="nuestro.css" rel="stylesheet">
+    <title>MallorMovies</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="js/graficos.js"></script>
 </head>
 <body style="background-color: black">
-    <div id="pfp"></div>
-    <div id="grafico-ratings"></div>
-    <style bac></style>
-    
-    <script>
-        document.getElementById("grafico-ratings").innerHTML = generarValoracionMedia(6.6123456123456)        
-    </script>
-    
+    <div id="mapa"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    obtenerCoordenadasUsuarios().then(coordenadas => {
+        dibujarMapa(coordenadas, 'mapa');
+    });
+  </script>
 </body>
 
 </html>
