@@ -55,7 +55,7 @@ export function generarBarchartValoraciones(valoraciones) {
  * @param {number} valoracion numero con o sin decimales 
  * @returns 
  */
-function generarValoracionMedia(valoracion) {
+export function generarValoracionMedia(valoracion) {
     const MAX_DECIMALES = 2
     const valRedondeado = Math.round(valoracion * 10**MAX_DECIMALES) / 10**MAX_DECIMALES
     const valStr = valRedondeado.toString();
@@ -74,7 +74,7 @@ function generarValoracionMedia(valoracion) {
 }
 
 // Función para obtener las coordenadas de los usuarios y devolverlas
-function obtenerCoordenadasUsuarios() {
+export function obtenerCoordenadasUsuarios() {
     return fetch("js/users.json")
       .then(response => {
         if (!response.ok) {
@@ -97,7 +97,7 @@ function obtenerCoordenadasUsuarios() {
       });
   }  
 
-function dibujarMapa(coordenadas, contenedorId) {
+export function dibujarMapa(coordenadas, contenedorId) {
     const mapa = L.map(contenedorId);
     // base del mapa
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
