@@ -51,7 +51,7 @@ export function generarBarchartValoraciones(valoraciones) {
 }
 
 
-function generarValoracionMedia(valoracion) {
+export function generarValoracionMedia(valoracion) {
     const MAX_DECIMALES = 5
     const valRedondeado = Math.round(valoracion * 10**MAX_DECIMALES) / 10**MAX_DECIMALES
     const valStr = valRedondeado.toString();

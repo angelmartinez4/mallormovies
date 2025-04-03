@@ -17,8 +17,8 @@ function renderData(data) {
     const match = data.trailer.embedUrl.match(regExp);
     container.src = "https://www.youtube.com/embed/"+match[2];
 
-    container = document.getElementById('grafico');
-    container.innerHTML = generarBarchartValoraciones([30, 20, 5, 10, 40, 20, 50, 80, 100, 20]);
+    container = [...document.getElementsByClassName('grafico')];
+    container.forEach(itm => itm.innerHTML = generarBarchartValoraciones([30, 20, 5, 10, 40, 20, 50, 80, 100, 20])); 
 
     // Informacion
     container = document.getElementById('director');
@@ -101,5 +101,11 @@ async function loadIMDBRating(url) {
         str += " / "+runtime+" mins";
 
     document.getElementById('year').innerHTML = str;
-    document.getElementById('imdbrating').innerHTML = rating[0].toLocaleString('es-ES');;
+
+    var txt = rating[0].toLocaleString('es-ES');
+    [...document.getElementsByClassName('imdbrating')].forEach(itm => itm.innerHTML = txt);
+
+    txt = Math.round(rating[1]/1000).toLocaleString('es-ES');
+    txt += "k valoraciones";
+    [...document.getElementsByClassName('imdbcount')].forEach(itm => itm.innerHTML = txt);
   }

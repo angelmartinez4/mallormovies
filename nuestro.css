@@ -24,3 +24,11 @@ p {
     color: #32C36C;
     cursor: pointer;
 }
+
+.altavoz {
+    cursor: pointer;
+}
+
+.altavoz:hover path {
+    stroke: #32C36C;
+}
