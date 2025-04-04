@@ -7,11 +7,17 @@
       "name": "Krishna Jordà",
       "dateCreated": "2025-04-03T14:30:00.000Z",
       "image": null,
-      "friends": ["angel33"],
+      "friends": [
+        "angel33"
+      ],
       "favgenre": "Thriller policiaco",
       "favdirector": "Quentin Tarantino",
       "avgrating": 7.4,
-      "ratings": [1, 4, 7],
+      "ratings": [
+        1,
+        4,
+        7
+      ],
       "homeLocation": {
         "@type": "Place",
         "geo": {
@@ -27,17 +33,36 @@
       "name": "Angel Martinez",
       "dateCreated": "2025-04-03T13:30:00.000Z",
       "image": null,
-      "friends": ["kjorda02"],
+      "friends": [
+        "kjorda02"
+      ],
       "favgenre": "Yuri",
       "favdirector": "Martin Scorsese",
       "avgrating": 6.9,
-      "ratings": [2, 3, 5],
+      "ratings": [
+        2,
+        3,
+        5
+      ],
       "homeLocation": {
         "@type": "Place",
         "geo": {
           "@type": "GeoCoordinates",
           "latitude": "39.505940",
           "longitude": "2.531122"
+        }
+      }
+    },
+    "mat69": {
+      "@type": "Person",
+      "password": "12345678",
+      "name": "Mateu",
+      "dateCreated": "2025-04-04T10:47:38.279Z",
+      "homeLocation": {
+        "@type": "GeoCoordinates",
+        "geo": {
+          "latitude": "39.6371951",
+          "longitude": "2.6449632"
         }
       }
     }
