@@ -261,7 +261,7 @@
                 <div class="card mx-3 bg-transparent">
                     <h5>Añadir valoración</h5>
                     <form
-                        onsubmit="addRating(this.valoracion.value, this.comentario.value, this); return false;">
+                        onsubmit="addRating(this.valoracion.value, this.comentario.value); return false;">
                         <div class="d-flex mt-3">
                             <label for="valoracion" class="form-label flex-grow-1">
                                 <script>
@@ -290,6 +290,10 @@
 
 
             <!-- Plantilla de una valoracion -->
+            <div id="ratings"></div>
+
+
+            
             <div class="col mt-4">
                 <div class="card mx-3 bg-transparent">
                     <div class="d-flex">
@@ -412,6 +416,7 @@
 
     <!-- Nuestro javascript -->
     <script type="module" src="js/movie.js"></script>
+    <script type="module" src="js/ratings.js"></script>
     <script src="navbar-component.js" type="module" defer></script>
     <script src="footer-component.js" type="module" defer></script>
 </body>
