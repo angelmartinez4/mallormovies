@@ -1,59 +1,72 @@
 [
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "user_001"
-      },
-      "itemReviewed": {
-        "@type": "Movie",
-        "name": "Inception",
-        "sameAs": "https://www.imdb.com/title/tt1375666/"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": 5
-      },
-      "reviewBody": "Una película increíble con una trama compleja y efectos visuales impresionantes.",
-      "datePublished": "2024-03-10T12:30:00Z"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "user_001"
-      },
-      "itemReviewed": {
-        "@type": "Movie",
-        "name": "The Dark Knight",
-        "sameAs": "https://www.imdb.com/title/tt0468569/"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": 4.5
-      },
-      "reviewBody": "Una obra maestra del cine de superhéroes con una actuación legendaria de Heath Ledger.",
-      "datePublished": "2024-03-11T15:45:00Z"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "user_002"
-      },
-      "itemReviewed": {
-        "@type": "Movie",
-        "name": "The Dark Knight",
-        "sameAs": "https://www.imdb.com/title/tt0468569/"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": 5
-      },
-      "reviewBody": "Un thriller impresionante con una historia intensa y un villano icónico.",
-      "datePublished": "2024-03-12T08:20:00Z"
-    }    
+  {
+    "username": "fernando",
+    "movieId": 9,
+    "ratingValue": 8.3,
+    "reviewBody": "Una película increíble con una trama compleja y efectos visuales impresionantes.",
+    "datePublished": "Mar 10, 2024"
+  },
+  {
+    "username": "rita",
+    "movieId": 9,
+    "ratingValue": 7.2,
+    "reviewBody": "Una obra maestra del cine de superhéroes con una actuación legendaria de Heath Ledger.",
+    "datePublished": "Mar 11, 2024"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "9",
+    "ratingValue": "9.7",
+    "reviewBody": "Wowowowwo",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "10",
+    "ratingValue": "5",
+    "reviewBody": "Peli supermegaguay",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "6",
+    "ratingValue": "9.1",
+    "reviewBody": "Siuuuuuuuuuuuuu",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "15",
+    "ratingValue": "5",
+    "reviewBody": "dasfdasfadsdas",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "1",
+    "ratingValue": "8.9",
+    "reviewBody": "AAAAAAAAAAAAAA",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "7",
+    "ratingValue": "5",
+    "reviewBody": "fadsfdafds",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "4",
+    "ratingValue": "5",
+    "reviewBody": "AAAAAAAAAAA",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "kjorda02",
+    "movieId": "11",
+    "ratingValue": "5",
+    "reviewBody": "AAAAAAAAAAAAAA",
+    "datePublished": "Apr 26, 2025"
+  }
 ]

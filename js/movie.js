@@ -109,3 +109,6 @@ async function loadIMDBRating(url) {
     txt += "k valoraciones";
     [...document.getElementsByClassName('imdbcount')].forEach(itm => itm.innerHTML = txt);
   }
+
+
+  
