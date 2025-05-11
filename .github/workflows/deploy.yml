@@ -1,0 +1,29 @@
+name: Deploy DonDominio FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    name: Subir ficheros a /public en DonDominio
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Subir a FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /public/
+          local-dir: ./ # sube toda la carpeta raiz
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/README.md
+            **/deploy.sh
