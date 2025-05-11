@@ -1,5 +1,8 @@
+# Nombre del workflow, aparecera asi en la pestaña Actions de GitHub
 name: Deploy DonDominio FTP
 
+# Este bloque define cuando debe ejecutarse el workflow
+# en este caso, al hacer PUSH en una rama "main"
 on:
   push:
     branches:
@@ -8,22 +11,29 @@ on:
 jobs:
   ftp-deploy:
     name: Subir ficheros a /public en DonDominio
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # VM que usara Github (no depende de vuestra maquina ni dominio)
 
     steps:
+      # 1. Descargar codigo del repo con Github Actions
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2. Despliegue por FTP (subir/borrar/sobreescribir ficheros)
       - name: Subir a FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public/
-          local-dir: ./ # sube toda la carpeta raiz
-          exclude: |
+          # las variables server, username y password se tienen que crear en github (Settings -> Secrets and Variables -> Actions -> New repository secret)
+          server: ${{ secrets.FTP_SERVER }} # URL de acceso FTP: ftp.nombredominio.com
+          username: ${{ secrets.FTP_USERNAME }} # username de FTP de DonDominio. En DonDominio, panel "FTP" -> "Crear cuenta FTP" eliges usuario
+          password: ${{ secrets.FTP_PASSWORD }} # igual que arriba, la contrasena elegida al crear una cuenta FTP
+          server-dir: /public/ # carpeta del dominio donde subir los ficheros. Por defecto, /public/ en DonDominio
+          local-dir: ./ # sube toda la carpeta raiz del git
+          #dangerous-clean-slate: false           # false = solo sobreescribe archivos, no borra el resto (opcional)
+          exclude: | # ficheros excluidos de subir al dominio
             **/.git*
             **/.github/**
             **/README.md
             **/deploy.sh
+
+
+# Plantilla: Angel Martinez Carvajal
