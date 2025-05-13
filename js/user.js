@@ -15,7 +15,7 @@ function User(password, name, lat, long) {
 
 async function saveUser(users, username, userdata) {
     users['@graph'][username] = userdata;
-    var jsonData = JSON.stringify(users, null, 2);
+    const jsonData = JSON.stringify(users, null, 2);
 
     try {
         const response = await fetch('saveUsers.php', {
@@ -25,15 +25,24 @@ async function saveUser(users, username, userdata) {
             },
             body: jsonData
         });
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+            console.error('Error en el servidor:', result);
+            alert('No se pudo guardar el usuario.');
+            return;
+        }
+
+        document.cookie = `user=${username}; SameSite=None; Secure`;
+        window.location.href = "/";
     }
     catch (error) {
         console.error('Error:', error);
-        alert('Error saving data!');
+        alert('Error al contactar con el servidor.');
     }
-
-    document.cookie = `user=${username}; SameSite=None; Secure`;
-    window.location.href = "/";
 }
+
 
 export async function register(username, name, password1, password2) {
     removeWarnings();
