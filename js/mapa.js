@@ -36,7 +36,10 @@ function obtenerCoordenadasUsuarios() {
             .bindPopup(`<a href="/users?username=${coord.name}"><b>${coord.name}</b></a><br>Lat: ${coord.latitude}<br>Lon: ${coord.longitude}`);        
         puntos.push([coord.latitude, coord.longitude]);
     });
-
+    mapa.setMaxBounds([
+      [-90, -180],
+      [90, 180]
+    ]);
     // ajustar vista para que se vean todos los puntos
     if (puntos.length > 0) {
         const bounds = L.latLngBounds(puntos);
