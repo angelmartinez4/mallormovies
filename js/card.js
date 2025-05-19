@@ -3,13 +3,15 @@ import {generarValoracionMedia} from './graficos.js';
 function getCard(item, index, rol) {
 
     if (rol != " "){
-        if (!item.participant?.some(p => p.jobTitle?.toLowerCase() === rol.toLowerCase())) return '';
+        if (!item.participant?.some(p => p.jobTitle?.toLowerCase() === rol.toLowerCase())) return;
     }
 
     return `
-        <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+        <article class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="service-item rounded overflow-hidden bg-dark">
-                <img class="img-fluid" src="imgs/${item.image}" alt="">
+                <figure>
+                    <img class="img-fluid" src="imgs/${item.image}" alt="Portada de ${item.name}">
+                </figure>
                 <div class="position-relative p-4 pt-0">
                     <div class="service-icon bg-dark">
                         ${generarValoracionMedia(item.aggregateRating.ratingValue)}
@@ -19,7 +21,7 @@ function getCard(item, index, rol) {
                     <a class="small fw-medium" href="movie.html?movieid=${index}">Ver ficha<i class="fa fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
-        </div>
+        </article>
     `;
 }
 
@@ -50,8 +52,10 @@ function filtrarTecnico(){
 
     const moviesArray = movies['@graph'];
 
-    container.innerHTML = moviesArray.map((item, index) => getCard(item, index, "Técnico de efectos visuales"));
-}
+container.innerHTML = moviesArray
+  .map((item, index) => getCard(item, index, "Técnico de efectos visuales"))
+  .filter(card => card)
+  .join('');}
 
 function addEvent() {
     const filtrar_dir = document.getElementById("filtrar_dir");
