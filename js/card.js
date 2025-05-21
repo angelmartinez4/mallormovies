@@ -30,29 +30,57 @@ function filtrarDirector(){
 
     const moviesArray = movies['@graph'];
 
-    const htmlDirector = moviesArray.map((item, index) => getCard(item, index, "director"));
-    const htmlDirectora = moviesArray.map((item, index) => getCard(item, index, "directora"));
+    const cardsActor = moviesArray
+        .map((item, index) => getCard(item, index, "director"))
+        .filter(card => card); 
+    const cardsActriz = moviesArray
+        .map((item, index) => getCard(item, index, "directora"))
+        .filter(card => card); 
+    
+    const cards = cardsActor.concat(cardsActriz);
 
-    container.innerHTML = htmlDirector.concat(htmlDirectora).join('');
+    container.innerHTML = cards.join('');
+
+    const numero_peliculas = document.getElementById('N-peliculas');
+
+    numero_peliculas.innerHTML = `${cards.length} Peliculas con director/a de Mallorca`;
 }
 
 function filtrarActor(){
     const container = document.getElementById('peliculas');
 
     const moviesArray = movies['@graph'];
+    
+    const cardsActor = moviesArray
+        .map((item, index) => getCard(item, index, "actor"))
+        .filter(card => card); 
+    const cardsActriz = moviesArray
+        .map((item, index) => getCard(item, index, "actriz"))
+        .filter(card => card); 
+    
+    const cards = cardsActor.concat(cardsActriz);
 
-    const htmlDirector = moviesArray.map((item, index) => getCard(item, index, "actor"));
-    const htmlDirectora = moviesArray.map((item, index) => getCard(item, index, "actriz"));
+    container.innerHTML = cards.join('');
 
-    container.innerHTML = htmlDirector.concat(htmlDirectora).join('');
+    const numero_peliculas = document.getElementById('N-peliculas');
+
+    numero_peliculas.innerHTML = `${cards.length} Peliculas con actor/riz de Mallorca`;
 }
 
 function filtrarTecnico(){
     const container = document.getElementById('peliculas');
 
     const moviesArray = movies['@graph'];
+        
+    const cards = moviesArray
+        .map((item, index) => getCard(item, index, "Técnico de efectos visuales"))
+        .filter(card => card);
 
-    container.innerHTML = moviesArray.map((item, index) => getCard(item, index, "Técnico de efectos visuales")).filter(card => card).join('');
+    container.innerHTML = cards.join('');
+
+    const numero_peliculas = document.getElementById('N-peliculas');
+
+    numero_peliculas.innerHTML = `${cards.length} Peliculas con técnico de Mallorca`;
 }
 
 function addEvent() {
