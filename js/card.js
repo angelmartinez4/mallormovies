@@ -52,10 +52,8 @@ function filtrarTecnico(){
 
     const moviesArray = movies['@graph'];
 
-container.innerHTML = moviesArray
-  .map((item, index) => getCard(item, index, "Técnico de efectos visuales"))
-  .filter(card => card)
-  .join('');}
+    container.innerHTML = moviesArray.map((item, index) => getCard(item, index, "Técnico de efectos visuales")).filter(card => card).join('');
+}
 
 function addEvent() {
     const filtrar_dir = document.getElementById("filtrar_dir");
@@ -87,6 +85,10 @@ async function loadMovies() {
         const response = await fetch('js/movies.json');
         movies = await response.json();
         
+        const numero_peliculas = document.getElementById('N-peliculas');
+
+        numero_peliculas.innerHTML = `${movies['@graph'].length} Peliculas con participantes de Mallorca`;
+
         renderItems(movies);
     } catch (error) {
         console.error('Error loading movies:', error);

@@ -80,7 +80,9 @@
         <!-- Image, video, and review summary row -->
         <div class="row mt-3">
             <div class="col-3 d-none d-lg-block ps-5">
-                <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid" id="portada">
+                <figure>
+                    <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid" id="portada">
+                </figure>
             </div>
 
             <div class="col-12 col-md-8 col-lg-6">
@@ -88,7 +90,8 @@
                     src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
             </div>
 
             <div class="col-lg-3 col-4 d-none d-md-block">
@@ -100,9 +103,11 @@
                             </div>
                             <div class="d-flex flex-column align-items-center ms-2">
                                 <div class="text-nowrap">
-                                    <span class="text-white align-top imdbrating">-,-</span><span
-                                        class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img
-                                        src="icons/star.svg" class="align-baseline" />
+                                    <span class="text-white align-top imdbrating">-,-</span>
+                                    <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
+                                    <figure>
+                                        <img src="icons/star.svg" class="align-baseline" />
+                                    </figure>
                                 </div>
                                 <div class="text-nowrap" style="font-size:0.7rem;">
                                     <span class="imdbcount">--k valoraciones</span>
@@ -115,9 +120,11 @@
                             </div>
                             <div class="d-flex flex-column align-items-center ms-2">
                                 <div class="text-nowrap">
-                                    <span class="text-white align-top">-,-</span><span class="d-inline-block pt-2"
-                                        style="font-size:0.8rem;">/10</span><img src="icons/star.svg"
-                                        class="align-baseline" />
+                                    <span class="text-white align-top">-,-</span>
+                                    <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
+                                    <figure>
+                                        <img src="icons/star.svg" class="align-baseline"/>
+                                    </figure>
                                 </div>
                                 <div class="text-nowrap" style="font-size:0.7rem;">
                                     0 valoraciones
@@ -146,11 +153,11 @@
                 }
             </script>
 
-            <!-- Sipnosis -->
+            <!-- Sinopsis -->
             <div class="col-lg-6 flex-column">
                 <div class="flex-grow-0 border-bottom border-2 px-2">
                     <h6>
-                        SIPNOSIS
+                        SINOPSIS
                         <svg class="ms-2 altavoz" width="20" height="20" viewBox="0 0 20 20" fill="none"
                             xmlns="http://www.w3.org/2000/svg" onclick="speak()">
                             <path
@@ -220,9 +227,11 @@
                     <div class="text-nowrap ms-4">
                         <div class="d-flex flex-column align-items-center">
                             <div class="text-nowrap">
-                                <span class="text-white align-top imdbrating">-,-</span><span
-                                    class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img
-                                    src="icons/star.svg" class="align-baseline" />
+                                <span class="text-white align-top imdbrating">-,-</span>
+                                <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
+                                <figure>
+                                    <img src="icons/star.svg" class="align-baseline" />
+                                </figure>
                             </div>
                             <div class="text-nowrap" style="font-size:0.7rem;">
                                 <span class="imdbcount">--k valoraciones</span>
@@ -238,8 +247,11 @@
                         <div class="d-flex flex-column align-items-center">
                             <div class="text-nowrap">
                                 <span class="text-white align-top">-,-</span><span class="d-inline-block pt-2"
-                                    style="font-size:0.8rem;">/10</span><img src="icons/star.svg"
-                                    class="align-baseline" />
+                                    style="font-size:0.8rem;">/10
+                                </span>
+                                <figure>
+                                    <img src="icons/star.svg" class="align-baseline"/>
+                                </figure>
                             </div>
                             <div class="text-nowrap" style="font-size:0.7rem;">
                                 <span>--k valoraciones</span>
@@ -268,9 +280,11 @@
                                         document.getElementById('punt').innerHTML = "Puntuación de " + num.toLocaleString('es-ES');
                                     }
                                 </script>
-                                <span class="text-white align-top" id="punt">Puntuación de 5</span><span
-                                    class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img
-                                    src="icons/star.svg" class="align-baseline" />
+                                <span class="text-white align-top" id="punt">Puntuación de 5</span>
+                                <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
+                                <figure>
+                                    <img src="icons/star.svg" class="align-baseline" />
+                                </figure>
                             </label>
                             <input id="slider" type="range" name="valoracion" class="form-range flex-grow-0 w-50" min="0" max="10"
                                 step="0.1" value="5" oninput="updateRating(parseFloat(this.value))">
