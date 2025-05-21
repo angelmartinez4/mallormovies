@@ -28,8 +28,6 @@ function getCard(item, index, rol) {
 function filtrarDirector(){
     const container = document.getElementById('peliculas');
 
-    const moviesArray = movies['@graph'];
-
     const cardsActor = moviesArray
         .map((item, index) => getCard(item, index, "director"))
         .filter(card => card); 
@@ -48,8 +46,6 @@ function filtrarDirector(){
 
 function filtrarActor(){
     const container = document.getElementById('peliculas');
-
-    const moviesArray = movies['@graph'];
     
     const cardsActor = moviesArray
         .map((item, index) => getCard(item, index, "actor"))
@@ -69,8 +65,6 @@ function filtrarActor(){
 
 function filtrarTecnico(){
     const container = document.getElementById('peliculas');
-
-    const moviesArray = movies['@graph'];
         
     const cards = moviesArray
         .map((item, index) => getCard(item, index, "Técnico de efectos visuales"))
@@ -94,30 +88,27 @@ function addEvent() {
     filtrar_tec.addEventListener("click", filtrarTecnico);
 }
 
-
-
-
-function renderItems(data) {
+function renderItems() {
     const container = document.getElementById('peliculas');
-
-    const moviesArray = data['@graph'];
 
     // Map each item to HTML using the template, then join into one string
     container.innerHTML = moviesArray.map((item, index) => getCard(item, index, " ")).join('');
 }
 
 
-let movies;
+let moviesArray;
 async function loadMovies() {
     try {
         const response = await fetch('js/movies.json');
-        movies = await response.json();
+        const movies = await response.json();
+
+        moviesArray = movies['@graph'];
         
         const numero_peliculas = document.getElementById('N-peliculas');
 
         numero_peliculas.innerHTML = `${movies['@graph'].length} Peliculas con participantes de Mallorca`;
 
-        renderItems(movies);
+        renderItems();
     } catch (error) {
         console.error('Error loading movies:', error);
     }
