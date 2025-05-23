@@ -32,6 +32,73 @@
     <!-- Template Stylesheet -->
     <link href="plantilla/css/style.css" rel="stylesheet">
     <link href="nuestro.css" rel="stylesheet">
+
+      <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://example.com/users/kjorda02",
+        "name": "Krishna Jordà",
+        "identifier": "kjorda02",
+        "homeLocation": {
+          "@type": "Place",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.36029,
+            "longitude": -5.84476
+          }
+        },
+        "favoriteGenre": "Thriller policiaco",
+        "favoriteDirector": {
+          "@type": "Person",
+          "name": "Quentin Tarantino"
+        }
+      },
+      {
+        "@type": "Movie",
+        "@id": "https://www.imdb.com/title/tt0033467/",
+        "name": "Citizen Kane",
+        "image": "citizen_kane-217208961-large.webp",
+        "genre": ["Drama", "Clásico"],
+        "director": {
+          "@type": "Person",
+          "name": "Orson Welles"
+        },
+        "description": "Una historia de poder, traición y la pérdida de la inocencia en una de las películas más influyentes de la historia del cine.",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "8.3",
+          "reviewCount": "20000"
+        },
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Citizen Kane - Tráiler",
+          "embedUrl": "https://www.youtube.com/watch?v=8dxh3lwdOFw"
+        },
+        "sameAs": "https://www.imdb.com/title/tt0033467/"
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@id": "https://example.com/users/kjorda02"
+        },
+        "itemReviewed": {
+          "@id": "https://www.imdb.com/title/tt0033467/"
+        },
+        "reviewBody": "Wowowowwo",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": 9.7,
+          "bestRating": 10,
+          "worstRating": 1
+        },
+        "datePublished": "2025-04-26"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -93,7 +160,14 @@
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h6 class="text-primary">Las maravillosas</h6>
                 <h1 class="mb-4">16 Peliculas con actores Mallorquines</h1>
+                <h3 class="mb-4">Filtrar Por:</h3>
+                <button id="filtrar_dir" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Director/a</button>
+                
+                <button id="filtrar_act" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Actor/riz</button>
+                
+                <button id="filtrar_tec" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Técnico</button>
             </div>
+
             <div class="row g-4" id="peliculas">
                 
 
