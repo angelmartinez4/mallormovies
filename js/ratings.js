@@ -22,7 +22,7 @@ export async function printRatings() {
     movie = urlParams.get('movieid');
 
     try {
-        const response = await fetch('js/ratings.json');
+        const response = await fetch('json/ratings.json');
         ratings = await response.json();
     }
     catch(error) {console.error('Error cargando las valoraciones: ', error)}
@@ -59,7 +59,7 @@ export async function addRating(rating, body) {
     var jsonData = JSON.stringify(ratings, null, 2);
 
     try {
-        await fetch('addRating.php', {
+        await fetch('php/addRating.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

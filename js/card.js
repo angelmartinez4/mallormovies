@@ -80,7 +80,7 @@ function renderItems(data) {
 let movies;
 async function loadMovies() {
     try {
-        const response = await fetch('js/movies.json');
+        const response = await fetch('json/movies.json');
         movies = await response.json();
         
         renderItems(movies);

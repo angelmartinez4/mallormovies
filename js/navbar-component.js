@@ -1,4 +1,4 @@
-import {getUser, logout} from './js/user.js';
+import {getUser, logout} from './user.js';
 
 class NavBar extends HTMLElement {
     constructor() {
@@ -19,7 +19,6 @@ class NavBar extends HTMLElement {
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <a href="video.html" class="nav-item nav-link">Video</a>
                         <a href="mapa.html" class="nav-item nav-link">Mapa</a>
-                        <a href="amigos.html" class="nav-item nav-link">Amigos</a>
                         <a href="valoraciones.html" class="nav-item nav-link">Mis valoraciones</a>
                     </div>
                     
@@ -47,7 +46,7 @@ class NavBar extends HTMLElement {
 
     window.salir = () => {
         logout();
-        if(window.friendsSidebar) { // ocultar amigos
+        if(window.friendsSidebar) { // ocultar lista amigos en logout
             window.friendsSidebar.hideSidebar();
         }
         const c = document.getElementById('userNavBar');

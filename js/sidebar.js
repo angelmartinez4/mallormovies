@@ -39,7 +39,7 @@ class FriendsSidebar {
                 this.hideSidebar();
                 return;
             }
-            const response = await fetch('js/users.json');
+            const response = await fetch('json/users.json');
             const data = await response.json();
             
             // Buscar el usuario en el JSON

@@ -68,11 +68,11 @@ p {
 
 /* Sidebar de amigos */
 .friends-sidebar {
-    height: calc(100vh - 56px); /* altura completa menos navbar */
+    height: calc(100vh - 75px); /* altura completa menos navbar */
     background-color: #000000; /* fondo negro */
     border-right: 1px solid #333333;
     position: fixed;
-    top: 56px; /* justo debajo del navbar */
+    top: 75px; /* justo debajo del navbar */
     left: 0;
     width: 100%;
     max-width: 300px;

@@ -1,6 +1,6 @@
 // Función para obtener las coordenadas de los usuarios y devolverlas
 function obtenerCoordenadasUsuarios() {
-    return fetch("js/users.json")
+    return fetch("json/users.json")
       .then(response => {
         if (!response.ok) {
           throw new Error("Error al obtener el archivo JSON");

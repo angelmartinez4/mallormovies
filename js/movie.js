@@ -1,8 +1,6 @@
 import {generarPfpSvg, generarBarchartValoraciones} from './graficos.js';
 
 function renderData(data) {
-    console.log(data);
-
     var container = document.getElementById('titulo');
     container.innerHTML = data.name;
 
@@ -44,7 +42,7 @@ async function loadMovie() {
     const movieId = urlParams.get('movieid');
 
     try {
-        const response = await fetch('js/movies.json');
+        const response = await fetch('json/movies.json');
         var movies = await response.json();
         movies = movies['@graph'];
 

@@ -1,0 +1,6 @@
+# Permitir CORS solo para movies.json
+<Files "movies.json">
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET"
+    Header always set Access-Control-Allow-Headers "Content-Type"
+</Files>
