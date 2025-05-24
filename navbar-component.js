@@ -47,6 +47,9 @@ class NavBar extends HTMLElement {
 
     window.salir = () => {
         logout();
+        if(window.friendsSidebar) { // ocultar amigos
+            window.friendsSidebar.hideSidebar();
+        }
         const c = document.getElementById('userNavBar');
         c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
     }

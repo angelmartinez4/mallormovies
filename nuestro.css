@@ -65,3 +65,154 @@ p {
     width: 100%; /* Ocupa todo el ancho */
     z-index: 1000; /* Se asegura de que esté sobre otros elementos */
 }
+
+/* Sidebar de amigos */
+.friends-sidebar {
+    height: calc(100vh - 56px); /* altura completa menos navbar */
+    background-color: #000000; /* fondo negro */
+    border-right: 1px solid #333333;
+    position: fixed;
+    top: 56px; /* justo debajo del navbar */
+    left: 0;
+    width: 100%;
+    max-width: 300px;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 1.5rem 1rem 1rem 1rem; /* padding arriba añadido */
+    border-bottom: 1px solid #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h5 {
+    margin: 0;
+    color: #ffffff; /* texto blanco */
+}
+
+.sidebar-header .btn-close {
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+.sidebar-header .btn-close:hover {
+    opacity: 1;
+}
+
+.friends-list {
+    padding: 0.5rem 0;
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #ffffff; /* texto blanco */
+    background-color: #333333; /* fondo gris oscuro */
+    margin: 0.25rem 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.friend-item:hover {
+    background-color: #444444; /* gris más claro al hover */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.friend-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    object-fit: cover;
+}
+
+.friend-name {
+    font-weight: 500;
+}
+
+/* Botón flotante para toggle en móvil */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    z-index: 1001;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-toggle-btn.hidden {
+    opacity: 0;
+    transform: translateX(-20px);
+    pointer-events: none;
+}
+
+/* Contenido principal: lo que no es sidebar/navbar/footer */
+.main-content {
+    padding: 2rem;
+    min-height: calc(100vh - 150px);
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+    .friends-sidebar {
+        position: fixed;
+        height: calc(100vh - 56px);
+        width: 300px; 
+        max-width: 300px;
+    }
+    
+    .sidebar-toggle-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .friends-sidebar {
+        position: fixed;
+        height: calc(100vh - 56px);
+        transform: translateX(-100%);
+    }
+    
+    .friends-sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* avatar en la lista de amigos */
+.friend-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+}
+/* Si no hay imagen usa un SVG dinamico */
+.friend-avatar svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Para que la lista de amigos quede debajo del footer xdd */
+foo-ter {
+    position: relative;
+    z-index: 2000;
+}

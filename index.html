@@ -105,137 +105,165 @@
 
    <nav-bar></nav-bar>
 
-    <!-- Carousel Start -->
-    <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="owl-carousel header-carousel position-relative">
-            <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/citizen_kane_big.webp'>">
-                <img class="img-fluid" src="imgs/citizen_kane_big.webp" alt="">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown">Citizen Kane</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-3">Una historia de poder, traición y la pérdida de la inocencia en una de las películas más influyentes de la historia del cine...</p>
-                                <a href="movie.html?movieid=9" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Ver pelicula</a>
-                            </div>
-                        </div>
+    <!-- Botón flotante para sidebar en móvil -->
+    <button class="btn btn-primary sidebar-toggle-btn d-lg-none" type="button" id="toggleSidebar">
+        👥
+    </button>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div id="sidebarCol" class="col-lg-3 col-xl-2 p-0">
+                <div id="friendsSidebar" class="friends-sidebar">
+                    <div class="sidebar-header">
+                        <h5>Amigos</h5>
+                        <button class="btn-close d-lg-none" id="closeSidebar"></button>
+                    </div>
+                    <div id="friendsList" class="friends-list">
+                        <!-- Los amigos se cargarán aquí -->
                     </div>
                 </div>
             </div>
-            <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/indiana_jones_big.webp'>">
-                <img class="img-fluid" src="imgs/indiana_jones_big.webp" alt="">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown">Indiana Jones y el dial del destino</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-3">Indiana Jones regresa en una última aventura para descubrir un antiguo artefacto con poderes inimaginables.</p>
-                                <a href="movie.html?movieid=12" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Ver pelicula</a>
+
+            <!-- Contenido principal -->
+            <div class="col-lg-9 col-xl-10">
+                <main class="main-content">
+                    <!-- Carousel Start -->
+                    <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="owl-carousel header-carousel position-relative">
+                            <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/citizen_kane_big.webp'>">
+                                <img class="img-fluid" src="imgs/citizen_kane_big.webp" alt="">
+                                <div class="owl-carousel-inner">
+                                    <div class="container">
+                                        <div class="row justify-content-start">
+                                            <div class="col-10 col-lg-8">
+                                                <h1 class="display-2 text-white animated slideInDown">Citizen Kane</h1>
+                                                <p class="fs-5 fw-medium text-white mb-4 pb-3">Una historia de poder, traición y la pérdida de la inocencia en una de las películas más influyentes de la historia del cine...</p>
+                                                <a href="movie.html?movieid=9" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Ver pelicula</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/indiana_jones_big.webp'>">
+                                <img class="img-fluid" src="imgs/indiana_jones_big.webp" alt="">
+                                <div class="owl-carousel-inner">
+                                    <div class="container">
+                                        <div class="row justify-content-start">
+                                            <div class="col-10 col-lg-8">
+                                                <h1 class="display-2 text-white animated slideInDown">Indiana Jones y el dial del destino</h1>
+                                                <p class="fs-5 fw-medium text-white mb-4 pb-3">Indiana Jones regresa en una última aventura para descubrir un antiguo artefacto con poderes inimaginables.</p>
+                                                <a href="movie.html?movieid=12" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Ver pelicula</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/robo_big.webp'>">
+                                <img class="img-fluid" src="imgs/robo_big.webp" alt="">
+                                <div class="owl-carousel-inner">
+                                    <div class="container">
+                                        <div class="row justify-content-start">
+                                            <div class="col-10 col-lg-8">
+                                                <h1 class="display-2 text-white animated slideInDown">El robo mas grande jamas contado.</h1>
+                                                <p class="fs-5 fw-medium text-white mb-4 pb-3">En esta pagina web, se exponen 12 peliculas con actores mallorquines, sobre las cuales podras dejar reseñas y comentarios, ademas de ver las de otros usuarios.</p>
+                                                <a href="movie.html?movieid=17" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Ver pelicula</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/robo_big.webp'>">
-                <img class="img-fluid" src="imgs/robo_big.webp" alt="">
-                <div class="owl-carousel-inner">
-                    <div class="container">
-                        <div class="row justify-content-start">
-                            <div class="col-10 col-lg-8">
-                                <h1 class="display-2 text-white animated slideInDown">El robo mas grande jamas contado.</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-3">En esta pagina web, se exponen 12 peliculas con actores mallorquines, sobre las cuales podras dejar reseñas y comentarios, ademas de ver las de otros usuarios.</p>
-                                <a href="movie.html?movieid=17" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Ver pelicula</a>
+                    <!-- Carousel End -->
+
+                    <!-- Service Start -->
+                    <div class="container-xxl py-5">
+                        <div class="container">
+                            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                                <h6 class="text-primary">Las maravillosas</h6>
+                                <h1 class="mb-4">16 Peliculas con actores Mallorquines</h1>
+                                <h3 class="mb-4">Filtrar Por:</h3>
+                                <button id="filtrar_dir" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Director/a</button>
+                                
+                                <button id="filtrar_act" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Actor/riz</button>
+                                
+                                <button id="filtrar_tec" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Técnico</button>
+                            </div>
+
+                            <div class="row g-4" id="peliculas">
+                                
+
                             </div>
                         </div>
                     </div>
-                </div>
+                    <!-- Service End -->
+
+                    <!-- Team Start -->
+                    <div class="container-xxl py-5">
+                        <div class="container">
+                            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                                <h6 class="text-primary">Team Member</h6>
+                                <h1 class="mb-4">Experienced Team Members</h1>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="team-item rounded overflow-hidden">
+                                        <div class="d-flex bg-dark">
+                                            <img class="img-fluid w-75" src="imgs/angel.webp" alt="">
+                                            <div class="team-social w-25 bg-dark">
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 bg-dark">
+                                            <h5>Angel Martínez Carvajal</h5>
+                                            <span>Senior svg enjoyer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                    <div class="team-item rounded overflow-hidden">
+                                        <div class="d-flex bg-dark">
+                                            <img class="img-fluid w-75" src="imgs/krishna.webp" alt="">
+                                            <div class="team-social w-25 bg-dark">
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 bg-dark">
+                                            <h5>Krishna Jordà Jiménez</h5>
+                                            <span>Advanced button placer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                    <div class="team-item rounded overflow-hidden">
+                                        <div class="d-flex bg-dark">
+                                            <img class="img-fluid w-75" src="imgs/mateu.webp" alt="">
+                                            <div class="team-social w-25 bg-dark">
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
+                                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="p-4 bg-dark">
+                                            <h5>Mateu Torrens Morey</h5>
+                                            <span>JSON Architect</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Team End -->
+                </main>
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
-
-    <!-- Service Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary">Las maravillosas</h6>
-                <h1 class="mb-4">16 Peliculas con actores Mallorquines</h1>
-                <h3 class="mb-4">Filtrar Por:</h3>
-                <button id="filtrar_dir" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Director/a</button>
-                
-                <button id="filtrar_act" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Actor/riz</button>
-                
-                <button id="filtrar_tec" class="btn btn-primary rounded-pill py-3 px-5 animated slideInLeft">Técnico</button>
-            </div>
-
-            <div class="row g-4" id="peliculas">
-                
-
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                <h6 class="text-primary">Team Member</h6>
-                <h1 class="mb-4">Experienced Team Members</h1>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item rounded overflow-hidden">
-                        <div class="d-flex bg-dark">
-                            <img class="img-fluid w-75" src="imgs/angel.webp" alt="">
-                            <div class="team-social w-25 bg-dark">
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-dark">
-                            <h5>Angel Martínez Carvajal</h5>
-                            <span>Senior svg enjoyer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item rounded overflow-hidden">
-                        <div class="d-flex bg-dark">
-                            <img class="img-fluid w-75" src="imgs/krishna.webp" alt="">
-                            <div class="team-social w-25 bg-dark">
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-dark">
-                            <h5>Krishna Jordà Jiménez</h5>
-                            <span>Advanced button placer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item rounded overflow-hidden">
-                        <div class="d-flex bg-dark">
-                            <img class="img-fluid w-75" src="imgs/mateu.webp" alt="">
-                            <div class="team-social w-25 bg-dark">
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-lg-square btn-outline-primary rounded-circle mt-3" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-dark">
-                            <h5>Mateu Torrens Morey</h5>
-                            <span>JSON Architect</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
+   
+    
 
     <foo-ter></foo-ter>
 
@@ -260,6 +288,7 @@
 
     <!-- Nuestro Javascript -->
     <script src="js/card.js" type="module"></script>
+    <script src="js/sidebar.js" type="module"></script>
     <script src="navbar-component.js" type="module" defer></script>
     <script src="footer-component.js" type="module" defer></script>
 </body>
