@@ -56,7 +56,22 @@ function areFriends(currentUserData, targetUsername) {
     return currentUserData.friends.includes(targetUsername);
 }
 
-// alternar amistad
+// Función para actualizar solo el botón de amistad
+function updateFriendButton(targetUsername, usersData) {
+    const currentUser = getUser();
+    if (!currentUser || currentUser === targetUsername) return;
+    
+    const currentUserData = usersData[currentUser];
+    const isFriend = areFriends(currentUserData, targetUsername);
+    
+    const friendButton = document.querySelector(`button[onclick="toggleFriendship('${targetUsername}')"]`);
+    if (friendButton) {
+        friendButton.className = `btn ${isFriend ? 'btn-outline-danger' : 'btn-primary'}`;
+        friendButton.textContent = isFriend ? 'Eliminar amigo' : 'Añadir amigo';
+    }
+}
+
+// Función para alternar amistad
 async function toggleFriendship(targetUsername) {
     const currentUser = getUser();
     if (!currentUser) return;
@@ -78,17 +93,28 @@ async function toggleFriendship(targetUsername) {
         const friendsList = currentUserData.friends;
         const friendIndex = friendsList.indexOf(targetUsername);
         
-        if (friendIndex > -1) { // Eliminar amigo
+        if (friendIndex > -1) {
+            // Eliminar amigo
             friendsList.splice(friendIndex, 1);
             console.log(`Eliminado ${targetUsername} de la lista de amigos`);
-        } else { // Añadir amigo
+        } else {
+            // Añadir amigo
             friendsList.push(targetUsername);
             console.log(`Añadido ${targetUsername} a la lista de amigos`);
         }
         
+        // Guardar cambios en el servidor
         await saveUsers(usersData);
+        console.log('Cambios guardados exitosamente');
         
-        renderUserProfile(); // actualizar interfaz...
+        // Actualizar la barra lateral de amigos
+        const friendsSidebar = document.querySelector('friends-sidebar');
+        if (friendsSidebar) {
+            await friendsSidebar.loadFriends();
+        }
+        
+        // Actualizar solo el botón de amistad sin recargar todo el perfil
+        updateFriendButton(targetUsername, usersData);
         
     } catch (error) {
         console.error('Error al actualizar amistad:', error);
@@ -96,6 +122,7 @@ async function toggleFriendship(targetUsername) {
     }
 }
 
+// Función para formatear fecha
 function formatDate(dateString) {
     if (!dateString) return 'No especificada';
     const date = new Date(dateString);
