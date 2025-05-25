@@ -11,7 +11,7 @@ if ($jsonData === false) {
     exit;
 }
 
-$filePath = 'js/users.json';
+$filePath = '../json/users.json';
 
 // Verificar que el directorio y archivo sean escribibles
 if (!is_writable($filePath)) {
