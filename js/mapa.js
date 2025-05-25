@@ -33,7 +33,7 @@ function obtenerCoordenadasUsuarios() {
     coordenadas.forEach(coord => {
            L.marker([coord.latitude, coord.longitude])
             .addTo(mapa)
-            .bindPopup(`<a href="/users?username=${coord.name}"><b>${coord.name}</b></a><br>Lat: ${coord.latitude}<br>Lon: ${coord.longitude}`);        
+            .bindPopup(`<a href="/users.html?username=${coord.name}"><b>${coord.name}</b></a><br>Lat: ${coord.latitude}<br>Lon: ${coord.longitude}`);        
         puntos.push([coord.latitude, coord.longitude]);
     });
     mapa.setMaxBounds([
