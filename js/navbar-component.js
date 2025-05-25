@@ -43,7 +43,7 @@ class NavBar extends HTMLElement {
                 c.innerHTML = `
                     ${profileImage}
                     <a href="users.html?username=${user}" class="ms-3 text-white">${user}</a>
-                    <img src="./icons/exit.svg" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />
+                    <img src="./icon/exit.svg" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />
                 `;
             }
         }
