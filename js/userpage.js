@@ -57,17 +57,24 @@ function areFriends(currentUserData, targetUsername) {
 }
 
 // Función para actualizar solo el botón de amistad
-function updateFriendButton(targetUsername, usersData) {
+async function updateFriendButton(targetUsername, usersData) {
     const currentUser = getUser();
     if (!currentUser || currentUser === targetUsername) return;
     
     const currentUserData = usersData[currentUser];
+    if (!currentUserData) return;
+    
     const isFriend = areFriends(currentUserData, targetUsername);
     
     const friendButton = document.querySelector(`button[onclick="toggleFriendship('${targetUsername}')"]`);
     if (friendButton) {
         friendButton.className = `btn ${isFriend ? 'btn-outline-danger' : 'btn-primary'}`;
         friendButton.textContent = isFriend ? 'Eliminar amigo' : 'Añadir amigo';
+        
+        // Debug: mostrar estado actual
+        console.log(`Botón actualizado - Usuario: ${targetUsername}, Es amigo: ${isFriend}`);
+    } else {
+        console.log('No se encontró el botón de amistad');
     }
 }
 
@@ -107,14 +114,22 @@ async function toggleFriendship(targetUsername) {
         await saveUsers(usersData);
         console.log('Cambios guardados exitosamente');
         
-        // Actualizar la barra lateral de amigos
-        const friendsSidebar = document.querySelector('friends-sidebar');
-        if (friendsSidebar) {
-            await friendsSidebar.loadFriends();
-        }
+        // Recargar datos frescos del servidor para asegurar consistencia
+        const freshUsersData = await loadUsers();
         
-        // Actualizar solo el botón de amistad sin recargar todo el perfil
-        updateFriendButton(targetUsername, usersData);
+        // Actualizar la barra lateral de amigos con pequeño delay para asegurar que el DOM esté listo
+        setTimeout(async () => {
+            const friendsSidebar = document.querySelector('friends-sidebar');
+            if (friendsSidebar) {
+                console.log('Actualizando sidebar...');
+                await friendsSidebar.loadFriends();
+            } else {
+                console.log('No se encontró el sidebar');
+            }
+        }, 100);
+        
+        // Actualizar solo el botón de amistad con datos frescos
+        await updateFriendButton(targetUsername, freshUsersData);
         
     } catch (error) {
         console.error('Error al actualizar amistad:', error);
