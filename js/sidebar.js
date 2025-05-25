@@ -1,19 +1,48 @@
 import {getUser} from './user.js';
 import {generarPfpSvg} from './graficos.js'
 // Sidebar de amigos
-class FriendsSidebar {
+class FriendsSidebar extends HTMLElement {
     constructor() {
-        this.sidebar = document.getElementById('friendsSidebar');
-        this.toggleBtn = document.getElementById('toggleSidebar');
-        this.closeBtn = document.getElementById('closeSidebar');
-        this.friendsList = document.getElementById('friendsList');
-        
+        super();
+    }
+
+
+    connectedCallback() {
+        this.render(); // crear html
+        this.initializeElements(); // buscar elementos
         this.init();
     }
     
     init() {
         this.loadFriends();
         this.setupEventListeners();
+    }
+
+    initializeElements() {
+        // buscar elementos dentro del componente
+        this.sidebar = this.querySelector('#friendsSidebar');
+        this.toggleBtn = this.querySelector('#toggleSidebar');
+        this.closeBtn = this.querySelector('#closeSidebar');
+        this.friendsList = this.querySelector('#friendsList');
+    }
+    
+    render() {
+    this.innerHTML = `
+        <!-- Botón flotante para sidebar en móvil -->
+        <button class="btn btn-primary sidebar-toggle-btn d-lg-none" type="button" id="toggleSidebar">
+            👥
+        </button>
+        <!-- Sidebar -->
+        <div id="friendsSidebar" class="friends-sidebar">
+            <div class="sidebar-header">
+                <h5>Amigos</h5>
+                <button class="btn-close d-lg-none" id="closeSidebar"></button>
+            </div>
+            <div id="friendsList" class="friends-list">
+                <!-- Los amigos se cargarán aquí -->
+            </div>
+        </div>
+        `;
     }
     
     setupEventListeners() {
@@ -48,8 +77,6 @@ class FriendsSidebar {
                 this.friendsList.innerHTML = '<p class="text-muted p-3">No tienes amigos 😂</p>';
                 return;
             }
-            // hay amigos, ajustar tamano de main content
-            const mainContent = document.querySelector('.main-content');
             const allUsers = data["@graph"];
             const friends = currentUser.friends.map(username => {
                 const user = allUsers[username];
@@ -62,7 +89,6 @@ class FriendsSidebar {
             });
 
             this.renderFriends(friends);
-
         } catch (error) {
             console.error('Error cargando amigos:', error);
             this.friendsList.innerHTML = '<p class="text-muted p-3">Error cargando amigos</p>';
@@ -98,7 +124,7 @@ class FriendsSidebar {
     
     renderFriends(friends) {
       this.friendsList.innerHTML = friends.map(friend => `
-          <a href="user.html?id=${friend.id}" class="friend-item">
+          <a href="users.html?username=${friend.id}" class="friend-item">
               ${
                   friend.image
                   ? `<img src="${friend.image}" alt="${friend.name}" class="friend-avatar">`
@@ -120,8 +146,4 @@ class FriendsSidebar {
         this.toggleBtn.classList.remove('hidden');
     }
 }
-window.friendsSidebar = null;
-// Inicializar cuando se carga la página
-document.addEventListener('DOMContentLoaded', () => {
-    window.friendsSidebar = new FriendsSidebar();
-});
+customElements.define('friends-sidebar', FriendsSidebar);

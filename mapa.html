@@ -43,25 +43,9 @@
     
     <nav-bar></nav-bar>
 
-    <!-- Botón flotante para sidebar en móvil -->
-    <button class="btn btn-primary sidebar-toggle-btn d-lg-none" type="button" id="toggleSidebar">
-        👥
-    </button>
-    <div class="container-fluid">
+      <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
-            <div id="sidebarCol" class="col-lg-3 col-xl-2 p-0">
-                <div id="friendsSidebar" class="friends-sidebar">
-                    <div class="sidebar-header">
-                        <h5>Amigos</h5>
-                        <button class="btn-close d-lg-none" id="closeSidebar"></button>
-                    </div>
-                    <div id="friendsList" class="friends-list">
-                        <!-- Los amigos se cargarán aquí -->
-                    </div>
-                </div>
-            </div>
-
+            <friends-sidebar id="sidebarCol" class="col-lg-3 col-xl-2 p-0"></friends-sidebar>
             <!-- Contenido principal -->
             <div class="col-lg-9 col-xl-10">
                 <main class="main-content">
@@ -96,7 +80,6 @@
     <script src="plantilla/js/main.js"></script>
 
     <!-- Nuestro Javascript -->
-    <script src="js/card.js" type="module"></script>
     <script src="js/sidebar.js" type="module" defer></script>
     <script src="js/navbar-component.js" type="module" defer></script>
     <script src="js/footer-component.js" type="module" defer></script>

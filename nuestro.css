@@ -73,7 +73,7 @@ p {
     background-color: #000000; /* fondo negro */
     border-right: 1px solid #333333;
     position: fixed;
-    top: 0px; /* justo debajo del navbar */
+    top: 75px; /* justo debajo del navbar */
     left: 0;
     width: 100%;
     max-width: 300px;
@@ -181,7 +181,7 @@ p {
     }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
     .friends-sidebar {
         position: fixed;
         height: calc(100vh - 56px);
