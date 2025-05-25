@@ -217,3 +217,294 @@ foo-ter {
     position: relative;
     z-index: 2000;
 }
+
+
+
+
+
+
+
+/* Estilos para el perfil de usuario */
+.alert {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    color: #32C36C;
+    border-radius: 10px;
+}
+
+.alert-warning {
+    border-color: #ffa500;
+    background-color: #2d2000;
+}
+
+.alert-danger {
+    border-color: #dc3545;
+    background-color: #2d0a0a;
+}
+
+.alert-heading {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Cards del perfil */
+.card {
+    background-color: #1a1a1a;
+    border: 4px solid #333333;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(50, 195, 108, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 20px rgba(50, 195, 108, 0.15);
+}
+
+.card-header {
+    background-color: #222222;
+    border-bottom: 1px solid #333333;
+    border-radius: 21px 21px 0 0 !important;
+    padding: 1rem 1.5rem;
+}
+
+.card-header h4,
+.card-header h5 {
+    color: #32C36C;
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-body {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    color: white;
+    border-radius: 21px 21px 21px 21px;
+}
+
+.card-title {
+    color: #32C36C;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Imagen de perfil en el centro de la card */
+.card-body.text-center .friend-avatar {
+    border: 3px solid #32C36C;
+    box-shadow: 0 0 15px rgba(50, 195, 108, 0.3);
+    transition: all 0.3s ease;
+    width: 150px;
+    height: 150px;
+}
+
+.card-body.text-center .friend-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(50, 195, 108, 0.5);
+}
+
+/* Username y texto muted */
+.text-muted {
+    color: #888888 !important;
+    font-style: italic;
+}
+
+/* Botones de amistad */
+.btn-primary {
+    background-color: #32C36C;
+    border-color: #32C36C;
+    color: black;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(50, 195, 108, 0.3);
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    background-color: transparent;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* Información del perfil - filas */
+.row.mb-3 {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #333333;
+    transition: background-color 0.2s ease;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.mb-3:last-child {
+    border-bottom: none;
+}
+
+.row.mb-3:hover {
+    background-color: #222222;
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.row.mb-3 strong {
+    color: #32C36C;
+    font-weight: 600;
+}
+
+.row.mb-3 .col-sm-8 {
+    color: #ffffff;
+}
+
+/* Badge para puntuación */
+.badge {
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge.bg-success {
+    background-color: #32C36C !important;
+    color: black;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+    color: white;
+}
+
+/* Amigos en común */
+.friend-item {
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.friend-item:hover {
+    background-color: #2a2a2a;
+    border-color: #32C36C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(50, 195, 108, 0.2);
+    text-decoration: none;
+    color: white;
+}
+
+.friend-item .friend-avatar {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    margin-right: 1rem;
+    border: 2px solid #32C36C;
+    transition: border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.friend-item:hover .friend-avatar {
+    border-color: #28a745;
+}
+
+.friend-item .fw-bold {
+    color: #32C36C;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.friend-item small.text-muted {
+    color: #888888 !important;
+    font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-body.text-center .friend-avatar {
+        width: 100px !important;
+        height: 100px !important;
+        min-width: 100px !important;
+        min-height: 100px !important;
+    }
+    
+    .row.mb-3 {
+        padding: 0.5rem 0;
+    }
+    
+    .col-sm-4 {
+        margin-bottom: 0.25rem;
+    }
+    
+    .friend-item .friend-avatar {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body.text-center .friend-avatar {
+        width: 80px !important;
+        height: 80px !important;
+        min-width: 80px !important;
+        min-height: 80px !important;
+    }
+    
+    .friend-item .friend-avatar {
+        width: 35px !important;
+        height: 35px !important;
+        min-width: 35px !important;
+        min-height: 35px !important;
+    }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.2s;
+}
