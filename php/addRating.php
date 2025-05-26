@@ -7,5 +7,5 @@
 
     // Get the JSON data from the request
     $jsonData = file_get_contents('php://input');
-    file_put_contents('js/ratings.json', $jsonData)
+    file_put_contents('../json/ratings.json', $jsonData);
 ?>

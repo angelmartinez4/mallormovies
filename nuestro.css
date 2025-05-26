@@ -31,7 +31,7 @@ p {
     align-items: center;
     width: 100%;
     margin: 0 auto;
-    padding: 10vh 10%;
+    padding: 3vh 3%;
     min-height: calc(100vh - 200px); 
 }
 
@@ -50,6 +50,7 @@ p {
     width: 100%; 
     height: 600px;
     border-radius: 10px;
+    z-index: 900;
 }
 
 .altavoz {
@@ -64,4 +65,546 @@ p {
     position: fixed; /* Fija el div en la pantalla */
     width: 100%; /* Ocupa todo el ancho */
     z-index: 1000; /* Se asegura de que esté sobre otros elementos */
+}
+
+/* Sidebar de amigos */
+.friends-sidebar {
+    height: calc(100vh); /* altura completa menos navbar */
+    background-color: #000000; /* fondo negro */
+    border-right: 1px solid #333333;
+    position: fixed;
+    top: 75px; /* justo debajo del navbar */
+    left: 0;
+    width: 100%;
+    max-width: 300px;
+    z-index: 1000;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 5rem 1rem 1rem 1rem; /* padding arriba añadido */
+    border-bottom: 1px solid #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-header h5 {
+    margin: 0;
+    color: #ffffff; /* texto blanco */
+}
+
+.sidebar-header .btn-close {
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+.sidebar-header .btn-close:hover {
+    opacity: 1;
+}
+
+.friends-list {
+    padding: 0.5rem 0;
+}
+
+.friend-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: #ffffff; /* texto blanco */
+    background-color: #333333; /* fondo gris oscuro */
+    margin: 0.25rem 0.5rem;
+    border-radius: 50px;
+    transition: background-color 0.2s ease;
+}
+
+.friend-item:hover {
+    background-color: #444444; /* gris más claro al hover */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.friend-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+    object-fit: cover;
+}
+
+.friend-name {
+    font-weight: 500;
+}
+
+/* Botón flotante para toggle en móvil */
+.sidebar-toggle-btn {
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    z-index: 1001;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar-toggle-btn.hidden {
+    opacity: 0;
+    transform: translateX(-20px);
+    pointer-events: none;
+}
+
+/* Contenido principal: lo que no es sidebar/navbar/footer */
+.main-content {
+    padding: 2rem;
+    min-height: calc(100vh - 150px);
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+    .friends-sidebar {
+        position: fixed;
+        height: calc(100vh - 56px);
+        width: 300px; 
+        max-width: 300px;
+    }
+    
+    .sidebar-toggle-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .friends-sidebar {
+        position: fixed;
+        height: calc(100vh - 56px);
+        transform: translateX(-100%);
+    }
+    
+    .friends-sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* avatar en la lista de amigos */
+.friend-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+}
+/* Si no hay imagen usa un SVG dinamico */
+.friend-avatar svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Para que la lista de amigos quede debajo del footer xdd */
+foo-ter {
+    position: relative;
+    z-index: 2000;
+}
+
+
+
+
+
+
+
+/* Estilos para el perfil de usuario */
+.alert {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    color: #32C36C;
+    border-radius: 10px;
+}
+
+.alert-warning {
+    border-color: #ffa500;
+    background-color: #2d2000;
+}
+
+.alert-danger {
+    border-color: #dc3545;
+    background-color: #2d0a0a;
+}
+
+.alert-heading {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+/* Cards del perfil */
+.card {
+    background-color: #1a1a1a;
+    border: 4px solid #333333;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(50, 195, 108, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 20px rgba(50, 195, 108, 0.15);
+}
+
+.card-header {
+    background-color: #222222;
+    border-bottom: 1px solid #333333;
+    border-radius: 21px 21px 0 0 !important;
+    padding: 1rem 1.5rem;
+}
+
+.card-header h4,
+.card-header h5 {
+    color: #32C36C;
+    margin: 0;
+    font-weight: 600;
+}
+
+.card-body {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    color: white;
+    border-radius: 21px 21px 21px 21px;
+}
+
+.card-title {
+    color: #32C36C;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Imagen de perfil en el centro de la card */
+.card-body.text-center .friend-avatar {
+    border: 3px solid #32C36C;
+    box-shadow: 0 0 15px rgba(50, 195, 108, 0.3);
+    transition: all 0.3s ease;
+    width: 150px;
+    height: 150px;
+}
+
+.card-body.text-center .friend-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(50, 195, 108, 0.5);
+}
+
+/* Username y texto muted */
+.text-muted {
+    color: #888888 !important;
+    font-style: italic;
+}
+
+/* Botones de amistad */
+.btn-primary {
+    background-color: #32C36C;
+    border-color: #32C36C;
+    color: black;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(50, 195, 108, 0.3);
+}
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    background-color: transparent;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* Información del perfil - filas */
+.row.mb-3 {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #333333;
+    transition: background-color 0.2s ease;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.mb-3:last-child {
+    border-bottom: none;
+}
+
+.row.mb-3:hover {
+    background-color: #222222;
+    border-radius: 8px;
+    padding: 0.75rem 0.5rem;
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
+.row.mb-3 strong {
+    color: #32C36C;
+    font-weight: 600;
+}
+
+.row.mb-3 .col-sm-8 {
+    color: #ffffff;
+}
+
+/* Badge para puntuación */
+.badge {
+    font-size: 1rem !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge.bg-success {
+    background-color: #32C36C !important;
+    color: black;
+}
+
+.badge.bg-danger {
+    background-color: #dc3545 !important;
+    color: white;
+}
+
+/* Amigos en común */
+.friend-item {
+    background-color: #222222;
+    border: 1px solid #333333;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.friend-item:hover {
+    background-color: #2a2a2a;
+    border-color: #32C36C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(50, 195, 108, 0.2);
+    text-decoration: none;
+    color: white;
+}
+
+.friend-item .friend-avatar {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    margin-right: 1rem;
+    border: 2px solid #32C36C;
+    transition: border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.friend-item:hover .friend-avatar {
+    border-color: #28a745;
+}
+
+.friend-item .fw-bold {
+    color: #32C36C;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.friend-item small.text-muted {
+    color: #888888 !important;
+    font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .card-body.text-center .friend-avatar {
+        width: 100px !important;
+        height: 100px !important;
+        min-width: 100px !important;
+        min-height: 100px !important;
+    }
+    
+    .row.mb-3 {
+        padding: 0.5rem 0;
+    }
+    
+    .col-sm-4 {
+        margin-bottom: 0.25rem;
+    }
+    
+    .friend-item .friend-avatar {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body.text-center .friend-avatar {
+        width: 80px !important;
+        height: 80px !important;
+        min-width: 80px !important;
+        min-height: 80px !important;
+    }
+    
+    .friend-item .friend-avatar {
+        width: 35px !important;
+        height: 35px !important;
+        min-width: 35px !important;
+        min-height: 35px !important;
+    }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* Contenedor de texto de amigos para evitar desbordamiento */
+.friend-text-content {
+    flex: 1;
+    min-width: 0; /* Permite que el texto se contraiga */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.friend-name {
+    font-size: 0.95rem;
+    line-height: 1.1;
+    margin-bottom: 0.15rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.friend-username {
+    font-size: 0.8rem;
+    line-height: 1.0;
+    white-space: nowrap; /* no intros */
+    overflow: hidden;
+    text-overflow: ellipsis; /* "..." si es largo "*/
+}
+
+/* pantallas medianas especificamente */
+@media (min-width: 576px) and (max-width: 992px) {
+    .friend-item {
+        padding: 0.75rem;
+        min-height: 60px; /* Reducido de 70px a 60px */
+    }
+    
+    .friend-item .friend-avatar {
+        width: 45px !important;
+        height: 45px !important;
+        min-width: 45px !important;
+        min-height: 45px !important;
+        margin-right: 0.75rem;
+    }
+    
+    .friend-name {
+        font-size: 0.85rem; /* Reducido de 0.9rem */
+        line-height: 1.0;
+    }
+    
+    .friend-username {
+        font-size: 0.7rem; /* Reducido de 0.75rem */
+        line-height: 1.0;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 576px) {
+    .friend-item {
+        padding: 0.75rem 0.5rem;
+        min-height: 55px;
+    }
+    
+    .friend-item .friend-avatar {
+        margin-right: 0.5rem;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+    }
+    
+    .friend-name {
+        font-size: 0.8rem; /* Reducido de 0.85rem */
+        line-height: 1.0;
+        margin-bottom: 0.1rem;
+    }
+    
+    .friend-username {
+        font-size: 0.65rem; /* Reducido de 0.7rem */
+        line-height: 1.0;
+    }
+}
+
+
+
+/* Pantallas grandes */
+@media (min-width: 992px) {
+    .friend-item {
+        min-height: 65px;
+    }
+    
+    .friend-name {
+        font-size: 0.95rem;
+        line-height: 1.1;
+    }
+    
+    .friend-username {
+        font-size: 0.8rem;
+        line-height: 1.0;
+    }
 }

@@ -41,7 +41,17 @@
 
     <nav-bar></nav-bar>
 
-    <div style="height: 100vh;"></div>
+    <div class="container-fluid p-5">
+            <friends-sidebar id="sidebarCol" class="col-lg-3 col-xl-2 p-0"></friends-sidebar>
+
+            <!-- Contenido principal -->
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Tu navegador no admite la reproducción de video.
+                </video>
+            
+            
+    </div>
 
     <foo-ter></foo-ter>
 
@@ -54,8 +64,9 @@
 
     <!-- Nuestro javascript -->
     <script type="module" src="js/user.js"></script>
-    <script src="navbar-component.js" type="module" defer></script>
-    <script src="footer-component.js" type="module" defer></script>
+    <script src="js/sidebar.js" type="module" defer></script>
+    <script src="js/navbar-component.js" type="module" defer></script>
+    <script src="js/footer-component.js" type="module" defer></script>
 </body>
 
 </html>

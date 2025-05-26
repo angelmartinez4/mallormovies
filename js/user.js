@@ -18,7 +18,7 @@ async function saveUser(users, username, userdata) {
     const jsonData = JSON.stringify(users, null, 2);
 
     try {
-        const response = await fetch('saveUsers.php', {
+        const response = await fetch('php/saveUsers.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ async function saveUser(users, username, userdata) {
 
 export async function register(username, name, password1, password2) {
     removeWarnings();
-    const response = await fetch('js/users.json');
+    const response = await fetch('json/users.json');
     const users = await response.json();
 
     if (users['@graph'][username] != null) {
@@ -73,7 +73,7 @@ export async function register(username, name, password1, password2) {
 
 export async function login(user, password) {
     removeWarnings();
-    const response = await fetch('js/users.json');
+    const response = await fetch('json/users.json');
     var users = await response.json();
 
     if (users['@graph'][user] == null) {

@@ -1,4 +1,5 @@
-import {getUser, logout} from './js/user.js';
+import {getUser, logout} from './user.js';
+import { generarPfpSvg } from './graficos.js';
 
 class NavBar extends HTMLElement {
     constructor() {
@@ -19,8 +20,6 @@ class NavBar extends HTMLElement {
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <a href="video.html" class="nav-item nav-link">Video</a>
                         <a href="mapa.html" class="nav-item nav-link">Mapa</a>
-                        <a href="amigos.html" class="nav-item nav-link">Amigos</a>
-                        <a href="valoraciones.html" class="nav-item nav-link">Mis valoraciones</a>
                     </div>
                     
                     <div id="userNavBar"></div>
@@ -37,16 +36,24 @@ class NavBar extends HTMLElement {
                 c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
             }
             else {
-                c.innerHTML =  `
-                                <img src="icons/profile.svg" class="flex-grow-0 user-select-none"/>
-                                <a href="users.html?username=${user}" class="ms-3 text-white">${user}</a>
-                                <img src="./icons/exit.svg" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />`
+                const profileImage = (user && user.image) ? 
+                    `<img src="${user.image}" class="flex-grow-0 user-select-none" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;"/>` : 
+                    `<div style="width: 32px; height: 32px; flex-shrink: 0; vertical-align:middle; display: inline-block; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden;" class="user-select-none">${generarPfpSvg(user)}</div>`;
+                c.innerHTML = `
+                    ${profileImage}
+                    <a href="users.html?username=${user}" class="ms-3 text-white">${user}</a>
+                    <img src="./icon/exit.svg" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />
+                `;
             }
         }
     }
 
     window.salir = () => {
         logout();
+        const friendsSidebar = document.querySelector('friends-sidebar');
+        if (friendsSidebar) { // ocultar lista amigos en logout
+            friendsSidebar.hideSidebar();
+        }
         const c = document.getElementById('userNavBar');
         c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
     }

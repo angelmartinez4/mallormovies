@@ -8,15 +8,7 @@
       "dateCreated": "2025-04-03T14:30:00.000Z",
       "image": null,
       "friends": [
-        "angel33"
-      ],
-      "favgenre": "Thriller policiaco",
-      "favdirector": "Quentin Tarantino",
-      "avgrating": 7.4,
-      "ratings": [
-        1,
-        4,
-        7
+        "angel33", "mat69"
       ],
       "homeLocation": {
         "@type": "Place",
@@ -34,15 +26,7 @@
       "dateCreated": "2025-04-03T13:30:00.000Z",
       "image": null,
       "friends": [
-        "kjorda02"
-      ],
-      "favgenre": "Yuri",
-      "favdirector": "Martin Scorsese",
-      "avgrating": 6.9,
-      "ratings": [
-        2,
-        3,
-        5
+        "mat69"
       ],
       "homeLocation": {
         "@type": "Place",

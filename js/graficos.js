@@ -5,18 +5,39 @@
  */
 export function generarPfpSvg(name) {
     const firstLetter = name.charAt(0).toUpperCase();
-    const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    const randomColor = stringToColor(name);
     const svg = `
         <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
             <title id="title">Avatar de usuario por defecto</title>
             <rect width="100" height="100" fill="${randomColor}" />
-            <text x="50" y="55" font-size="90" font-family="Arial" fill="white" text-anchor="middle" dominant-baseline="middle">
+            <text x="50" y="55" font-size="70" font-family="Arial" fill="white" text-anchor="middle" dominant-baseline="middle">
                 ${firstLetter}
             </text>
         </svg>
     `;
     return svg;
 }
+
+/* Genera un color a partir de un nombre usando el hash
+Asi el color es determinista para cada nombre y parece aleatorio */
+function stringToColor(name) {
+    let hash = 0;
+    for (let i = 0; i < name.length; i++) {
+        hash = name.charCodeAt(i) + ((hash << 5) - hash); // hash * 31 + charCode
+        hash = hash & hash; // Convertir a entero 32 bits
+    }
+
+    // Convertir hash a color hex (#RRGGBB)
+    let color = '#';
+    for (let i = 0; i < 3; i++) {
+        // Extraemos 8 bits para cada canal RGB
+        const value = (hash >> (i * 8)) & 0xFF;
+        // Convertimos a hexadecimal y aseguramos dos dígitos
+        color += ('00' + value.toString(16)).slice(-2);
+    }
+    return color;
+}
+
 
 /**
  * Genera un grafico de barras a partir de un array de valoraciones
@@ -27,8 +48,13 @@ export function generarPfpSvg(name) {
 export function generarBarchartValoraciones(valoraciones) {
     const xLine = 20
     const xRectDesp = 2
-    // valoraciones = [30, 20, 5, 10, 40, 20, 50, 80, 100, 20] // valor de test
     const maxValoraciones = Math.max(...valoraciones);
+    if (maxValoraciones === 0) {
+        return `<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <line x1="${xLine}" y1="0" x2="${xLine}" y2="100" stroke="white" stroke-width="2"/>
+            <text x="50" y="50" font-size="6" fill="white" text-anchor="middle">Sin valoraciones</text>
+        </svg>`;
+    }
     const svgRectangulos = []
     let posY = 0
     for (let i=10; i>=1; i--) {

@@ -41,7 +41,18 @@
 
     <nav-bar></nav-bar>
 
-    <div style="height: 100vh;"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <friends-sidebar id="sidebarCol" class="col-lg-3 col-xl-2 p-0"></friends-sidebar>
+
+            <!-- Contenido principal -->
+            <div class="col-lg-9 col-xl-10">
+                <main class="main-content">
+                    <!-- contenido principal -->                 
+                </main>
+            </div>
+        </div>
+    </div>
 
     <foo-ter></foo-ter>
 
@@ -54,8 +65,9 @@
 
     <!-- Nuestro javascript -->
     <script type="module" src="js/user.js"></script>
-    <script src="navbar-component.js" type="module" defer></script>
-    <script src="footer-component.js" type="module" defer></script>
+    <script src="js/sidebar.js" type="module" defer></script>
+    <script src="js/navbar-component.js" type="module" defer></script>
+    <script src="js/footer-component.js" type="module" defer></script>
 </body>
 
 </html>

@@ -51,107 +51,114 @@
 
     <nav-bar></nav-bar>
 
-    <div class="container-xxl  mt-5">
 
-        <!-- Top row with info -->
-        <div class="row d-flex align-items-end">
-            <div class="col-12 col-md-8 col-lg-9 d-flex justify-content-between align-items-end">
-                <h3 id="titulo">La isla mínima</h3>
-                <h6 id="year">---- / --- mins</h6>
-            </div>
 
-            <div class="col-lg-3 col-4 d-none d-md-block">
-                <h6 class="boton">
-                    <svg class="pb-1" width="22" height="16" viewBox="0 0 22 16" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M14.0007 8C14.0007 9.6569 12.6576 11 11.0007 11C9.3439 11 8.00073 9.6569 8.00073 8C8.00073 6.3431 9.3439 5 11.0007 5C12.6576 5 14.0007 6.3431 14.0007 8Z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M11.0012 1C6.52354 1 2.73326 3.94288 1.45898 8C2.73324 12.0571 6.52354 15 11.0012 15C15.4788 15 19.2691 12.0571 20.5434 8C19.2691 3.94291 15.4788 1 11.0012 1Z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    MARCAR VISTA
-                </h6>
-            </div>
 
-        </div>
 
-        <!-- Image, video, and review summary row -->
-        <div class="row mt-3">
-            <div class="col-3 d-none d-lg-block ps-5">
-                <figure>
-                    <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid" id="portada">
-                </figure>
-            </div>
+    <div class="container-fluid">
+        <div class="row">
+            <friends-sidebar id="sidebarCol" class="col-lg-3 col-xl-2 p-0"></friends-sidebar>
 
-            <div class="col-12 col-md-8 col-lg-6">
-                <iframe id="vid" width="100%" height="100%"
-                    src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-                </iframe>
-            </div>
+            <!-- Contenido principal -->
+            <div class="col-lg-9 col-xl-10">
+                <main class="main-content">
+                    <!-- contenido principal -->                 
+                    <div class="container-xxl  mt-5">
 
-            <div class="col-lg-3 col-4 d-none d-md-block">
-                <div class="ps-2 d-flex flex-column justify-content-between h-100">
-                    <div>
-                        <div class="d-flex justify-content-between">
-                            <div class="d-flex flex-column justify-content-center">
-                                <h6>Valoracion en IMDB</h6>
+                        <!-- Top row with info -->
+                        <div class="row d-flex align-items-end">
+                            <div class="col-12 col-md-8 col-lg-9 d-flex justify-content-between align-items-end">
+                                <h3 id="titulo">La isla mínima</h3>
+                                <h6 id="year">---- / --- mins</h6>
                             </div>
-                            <div class="d-flex flex-column align-items-center ms-2">
-                                <div class="text-nowrap">
-                                    <span class="text-white align-top imdbrating">-,-</span>
-                                    <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
-                                    <figure>
-                                        <img src="icons/star.svg" class="align-baseline" />
-                                    </figure>
-                                </div>
-                                <div class="text-nowrap" style="font-size:0.7rem;">
-                                    <span class="imdbcount">--k valoraciones</span>
-                                </div>
+
+                            <div class="col-lg-3 col-4 d-none d-md-block">
+                                <h6 class="boton">
+                                    <svg class="pb-1" width="22" height="16" viewBox="0 0 22 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14.0007 8C14.0007 9.6569 12.6576 11 11.0007 11C9.3439 11 8.00073 9.6569 8.00073 8C8.00073 6.3431 9.3439 5 11.0007 5C12.6576 5 14.0007 6.3431 14.0007 8Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path
+                                            d="M11.0012 1C6.52354 1 2.73326 3.94288 1.45898 8C2.73324 12.0571 6.52354 15 11.0012 15C15.4788 15 19.2691 12.0571 20.5434 8C19.2691 3.94291 15.4788 1 11.0012 1Z"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    MARCAR VISTA
+                                </h6>
                             </div>
+
                         </div>
-                        <div class="d-flex justify-content-between mt-3">
-                            <div class="d-flex flex-column justify-content-center">
-                                <h6>Valoracion de los usuarios</h6>
-                            </div>
-                            <div class="d-flex flex-column align-items-center ms-2">
-                                <div class="text-nowrap">
-                                    <span class="text-white align-top">-,-</span>
-                                    <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
-                                    <figure>
-                                        <img src="icons/star.svg" class="align-baseline"/>
-                                    </figure>
-                                </div>
-                                <div class="text-nowrap" style="font-size:0.7rem;">
-                                    0 valoraciones
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="mb-2 grafico" style="width: 65%" ;></div>
-                </div>
+                        <!-- Image, video, and review summary row -->
+                        <div class="row mt-3">
+                            <div class="col-3 d-none d-lg-block ps-5">
+                                <figure>
+                                        <img src="imgs/a_todo_tren_destino_asturias-707799540-large.webp" alt="" class="img-fluid" id="portada">
+                                </figure>
             </div>
 
-        </div>
+                            <div class="col-12 col-md-8 col-lg-6">
+                                <iframe id="vid" width="100%" height="100%"
+                                    src="https://www.youtube.com/embed/8dxh3lwdOFw?si=d8FXw1-bW1oD4i7o" title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
 
-        <!-- Sipnosis and info row -->
-        <div class="row mt-5 pt-3">
+                            <div class="col-lg-3 col-4 d-none d-md-block">
+                                <div class="ps-2 d-flex flex-column justify-content-between h-100">
+                                    <div>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6>Valoracion en IMDB</h6>
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center ms-2">
+                                                <div class="text-nowrap">
+                                                    <span class="text-white align-top imdbrating">-,-</span><span
+                                                        class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img
+                                                        src="/icon/star.svg" class="align-baseline" />
+                                                </div>
+                                                <div class="text-nowrap" style="font-size:0.7rem;">
+                                                    <span class="imdbcount">--k valoraciones</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-3">
+                                            <div class="d-flex flex-column justify-content-center">
+                                                <h6>Valoracion de los usuarios</h6>
+                                            </div>
+                                            <div class="d-flex flex-column align-items-center ms-2">
+                                                <div class="text-nowrap">
+                                                    <span class="text-white align-top localrating">-,-</span><span class="d-inline-block pt-2"
+                                                        style="font-size:0.8rem;">/10</span><img src="icon/star.svg"
+                                                        class="align-baseline" />
+                                                </div>
+                                                <div class="text-nowrap" style="font-size:0.7rem;">
+                                                    <span class="localcount">--k valoraciones</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            <script>
-                function speak() {
-                    const text = document.getElementById('sipnosis').innerHTML;
+                                    <div class="mb-2 grafico" style="width: 65%" ;></div>
+                                </div>
+                            </div>
 
-                    window.speechSynthesis.cancel();
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.lang = 'es-ES';
-                    window.speechSynthesis.speak(utterance);
-                }
-            </script>
+                        </div>
+
+                        <!-- Sipnosis and info row -->
+                        <div class="row mt-5 pt-3">
+
+                            <script>
+                                function speak() {
+                                    const text = document.getElementById('sipnosis').innerHTML;
+
+                                    window.speechSynthesis.cancel();
+                                    const utterance = new SpeechSynthesisUtterance(text);
+                                    utterance.lang = 'es-ES';
+                                    window.speechSynthesis.speak(utterance);
+                                }
+                            </script>
 
             <!-- Sinopsis -->
             <div class="col-lg-6 flex-column">
@@ -167,143 +174,148 @@
                     </h6>
                 </div>
 
-                <div class="flex-grow-1 mt-2 ps-4 pe-2">
-                    <p class="lh-lg" id="sipnosis">
-                        España, a comienzos de los años 80. Dos policías, ideológicamente opuestos, son enviados desde
-                        Madrid a un remoto pueblo del sur, situado en las marismas del Guadalquivir, para investigar la
-                        desaparición de dos chicas adolescentes. En una comunidad anclada en el pasado, tendrán que
-                        enfrentarse no sólo a un cruel asesino, sino también a sus propios fantasmas. (FILMAFFINITY)
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-1"></div>
-
-            <!-- Informacion -->
-            <div class="col-lg-5 mt-4 mt-lg-0">
-                <div class=" border-bottom border-2 px-2">
-                    <h6>INFORMACIÓN</h6>
-                </div>
-
-                <div class=" mt-3 d-flex justify-content-center">
-                    <div class="d-flex flex-column text-end gap-2">
-                        <span>DIRECTOR(A)</span>
-                        <span>GENERO(S)</span>
-                        <span class="name">MALLORQUIN(A)</span>
-                        <span class="birthDate">FECHA NACIMIENTO</span>
-                        <span class="birthPlace">LUGAR NACIMIENTO</span>
-                        <span class="jobTitle">ROL</span>
-                    </div>
-                    <div class="d-flex flex-column gap-2">
-                        <span class="ms-3 text-white" id="director">Antonina Obrador</span>
-                        <span class="ms-3 text-white" id="genero">Drama, Thriller</span>
-                        <span class="ms-3 text-white name">Antonina Obrador</span>
-                        <span class="ms-3 text-white birthDate">1985-04-14</span>
-                        <span class="ms-3 text-white birthPlace">Barcelona, España</span>
-                        <span class="ms-3 text-white jobTitle">Directora</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <!-- Valoraciones title -->
-        <div class="row mt-5">
-            <div class="col">
-                <div class="border-bottom border-2 ps-2">
-                    <h6>VALORACIONES</h6>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="card mx-4 bg-transparent d-md-none mt-4 ps-2 d-flex justify-content-center gap-5 flex-row">
-            <div>
-                <div class="d-flex justify-content-between mt-3">
-                    <div class="d-flex flex-column justify-content-center">
-                        <h6>IMDB</h6>
-                    </div>
-                    <div class="text-nowrap ms-4">
-                        <div class="d-flex flex-column align-items-center">
-                            <div class="text-nowrap">
-                                <span class="text-white align-top imdbrating">-,-</span>
-                                <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
-                                <figure>
-                                    <img src="icons/star.svg" class="align-baseline" />
-                                </figure>
+                                <div class="flex-grow-1 mt-2 ps-4 pe-2">
+                                    <p class="lh-lg" id="sipnosis">
+                                        España, a comienzos de los años 80. Dos policías, ideológicamente opuestos, son enviados desde
+                                        Madrid a un remoto pueblo del sur, situado en las marismas del Guadalquivir, para investigar la
+                                        desaparición de dos chicas adolescentes. En una comunidad anclada en el pasado, tendrán que
+                                        enfrentarse no sólo a un cruel asesino, sino también a sus propios fantasmas. (FILMAFFINITY)
+                                    </p>
+                                </div>
                             </div>
-                            <div class="text-nowrap" style="font-size:0.7rem;">
-                                <span class="imdbcount">--k valoraciones</span>
+
+                            <div class="col-lg-1"></div>
+
+                            <!-- Informacion -->
+                            <div class="col-lg-5 mt-4 mt-lg-0">
+                                <div class=" border-bottom border-2 px-2">
+                                    <h6>INFORMACIÓN</h6>
+                                </div>
+
+                                <div class=" mt-3 d-flex justify-content-center">
+                                    <div class="d-flex flex-column text-end gap-2">
+                                        <span>DIRECTOR(A)</span>
+                                        <span>GENERO(S)</span>
+                                        <span class="name">MALLORQUIN(A)</span>
+                                        <span class="birthDate">FECHA NACIMIENTO</span>
+                                        <span class="birthPlace">LUGAR NACIMIENTO</span>
+                                        <span class="jobTitle">ROL</span>
+                                    </div>
+                                    <div class="d-flex flex-column gap-2">
+                                        <span class="ms-3 text-white" id="director">Antonina Obrador</span>
+                                        <span class="ms-3 text-white" id="genero">Drama, Thriller</span>
+                                        <span class="ms-3 text-white name">Antonina Obrador</span>
+                                        <span class="ms-3 text-white birthDate">1985-04-14</span>
+                                        <span class="ms-3 text-white birthPlace">Barcelona, España</span>
+                                        <span class="ms-3 text-white jobTitle">Directora</span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="d-flex justify-content-between mt-4">
-                    <div class="d-flex flex-column justify-content-center">
-                        <h6>Usuarios</h6>
-                    </div>
-                    <div class="text-nowrap ms-4">
-                        <div class="d-flex flex-column align-items-center">
-                            <div class="text-nowrap">
-                                <span class="text-white align-top">-,-</span><span class="d-inline-block pt-2"
-                                    style="font-size:0.8rem;">/10
-                                </span>
-                                <figure>
-                                    <img src="icons/star.svg" class="align-baseline"/>
-                                </figure>
-                            </div>
-                            <div class="text-nowrap" style="font-size:0.7rem;">
-                                <span>--k valoraciones</span>
+
+
+                        <!-- Valoraciones title -->
+                        <div class="row mt-5">
+                            <div class="col">
+                                <div class="border-bottom border-2 ps-2">
+                                    <h6>VALORACIONES</h6>
+                                </div>
                             </div>
                         </div>
+
+
+                        <div class="card mx-4 bg-transparent d-md-none mt-4 ps-2 d-flex justify-content-center gap-5 flex-row">
+                            <div>
+                                <div class="d-flex justify-content-between mt-3">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6>IMDB</h6>
+                                    </div>
+                                    <div class="text-nowrap ms-4">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="text-nowrap">
+                                                <span class="text-white align-top imdbrating">-,-</span><span
+                                                    class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img
+                                                    src="icon/star.svg" class="align-baseline" />
+                                            </div>
+                                            <div class="text-nowrap" style="font-size:0.7rem;">
+                                                <span class="imdbcount">--k valoraciones</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <h6>Usuarios</h6>
+                                    </div>
+                                    <div class="text-nowrap ms-4">
+                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="text-nowrap">
+                                                <span class="text-white align-top">-,-</span><span class="d-inline-block pt-2"
+                                                    style="font-size:0.8rem;">/10</span><img src="icon/star.svg"
+                                                    class="align-baseline" />
+                                            </div>
+                                            <div class="text-nowrap" style="font-size:0.7rem;">
+                                                <span>--k valoraciones</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 grafico" style="width: 35%;"></div>
+                        </div>
+
+                        <!-- Valoraciones content -->
+                        <div id="ratings" class="row row-cols-1 row-cols-lg-2 mt-2">
+
+                            <!-- Añadir valoracion -->
+                            <div class="col mt-4">
+                                <div class="card mx-3 bg-transparent">
+                                    <h5>Añadir valoración</h5>
+                                    <form
+                                        onsubmit="addRating(this.valoracion.value, this.comentario.value); return false;">
+                                        <div class="d-flex mt-3">
+                                            <label for="valoracion" class="form-label flex-grow-1">
+                                                <script>
+                                                    function updateRating(num) {
+                                                        document.getElementById('punt').innerHTML = "Puntuación de " + num.toLocaleString('es-ES');
+                                                    }
+                                                </script>
+                                                <span class="text-white align-top" id="punt">Puntuación de 5</span><span
+                                                    class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span><img
+                                                    src="icon/star.svg" class="align-baseline" />
+                                            </label>
+                                            <input id="slider" type="range" name="valoracion" class="form-range flex-grow-0 w-50" min="0" max="10"
+                                                step="0.1" value="5" oninput="updateRating(parseFloat(this.value))">
+                                        </div>
+
+                                        <textarea id="comentario" name="comentario" class="form-control bg-transparent text-white mt-2"
+                                            aria-label="With textarea"></textarea>
+
+                                        <div class="d-flex">
+                                            <button class="btn btn-primary mt-3 ms-auto me-2" type="submit">Enviar</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
-                </div>
+                </main>
             </div>
-
-            <div class="mb-3 grafico" style="width: 35%;"></div>
-        </div>
-
-        <!-- Valoraciones content -->
-        <div id="ratings" class="row row-cols-1 row-cols-lg-2 mt-2">
-
-            <!-- Añadir valoracion -->
-            <div class="col mt-4">
-                <div class="card mx-3 bg-transparent">
-                    <h5>Añadir valoración</h5>
-                    <form
-                        onsubmit="addRating(this.valoracion.value, this.comentario.value); return false;">
-                        <div class="d-flex mt-3">
-                            <label for="valoracion" class="form-label flex-grow-1">
-                                <script>
-                                    function updateRating(num) {
-                                        document.getElementById('punt').innerHTML = "Puntuación de " + num.toLocaleString('es-ES');
-                                    }
-                                </script>
-                                <span class="text-white align-top" id="punt">Puntuación de 5</span>
-                                <span class="d-inline-block pt-2" style="font-size:0.8rem;">/10</span>
-                                <figure>
-                                    <img src="icons/star.svg" class="align-baseline" />
-                                </figure>
-                            </label>
-                            <input id="slider" type="range" name="valoracion" class="form-range flex-grow-0 w-50" min="0" max="10"
-                                step="0.1" value="5" oninput="updateRating(parseFloat(this.value))">
-                        </div>
-
-                        <textarea id="comentario" name="comentario" class="form-control bg-transparent text-white mt-2"
-                            aria-label="With textarea"></textarea>
-
-                        <div class="d-flex">
-                            <button class="btn btn-primary mt-3 ms-auto me-2" type="submit">Enviar</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-
-
         </div>
     </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -333,8 +345,9 @@
     <!-- Nuestro javascript -->
     <script type="module" src="js/movie.js"></script>
     <script type="module" src="js/ratings.js"></script>
-    <script src="navbar-component.js" type="module" defer></script>
-    <script src="footer-component.js" type="module" defer></script>
+    <script src="js/sidebar.js" type="module" defer></script>
+    <script src="js/navbar-component.js" type="module" defer></script>
+    <script src="js/footer-component.js" type="module" defer></script>
 </body>
 
 </html>

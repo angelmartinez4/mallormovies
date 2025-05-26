@@ -99,7 +99,7 @@ function renderItems() {
 let moviesArray;
 async function loadMovies() {
     try {
-        const response = await fetch('js/movies.json');
+        const response = await fetch('json/movies.json');
         const movies = await response.json();
 
         moviesArray = movies['@graph'];
