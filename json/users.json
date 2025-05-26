@@ -10,14 +10,6 @@
       "friends": [
         "angel33", "mat69"
       ],
-      "favgenre": "Thriller policiaco",
-      "favdirector": "Quentin Tarantino",
-      "avgrating": 7.4,
-      "ratings": [
-        1,
-        4,
-        7
-      ],
       "homeLocation": {
         "@type": "Place",
         "geo": {
@@ -35,14 +27,6 @@
       "image": null,
       "friends": [
         "mat69"
-      ],
-      "favgenre": "Yuri",
-      "favdirector": "Martin Scorsese",
-      "avgrating": 6.9,
-      "ratings": [
-        2,
-        3,
-        5
       ],
       "homeLocation": {
         "@type": "Place",

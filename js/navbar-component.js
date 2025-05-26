@@ -20,7 +20,6 @@ class NavBar extends HTMLElement {
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <a href="video.html" class="nav-item nav-link">Video</a>
                         <a href="mapa.html" class="nav-item nav-link">Mapa</a>
-                        <a href="valoraciones.html" class="nav-item nav-link">Mis valoraciones</a>
                     </div>
                     
                     <div id="userNavBar"></div>
