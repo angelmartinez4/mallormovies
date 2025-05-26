@@ -508,3 +508,103 @@ foo-ter {
 .card:nth-child(3) {
     animation-delay: 0.2s;
 }
+
+/* Contenedor de texto de amigos para evitar desbordamiento */
+.friend-text-content {
+    flex: 1;
+    min-width: 0; /* Permite que el texto se contraiga */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.friend-name {
+    font-size: 0.95rem;
+    line-height: 1.1;
+    margin-bottom: 0.15rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.friend-username {
+    font-size: 0.8rem;
+    line-height: 1.0;
+    white-space: nowrap; /* no intros */
+    overflow: hidden;
+    text-overflow: ellipsis; /* "..." si es largo "*/
+}
+
+/* pantallas medianas especificamente */
+@media (min-width: 576px) and (max-width: 992px) {
+    .friend-item {
+        padding: 0.75rem;
+        min-height: 60px; /* Reducido de 70px a 60px */
+    }
+    
+    .friend-item .friend-avatar {
+        width: 45px !important;
+        height: 45px !important;
+        min-width: 45px !important;
+        min-height: 45px !important;
+        margin-right: 0.75rem;
+    }
+    
+    .friend-name {
+        font-size: 0.85rem; /* Reducido de 0.9rem */
+        line-height: 1.0;
+    }
+    
+    .friend-username {
+        font-size: 0.7rem; /* Reducido de 0.75rem */
+        line-height: 1.0;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 576px) {
+    .friend-item {
+        padding: 0.75rem 0.5rem;
+        min-height: 55px;
+    }
+    
+    .friend-item .friend-avatar {
+        margin-right: 0.5rem;
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+    }
+    
+    .friend-name {
+        font-size: 0.8rem; /* Reducido de 0.85rem */
+        line-height: 1.0;
+        margin-bottom: 0.1rem;
+    }
+    
+    .friend-username {
+        font-size: 0.65rem; /* Reducido de 0.7rem */
+        line-height: 1.0;
+    }
+}
+
+
+
+/* Pantallas grandes */
+@media (min-width: 992px) {
+    .friend-item {
+        min-height: 65px;
+    }
+    
+    .friend-name {
+        font-size: 0.95rem;
+        line-height: 1.1;
+    }
+    
+    .friend-username {
+        font-size: 0.8rem;
+        line-height: 1.0;
+    }
+}

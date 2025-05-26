@@ -1,3 +1,4 @@
+import { generarPfpSvg } from "./graficos.js";
 import { getUser } from "./user.js";
 
 var ratings;
@@ -90,15 +91,16 @@ export async function addRating(rating, body) {
 //contenedor de la reseña
 // Bastante malo para xss :(
 function getRating(Date, rating, body, username){
+    const profileImageHtml = username.image?`<img src="icon/profile.svg" class="friend-avatar flex-grow-0 user-select-none" />` :
+    `<div class="friend-avatar mb-3" style="width: 24px; height: 24px; margin: 0 auto;">${generarPfpSvg(username)}</div>`;
     return `<div class="col mt-4">
                 <div class="card mx-3 bg-transparent">
                     <div class="d-flex">
-                        <img src="icon/profile.svg" class="flex-grow-0 user-select-none" />
+                        ${profileImageHtml}
                         <h6 class="mt-3 ms-2 flex-grow-0">${username}</h6>
                         <div class="flex-grow-1 d-flex justify-content-end">
                             <span ${username==getUser() ? 'id="userDate"': ''}> ${Date} </span>
                             <div class="ms-4">
-
                                 <span ${username==getUser() ? 'id="userRating"': ''} class="text-white align-top">${rating}</span><span class="d-inline-block pt-2"
                                     style="font-size:0.8rem;">/10</span><img src="icon/star.svg"
                                     class="align-baseline" />

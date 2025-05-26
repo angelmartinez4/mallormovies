@@ -48,8 +48,13 @@ function stringToColor(name) {
 export function generarBarchartValoraciones(valoraciones) {
     const xLine = 20
     const xRectDesp = 2
-    // valoraciones = [30, 20, 5, 10, 40, 20, 50, 80, 100, 20] // valor de test
     const maxValoraciones = Math.max(...valoraciones);
+    if (maxValoraciones === 0) {
+        return `<svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <line x1="${xLine}" y1="0" x2="${xLine}" y2="100" stroke="white" stroke-width="2"/>
+            <text x="50" y="50" font-size="6" fill="white" text-anchor="middle">Sin valoraciones</text>
+        </svg>`;
+    }
     const svgRectangulos = []
     let posY = 0
     for (let i=10; i>=1; i--) {

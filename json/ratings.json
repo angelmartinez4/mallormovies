@@ -1,19 +1,5 @@
 [
   {
-    "username": "fernando",
-    "movieId": 9,
-    "ratingValue": 8.3,
-    "reviewBody": "Una película increíble con una trama compleja y efectos visuales impresionantes.",
-    "datePublished": "Mar 10, 2024"
-  },
-  {
-    "username": "rita",
-    "movieId": 9,
-    "ratingValue": 7.2,
-    "reviewBody": "Una obra maestra del cine de superhéroes con una actuación legendaria de Heath Ledger.",
-    "datePublished": "Mar 11, 2024"
-  },
-  {
     "username": "kjorda02",
     "movieId": "9",
     "ratingValue": "9.7",
@@ -23,7 +9,7 @@
   {
     "username": "kjorda02",
     "movieId": "10",
-    "ratingValue": "5",
+    "ratingValue": "9",
     "reviewBody": "Peli supermegaguay",
     "datePublished": "Apr 26, 2025"
   },
@@ -37,7 +23,7 @@
   {
     "username": "kjorda02",
     "movieId": "15",
-    "ratingValue": "5",
+    "ratingValue": "9",
     "reviewBody": "dasfdasfadsdas",
     "datePublished": "Apr 26, 2025"
   },
@@ -51,7 +37,7 @@
   {
     "username": "kjorda02",
     "movieId": "7",
-    "ratingValue": "5",
+    "ratingValue": "7",
     "reviewBody": "fadsfdafds",
     "datePublished": "Apr 26, 2025"
   },
@@ -63,9 +49,23 @@
     "datePublished": "Apr 26, 2025"
   },
   {
+    "username": "mat69",
+    "movieId": "4",
+    "ratingValue": "3.69",
+    "reviewBody": "AAAAAAAAAAA",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
     "username": "kjorda02",
     "movieId": "11",
     "ratingValue": "5",
+    "reviewBody": "AAAAAAAAAAAAAA",
+    "datePublished": "Apr 26, 2025"
+  },
+  {
+    "username": "mat69",
+    "movieId": "11",
+    "ratingValue": "9",
     "reviewBody": "AAAAAAAAAAAAAA",
     "datePublished": "Apr 26, 2025"
   }

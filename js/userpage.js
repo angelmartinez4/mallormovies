@@ -1,5 +1,6 @@
 import {getUser} from './user.js';
 import {generarPfpSvg} from './graficos.js'
+
 // Función para cargar datos de usuarios
 async function loadUsers(forceRefresh = false) {
     try {
@@ -19,7 +20,53 @@ async function loadUsers(forceRefresh = false) {
     }
 }
 
-// Función para guardar usuarios en el JSON
+// Función para cargar ratings
+async function loadRatings(forceRefresh = false) {
+    try {
+        let url = 'json/ratings.json';
+        
+        // Añadir timestamp para evitar caché si se solicita refresh
+        if (forceRefresh) {
+            url += '?t=' + Date.now();
+        }
+        
+        const response = await fetch(url);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error cargando ratings:', error);
+        return [];
+    }
+}
+
+// Función para calcular la puntuación promedio de un usuario
+function calculateAverageRating(username, ratingsData) {
+    if (!Array.isArray(ratingsData) || ratingsData.length === 0) {
+        return null;
+    }
+    
+    // Filtrar ratings por username
+    const userRatings = ratingsData.filter(rating => rating.username === username);
+    
+    if (userRatings.length === 0) {
+        return null; // No hay ratings
+    }
+    
+    // Calcular promedio de ratingValue
+    const sum = userRatings.reduce((total, rating) => {
+        const ratingValue = parseFloat(rating.ratingValue);
+        return total + (isNaN(ratingValue) ? 0 : ratingValue);
+    }, 0);
+    
+    return sum / userRatings.length;
+}
+
+// guardar usuarios en JSON
 async function saveUsers(usersData) {
     try {
         const dataToSave = {
@@ -107,21 +154,16 @@ async function toggleFriendship(targetUsername) {
         const friendsList = currentUserData.friends;
         const friendIndex = friendsList.indexOf(targetUsername);
         
-        if (friendIndex > -1) {
-            // Eliminar amigo
+        if (friendIndex > -1) { // Eliminar amigo
             friendsList.splice(friendIndex, 1);
             console.log(`Eliminado ${targetUsername} de la lista de amigos`);
-        } else {
-            // Añadir amigo
+        } else { // Añadir amigo
             friendsList.push(targetUsername);
             console.log(`Añadido ${targetUsername} a la lista de amigos`);
         }
         
-        // Guardar cambios en el servidor
         await saveUsers(usersData);
-        console.log('Cambios guardados exitosamente');
         
-        // Pequeño delay para asegurar que el archivo se haya guardado
         await new Promise(resolve => setTimeout(resolve, 200));
         
         // Recargar datos frescos del servidor FORZANDO refresh (sin caché)
@@ -130,8 +172,7 @@ async function toggleFriendship(targetUsername) {
         // Actualizar la barra lateral de amigos con datos frescos
         const friendsSidebar = document.querySelector('friends-sidebar');
         if (friendsSidebar) {
-            console.log('Actualizando sidebar...');
-            // Forzar que la sidebar también use datos sin caché
+            // Forzar que la sidebar también use datos sin cache
             friendsSidebar.loadFriends = async function() {
                 try {
                     const currentUsername = getUser();
@@ -140,7 +181,6 @@ async function toggleFriendship(targetUsername) {
                         return;
                     }
                     
-                    // Usar datos frescos ya cargados
                     const currentUser = freshUsersData[currentUsername];
                     if (!currentUser || !currentUser.friends || currentUser.friends.length === 0) {
                         this.friendsList.innerHTML = '<p class="text-muted p-3">No tienes amigos 😂</p>';
@@ -169,7 +209,7 @@ async function toggleFriendship(targetUsername) {
             console.log('No se encontró el sidebar');
         }
         
-        // Actualizar solo el botón de amistad con datos frescos
+        // actualizar boton amigos
         await updateFriendButton(targetUsername, freshUsersData);
         
     } catch (error) {
@@ -178,7 +218,6 @@ async function toggleFriendship(targetUsername) {
     }
 }
 
-// Función para formatear fecha
 function formatDate(dateString) {
     if (!dateString) return 'No especificada';
     const date = new Date(dateString);
@@ -189,7 +228,6 @@ function formatDate(dateString) {
     });
 }
 
-// Función principal para renderizar el perfil
 async function renderUserProfile() {
     const username = getUsernameFromUrl();
     if (!username) {
@@ -203,6 +241,7 @@ async function renderUserProfile() {
     }
 
     const usersData = await loadUsers(true); // Forzar refresh también aquí
+    const ratingsData = await loadRatings(true); // Cargar ratings
     const userData = usersData[username];
     
     if (!userData) {
@@ -220,6 +259,9 @@ async function renderUserProfile() {
     const isFriend = currentUserData ? areFriends(currentUserData, username) : false;
     const showFriendButton = currentUser && currentUser !== username;
 
+    // Calcular puntuación promedio dinámicamente
+    const avgRating = calculateAverageRating(username, ratingsData);
+
     // Determinar imagen de perfil
     let profileImageHtml;
     if (userData.image) {
@@ -233,10 +275,9 @@ async function renderUserProfile() {
         profileImageHtml = `<div class="friend-avatar mb-3" style="width: 150px; height: 150px; margin: 0 auto;">${svg}</div>`;
     }
 
-    // Generar lista de amigos en común
+    // amigos comunes
     let friendsListHtml = '';
     if (userData.friends && userData.friends.length > 0 && currentUserData && currentUserData.friends) {
-        // Filtrar solo amigos en común
         const commonFriends = userData.friends.filter(friendUsername => 
             currentUserData.friends.includes(friendUsername)
         );
@@ -249,21 +290,21 @@ async function renderUserProfile() {
                 let friendImageHtml;
                 if (friendData?.image) {
                     friendImageHtml = `<img src="${friendData.image}" 
-                                           alt="${friendUsername}" 
-                                           class="friend-avatar">`;
+                                        alt="${friendUsername}" 
+                                        class="friend-avatar">`;
                 } else {
                     const friendSvg = generarPfpSvg(friendUsername);
                     friendImageHtml = `<div class="friend-avatar">${friendSvg}</div>`;
                 }
                 
                 return `
-                    <div class="col-md-6 col-lg-4 mb-2">
+                    <div class="col-12 col-sm-6 col-lg-4 mb-2">
                         <a href="?user=${friendUsername}" class="text-decoration-none">
                             <div class="friend-item">
                                 ${friendImageHtml}
-                                <div>
-                                    <div class="fw-bold">${friendName}</div>
-                                    <small class="text-muted">@${friendUsername}</small>
+                                <div class="friend-text-content">
+                                    <div class="fw-bold friend-name">${friendName}</div>
+                                    <small class="text-muted friend-username">@${friendUsername}</small>
                                 </div>
                             </div>
                         </a>
@@ -314,26 +355,16 @@ async function renderUserProfile() {
                             <div class="col-sm-4"><strong>Nombre:</strong></div>
                             <div class="col-sm-8">${userData.name}</div>
                         </div>
-                        
                         <div class="row mb-3">
                             <div class="col-sm-4"><strong>Fecha de registro:</strong></div>
                             <div class="col-sm-8">${formatDate(userData.dateCreated)}</div>
-                        </div>
-                        
-                        <div class="row mb-3">
-                            <div class="col-sm-4"><strong>Género favorito:</strong></div>
-                            <div class="col-sm-8">${userData.favgenre || 'No especificado'}</div>
-                        </div>
-                        
-                        <div class="row mb-3">
-                            <div class="col-sm-4"><strong>Director favorito:</strong></div>
-                            <div class="col-sm-8">${userData.favdirector || 'No especificado'}</div>
-                        </div>
-                        
+                        </div>                        
                         <div class="row mb-3">
                             <div class="col-sm-4"><strong>Puntuación promedio:</strong></div>
                             <div class="col-sm-8">
-                                <span class="badge ${userData.avgrating && userData.avgrating < 5 ? 'bg-danger' : 'bg-success'} fs-6">${userData.avgrating ? userData.avgrating.toFixed(1) : 'N/A'}</span>
+                                <span class="badge ${avgRating !== null && avgRating < 5 ? 'bg-danger' : 'bg-success'} fs-6">
+                                    ${avgRating !== null ? avgRating.toFixed(1) : 'N/A'}
+                                </span>
                             </div>
                         </div>
                     </div>

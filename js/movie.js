@@ -1,6 +1,21 @@
 import {generarPfpSvg, generarBarchartValoraciones} from './graficos.js';
+let cachedRatings = null; // cache de ratings.json para usos en sitios distintos
 
-function renderData(data) {
+async function loadRatingsData() {
+    if (cachedRatings !== null) {
+        return cachedRatings;
+    }   
+    try {
+        const response = await fetch('json/ratings.json');
+        cachedRatings = await response.json();
+        return cachedRatings;
+    } catch (error) {
+        console.error('Error loading ratings:', error);
+        return [];
+    }
+}
+
+async function renderData(data) {
     var container = document.getElementById('titulo');
     container.innerHTML = data.name;
 
@@ -15,8 +30,10 @@ function renderData(data) {
     const match = data.trailer.embedUrl.match(regExp);
     container.src = "https://www.youtube.com/embed/"+match[2];
 
+    const movieRatings = await loadMovieRatings();
+    console.log(movieRatings);
     container = [...document.getElementsByClassName('grafico')];
-    container.forEach(itm => itm.innerHTML = generarBarchartValoraciones([30, 20, 5, 10, 40, 20, 50, 80, 100, 20])); 
+    container.forEach(itm => itm.innerHTML = generarBarchartValoraciones(movieRatings)); 
 
     // Informacion
     container = document.getElementById('director');
@@ -24,9 +41,6 @@ function renderData(data) {
 
     container = document.getElementById('genero');
     container.innerHTML = data.genre.join(', ');
-
-    console.log(data.participant);
-
     for (var field of ['name', 'birthDate', 'birthPlace', 'jobTitle']) {
         container = [...document.getElementsByClassName(field)];
 
@@ -46,21 +60,77 @@ async function loadMovie() {
         var movies = await response.json();
         movies = movies['@graph'];
 
-        renderData(movies[movieId]);
+        await renderData(movies[movieId]);
         loadIMDBRating(movies[movieId].sameAs);
+        loadLocalRating();
     } catch (error) {
         console.error('Error loading movie:', error);
     }
 }
 
+async function loadMovieRatings() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const movieId = urlParams.get('movieid');
+    
+    const ratings = await loadRatingsData();
+    const movieRatings = ratings.filter(m => m.movieId == movieId);    
+    const ratingFrequencies = [];
+
+    for (let i = 1; i <= 10; i++) {
+        ratingFrequencies[i] = 0;
+    }
+
+    // Contar las frecuencias
+    movieRatings.forEach(rating => {
+        const roundedRating = Math.round(rating.ratingValue);
+        if (roundedRating >= 1 && roundedRating <= 10) {
+            ratingFrequencies[roundedRating]++;
+        }
+    });
+    
+    return ratingFrequencies.slice(1);
+}
+
 loadMovie();
+
+
+async function loadLocalRating() { // ratings de nuestro JSON
+    const movieRatings = await loadMovieRatings();
+    const totalCount = movieRatings.reduce((sum, freq) => sum + freq, 0);
+    
+    if (totalCount === 0) {
+        // Si no hay valoraciones, mostrar mensaje
+        [...document.getElementsByClassName('localrating')].forEach(itm => itm.innerHTML = 'N/A');
+        [...document.getElementsByClassName('localcount')].forEach(itm => itm.innerHTML = 'Sin valoraciones');
+        return;
+    }
+    
+    // Calcular el rating promedio ponderado
+    let totalWeightedRating = 0;
+    movieRatings.forEach((frequency, index) => {
+        const rating = index + 1; // El índice 0 corresponde a rating 1, índice 1 a rating 2, etc.
+        totalWeightedRating += rating * frequency;
+    });
+    
+    const averageRating = totalWeightedRating / totalCount;
+    const roundedAverage = Math.round(averageRating * 10) / 10; // Redondear a 1 decimal
+    
+    // Actualizar elementos del DOM
+    const ratingText = roundedAverage.toLocaleString('es-ES');
+    [...document.getElementsByClassName('localrating')].forEach(itm => itm.innerHTML = ratingText);
+    
+    const countText = totalCount === 1 ? '1 valoración' : `${totalCount.toLocaleString('es-ES')} valoraciones`;
+    [...document.getElementsByClassName('localcount')].forEach(itm => itm.innerHTML = countText);
+    
+    console.log(`Rating local: ${ratingText} (${countText})`);
+    console.log('Frecuencias por rating:', movieRatings);
+}
 
 
 async function loadIMDBRating(url) {
     var rating;
     var runtime;
     var year;
-    console.log(url);
     const regex = /\/title\/(tt\d+)/;
     const imdbcode = regex.exec(url)[1];
 
