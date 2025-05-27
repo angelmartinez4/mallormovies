@@ -127,7 +127,7 @@ async function loadLocalRating() { // ratings de nuestro JSON
 }
 
 
-async function loadIMDBRating(url) {
+export async function loadIMDBRating(url) {
     var rating;
     var runtime;
     var year;
@@ -177,6 +177,3 @@ async function loadIMDBRating(url) {
     txt += "k valoraciones";
     [...document.getElementsByClassName('imdbcount')].forEach(itm => itm.innerHTML = txt);
   }
-
-
-  
