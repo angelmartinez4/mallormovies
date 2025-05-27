@@ -1,7 +1,6 @@
 import {getUser} from './user.js';
 import {generarPfpSvg} from './graficos.js'
 
-// Función para cargar datos de usuarios (simplificada, ya no necesita anti-caché complejo)
 async function loadUsers(forceRefresh = false) {
     try {
         let url = 'json/users.json';
@@ -133,7 +132,6 @@ async function updateFriendButton(targetUsername, usersData) {
     }
 }
 
-// Función simplificada para alternar amistad con refresh de página
 async function toggleFriendship(targetUsername) {
     const currentUser = getUser();
     if (!currentUser) return;
@@ -150,7 +148,7 @@ async function toggleFriendship(targetUsername) {
             return;
         }
         
-        // Inicializar friends si no existe
+        // inicializar friends si no existe
         if (!currentUserData.friends) {
             currentUserData.friends = [];
         }
@@ -166,7 +164,6 @@ async function toggleFriendship(targetUsername) {
             console.log(`Añadido ${targetUsername} a la lista de amigos`);
         }
         
-        // Guardar cambios en el servidor
         await saveUsers(usersData);
         console.log('Cambios guardados en servidor');
         
