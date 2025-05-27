@@ -4,53 +4,18 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color:white;
+    color: white;
     font-family: 'Inknut Antiqua', serif;
 }
 
 p {
-    color:white;
+    color: white;
     text-align: justify;
-}
-
-@media (max-width: 991.98px) {
-    #vid {
-        aspect-ratio: 16 / 9;
-        width: 100%;
-    }
 }
 
 .boton:hover {
     color: #32C36C;
     cursor: pointer;
-}
-
-.map-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto;
-    padding: 3vh 3%;
-    min-height: calc(100vh - 200px); 
-}
-
-.map-card {
-    background: #222;
-    border-radius: 15px;
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#mapa {
-    width: 100%; 
-    height: 600px;
-    border-radius: 10px;
-    z-index: 900;
 }
 
 .altavoz {
@@ -61,30 +26,66 @@ p {
     stroke: #32C36C;
 }
 
+/* Video responsivo */
+@media (max-width: 991.98px) {
+    #vid {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+    }
+}
+
+/* Mapa */
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 3vh 3%;
+    min-height: calc(100vh - 200px);
+}
+
+.map-card {
+    background: #222;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mapa {
+    width: 100%;
+    height: 600px;
+    border-radius: 10px;
+    z-index: 900;
+}
+
+/* Navbar */
 #navBar-container {
-    position: fixed; /* Fija el div en la pantalla */
-    width: 100%; /* Ocupa todo el ancho */
-    z-index: 1000; /* Se asegura de que esté sobre otros elementos */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 /* Sidebar de amigos */
 .friends-sidebar {
-    height: calc(100vh); /* altura completa menos navbar */
-    background-color: #000000; /* fondo negro */
-    border-right: 1px solid #333333;
+    height: calc(100vh - 56px);
+    background-color: black;
+    border-right: 1px solid #333;
     position: fixed;
-    top: 75px; /* justo debajo del navbar */
+    top: 75px;
     left: 0;
-    width: 100%;
-    max-width: 300px;
+    width: 300px;
     z-index: 1000;
     overflow-y: auto;
     transition: transform 0.3s ease;
 }
 
 .sidebar-header {
-    padding: 5rem 1rem 1rem 1rem; /* padding arriba añadido */
-    border-bottom: 1px solid #333333;
+    padding: 5rem 1rem 1rem;
+    border-bottom: 1px solid #333;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,11 +93,11 @@ p {
 
 .sidebar-header h5 {
     margin: 0;
-    color: #ffffff; /* texto blanco */
+    color: white;
 }
 
 .sidebar-header .btn-close {
-    background-color: #ffffff;
+    background-color: white;
     opacity: 0.8;
 }
 
@@ -113,32 +114,65 @@ p {
     align-items: center;
     padding: 0.75rem 1rem;
     text-decoration: none;
-    color: #ffffff; /* texto blanco */
-    background-color: #333333; /* fondo gris oscuro */
+    color: white;
+    background-color: #333;
     margin: 0.25rem 0.5rem;
     border-radius: 50px;
     transition: background-color 0.2s ease;
+    min-height: 65px;
 }
 
 .friend-item:hover {
-    background-color: #444444; /* gris más claro al hover */
-    color: #ffffff;
+    background-color: #444;
+    color: white;
     text-decoration: none;
 }
 
 .friend-avatar {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     margin-right: 0.75rem;
     object-fit: cover;
+    overflow: hidden;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.friend-avatar svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.friend-text-content {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .friend-name {
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.1;
+    margin-bottom: 0.15rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Botón flotante para toggle en móvil */
+.friend-username {
+    font-size: 0.8rem;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* boton toggle sidebar */
 .sidebar-toggle-btn {
     position: fixed;
     top: 70px;
@@ -161,73 +195,15 @@ p {
     pointer-events: none;
 }
 
-/* Contenido principal: lo que no es sidebar/navbar/footer */
 .main-content {
     padding: 2rem;
     min-height: calc(100vh - 150px);
 }
 
-/* Responsive */
-@media (min-width: 992px) {
-    .friends-sidebar {
-        position: fixed;
-        height: calc(100vh - 56px);
-        width: 300px; 
-        max-width: 300px;
-    }
-    
-    .sidebar-toggle-btn {
-        display: none;
-    }
-}
-
-@media (max-width: 992px) {
-    .friends-sidebar {
-        position: fixed;
-        height: calc(100vh - 56px);
-        transform: translateX(-100%);
-    }
-    
-    .friends-sidebar.show {
-        transform: translateX(0);
-    }
-    
-    .main-content {
-        margin-left: 0;
-    }
-}
-
-/* avatar en la lista de amigos */
-.friend-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: inline-block;
-}
-/* Si no hay imagen usa un SVG dinamico */
-.friend-avatar svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* Para que la lista de amigos quede debajo del footer xdd */
-foo-ter {
-    position: relative;
-    z-index: 2000;
-}
-
-
-
-
-
-
-
-/* Estilos para el perfil de usuario */
+/* Alerts */
 .alert {
     background-color: #1a1a1a;
-    border: 1px solid #333333;
+    border: 1px solid #333;
     color: #32C36C;
     border-radius: 10px;
 }
@@ -247,10 +223,10 @@ foo-ter {
     margin-bottom: 1rem;
 }
 
-/* Cards del perfil */
+/* cards del perfil */
 .card {
     background-color: #1a1a1a;
-    border: 4px solid #333333;
+    border: 4px solid #333;
     border-radius: 25px;
     box-shadow: 0 4px 15px rgba(50, 195, 108, 0.1);
     transition: box-shadow 0.3s ease;
@@ -287,7 +263,7 @@ foo-ter {
     font-weight: 700;
 }
 
-/* Imagen de perfil en el centro de la card */
+/* imagen de perfil centrada */
 .card-body.text-center .friend-avatar {
     border: 3px solid #32C36C;
     box-shadow: 0 0 15px rgba(50, 195, 108, 0.3);
@@ -301,13 +277,12 @@ foo-ter {
     box-shadow: 0 0 25px rgba(50, 195, 108, 0.5);
 }
 
-/* Username y texto muted */
 .text-muted {
-    color: #888888 !important;
+    color: #888;
     font-style: italic;
 }
 
-/* Botones de amistad */
+/* botones */
 .btn-primary {
     background-color: #32C36C;
     border-color: #32C36C;
@@ -343,10 +318,10 @@ foo-ter {
     box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
 }
 
-/* Información del perfil - filas */
+/* filas de info d perfil */
 .row.mb-3 {
     padding: 0.75rem 0;
-    border-bottom: 1px solid #333333;
+    border-bottom: 1px solid #333;
     transition: background-color 0.2s ease;
     margin-left: 0;
     margin-right: 0;
@@ -357,7 +332,7 @@ foo-ter {
 }
 
 .row.mb-3:hover {
-    background-color: #222222;
+    background-color: #222;
     border-radius: 8px;
     padding: 0.75rem 0.5rem;
     margin-left: -0.5rem;
@@ -370,31 +345,30 @@ foo-ter {
 }
 
 .row.mb-3 .col-sm-8 {
-    color: #ffffff;
+    color: white;
 }
 
-/* Badge para puntuación */
 .badge {
-    font-size: 1rem !important;
+    font-size: 1rem;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: 600;
 }
 
 .badge.bg-success {
-    background-color: #32C36C !important;
+    background-color: #32C36C;
     color: black;
 }
 
 .badge.bg-danger {
-    background-color: #dc3545 !important;
+    background-color: #dc3545;
     color: white;
 }
 
-/* Amigos en común */
+/* items amigos perfil */
 .friend-item {
-    background-color: #222222;
-    border: 1px solid #333333;
+    background-color: #222;
+    border: 1px solid #333;
     border-radius: 12px;
     padding: 1rem;
     margin-bottom: 0.5rem;
@@ -417,12 +391,9 @@ foo-ter {
 .friend-item .friend-avatar {
     width: 50px;
     height: 50px;
-    min-width: 50px;
-    min-height: 50px;
     margin-right: 1rem;
     border: 2px solid #32C36C;
     transition: border-color 0.3s ease;
-    flex-shrink: 0;
 }
 
 .friend-item:hover .friend-avatar {
@@ -436,21 +407,45 @@ foo-ter {
 }
 
 .friend-item small.text-muted {
-    color: #888888 !important;
+    color: #888;
     font-size: 0.85rem;
 }
 
-/* Responsive adjustments */
+/* footer custom */
+foo-ter {
+    position: relative;
+    z-index: 2000;
+}
+
+/* responsive */
+@media (min-width: 992px) {
+    .sidebar-toggle-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .friends-sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .friends-sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .card-body {
         padding: 1rem;
     }
     
     .card-body.text-center .friend-avatar {
-        width: 100px !important;
-        height: 100px !important;
-        min-width: 100px !important;
-        min-height: 100px !important;
+        width: 100px;
+        height: 100px;
     }
     
     .row.mb-3 {
@@ -462,149 +457,47 @@ foo-ter {
     }
     
     .friend-item .friend-avatar {
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        min-height: 40px !important;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .friend-item {
+        min-height: 60px;
+        padding: 0.75rem;
+    }
+    
+    .friend-name {
+        font-size: 0.85rem;
+    }
+    
+    .friend-username {
+        font-size: 0.7rem;
     }
 }
 
 @media (max-width: 576px) {
     .card-body.text-center .friend-avatar {
-        width: 80px !important;
-        height: 80px !important;
-        min-width: 80px !important;
-        min-height: 80px !important;
+        width: 80px;
+        height: 80px;
     }
     
-    .friend-item .friend-avatar {
-        width: 35px !important;
-        height: 35px !important;
-        min-width: 35px !important;
-        min-height: 35px !important;
-    }
-}
-
-/* Animaciones sutiles */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.card {
-    animation: fadeIn 0.5s ease-out;
-}
-
-.card:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.card:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-/* Contenedor de texto de amigos para evitar desbordamiento */
-.friend-text-content {
-    flex: 1;
-    min-width: 0; /* Permite que el texto se contraiga */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.friend-name {
-    font-size: 0.95rem;
-    line-height: 1.1;
-    margin-bottom: 0.15rem;
-    font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.friend-username {
-    font-size: 0.8rem;
-    line-height: 1.0;
-    white-space: nowrap; /* no intros */
-    overflow: hidden;
-    text-overflow: ellipsis; /* "..." si es largo "*/
-}
-
-/* pantallas medianas especificamente */
-@media (min-width: 576px) and (max-width: 992px) {
-    .friend-item {
-        padding: 0.75rem;
-        min-height: 60px; /* Reducido de 70px a 60px */
-    }
-    
-    .friend-item .friend-avatar {
-        width: 45px !important;
-        height: 45px !important;
-        min-width: 45px !important;
-        min-height: 45px !important;
-        margin-right: 0.75rem;
-    }
-    
-    .friend-name {
-        font-size: 0.85rem; /* Reducido de 0.9rem */
-        line-height: 1.0;
-    }
-    
-    .friend-username {
-        font-size: 0.7rem; /* Reducido de 0.75rem */
-        line-height: 1.0;
-    }
-}
-
-/* Pantallas pequeñas */
-@media (max-width: 576px) {
     .friend-item {
         padding: 0.75rem 0.5rem;
         min-height: 55px;
     }
     
     .friend-item .friend-avatar {
+        width: 35px;
+        height: 35px;
         margin-right: 0.5rem;
-        width: 40px !important;
-        height: 40px !important;
-        min-width: 40px !important;
-        min-height: 40px !important;
     }
     
     .friend-name {
-        font-size: 0.8rem; /* Reducido de 0.85rem */
-        line-height: 1.0;
+        font-size: 0.8rem;
         margin-bottom: 0.1rem;
     }
     
     .friend-username {
-        font-size: 0.65rem; /* Reducido de 0.7rem */
-        line-height: 1.0;
-    }
-}
-
-
-
-/* Pantallas grandes */
-@media (min-width: 992px) {
-    .friend-item {
-        min-height: 65px;
-    }
-    
-    .friend-name {
-        font-size: 0.95rem;
-        line-height: 1.1;
-    }
-    
-    .friend-username {
-        font-size: 0.8rem;
-        line-height: 1.0;
+        font-size: 0.65rem;
     }
 }

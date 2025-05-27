@@ -1,10 +1,13 @@
 import {generarValoracionMedia} from './graficos.js';
 
-function getCard(item, index, rol) {
-
+async function getCard(item, index, rol) {
     if (rol != " "){
         if (!item.participant?.some(p => p.jobTitle?.toLowerCase() === rol.toLowerCase())) return;
     }
+
+    console.log(item.sameAs);
+    const val = item.aggregateRating.ratingValue;
+    
 
     return `
         <article class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
@@ -14,7 +17,7 @@ function getCard(item, index, rol) {
                 </figure>
                 <div class="position-relative p-4 pt-0">
                     <div class="service-icon bg-dark">
-                        ${generarValoracionMedia(item.aggregateRating.ratingValue)}
+                        ${generarValoracionMedia(val)}
                     </div>
                     <h4 class="mb-3">${item.name}</h4>
                     <p>${item.description}</p>
@@ -25,56 +28,43 @@ function getCard(item, index, rol) {
     `;
 }
 
-function filtrarDirector(){
+async function filtrarDirector(){
     const container = document.getElementById('peliculas');
+    const moviesArray = movies['@graph'];
 
-    const cardsActor = moviesArray
-        .map((item, index) => getCard(item, index, "director"))
-        .filter(card => card); 
-    const cardsActriz = moviesArray
-        .map((item, index) => getCard(item, index, "directora"))
-        .filter(card => card); 
-    
-    const cards = cardsActor.concat(cardsActriz);
+    const htmlDirector = await Promise.all(
+        moviesArray.map(async (item, index) => await getCard(item, index, "director")).filter(card => card)
+    );
+    const htmlDirectora = await Promise.all(
+        moviesArray.map(async (item, index) => await getCard(item, index, "directora")).filter(card => card)
+    );
 
-    container.innerHTML = cards.join('');
-
-    const numero_peliculas = document.getElementById('N-peliculas');
-
-    numero_peliculas.innerHTML = `${cards.length} Peliculas con director/a de Mallorca`;
+    container.innerHTML = htmlDirector.concat(htmlDirectora).join('');
 }
 
-function filtrarActor(){
+async function filtrarActor(){
     const container = document.getElementById('peliculas');
-    
-    const cardsActor = moviesArray
-        .map((item, index) => getCard(item, index, "actor"))
-        .filter(card => card); 
-    const cardsActriz = moviesArray
-        .map((item, index) => getCard(item, index, "actriz"))
-        .filter(card => card); 
-    
-    const cards = cardsActor.concat(cardsActriz);
+    const moviesArray = movies['@graph'];
 
-    container.innerHTML = cards.join('');
+    const htmlActor = await Promise.all(
+        moviesArray.map(async (item, index) => await getCard(item, index, "actor")).filter(card => card)
+    );
+    const htmlActriz = await Promise.all(
+        moviesArray.map(async (item, index) => await getCard(item, index, "actriz")).filter(card => card)
+    );
 
-    const numero_peliculas = document.getElementById('N-peliculas');
-
-    numero_peliculas.innerHTML = `${cards.length} Peliculas con actor/riz de Mallorca`;
+    container.innerHTML = htmlActor.concat(htmlActriz).join('');
 }
 
-function filtrarTecnico(){
+async function filtrarTecnico(){
     const container = document.getElementById('peliculas');
-        
-    const cards = moviesArray
-        .map((item, index) => getCard(item, index, "Técnico de efectos visuales"))
-        .filter(card => card);
+    const moviesArray = movies['@graph'];
 
-    container.innerHTML = cards.join('');
+    const htmlTecnico = await Promise.all(
+        moviesArray.map(async (item, index) => await getCard(item, index, "Técnico de efectos visuales")).filter(card => card)
+    );
 
-    const numero_peliculas = document.getElementById('N-peliculas');
-
-    numero_peliculas.innerHTML = `${cards.length} Peliculas con técnico de Mallorca`;
+    container.innerHTML = htmlTecnico.join('');
 }
 
 function addEvent() {
@@ -88,13 +78,17 @@ function addEvent() {
     filtrar_tec.addEventListener("click", filtrarTecnico);
 }
 
-function renderItems() {
+async function renderItems(data) {
     const container = document.getElementById('peliculas');
+    const moviesArray = data['@graph'];
 
-    // Map each item to HTML using the template, then join into one string
-    container.innerHTML = moviesArray.map((item, index) => getCard(item, index, " ")).join('');
+    // Use Promise.all to wait for all async getCard calls
+    const htmlCards = await Promise.all(
+        moviesArray.map(async (item, index) => await getCard(item, index, " "))
+    );
+
+    container.innerHTML = htmlCards.join('');
 }
-
 
 let moviesArray;
 async function loadMovies() {
@@ -108,7 +102,7 @@ async function loadMovies() {
 
         numero_peliculas.innerHTML = `${movies['@graph'].length} Peliculas con participantes de Mallorca`;
 
-        renderItems();
+        await renderItems();
     } catch (error) {
         console.error('Error loading movies:', error);
     }

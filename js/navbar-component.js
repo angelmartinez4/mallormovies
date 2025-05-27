@@ -19,21 +19,24 @@ class NavBar extends HTMLElement {
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto p-4 p-lg-0">
                         <a href="video.html" class="nav-item nav-link">Video</a>
-                        <a href="mapa.html" class="nav-item nav-link">Mapa</a>
+                        <a href="mapa.html" class="nav-item nav-link">Mapa</a>    
+                        <div id="userNavBar1" class="userNavBar d-lg-none"></div>
                     </div>
                     
-                    <div id="userNavBar"></div>
+                    <div id="userNavBar2" class="d-none d-lg-block"></div>
+                    
                 </div>
             </nav>
             <!-- Navbar End -->
             `;
-            
 
             const user = getUser();
-            const c = document.getElementById('userNavBar');
-
+            const c = document.getElementById('userNavBar2');
+            const d = document.getElementById('userNavBar1');
+            
             if (user == null) {
                 c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
+                d.innerHTML = `<a href="login.html" class="nav-item nav-link">LOG IN</a>`;
             }
             else {
                 const profileImage = (user && user.image) ? 
@@ -44,6 +47,8 @@ class NavBar extends HTMLElement {
                     <a href="users.html?username=${user}" class="ms-3 text-white">${user}</a>
                     <img src="./icon/exit.svg" alt="Icono para cerrar sesion" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />
                 `;
+
+                d.innerHTML = `<a href="users.html?username=${user}" class="nav-item nav-link">${user}<img src="./icon/exit.svg" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" /></a>`;
             }
         }
     }
@@ -54,7 +59,8 @@ class NavBar extends HTMLElement {
         if (friendsSidebar) { // ocultar lista amigos en logout
             friendsSidebar.hideSidebar();
         }
-        const c = document.getElementById('userNavBar');
+        const c = document.getElementById('userNavBar2');
+        
         c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
     }
   

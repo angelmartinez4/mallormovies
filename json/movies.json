@@ -28,10 +28,76 @@
         "description": "Enric Auquer (\"El maestro que prometió el mar\") y Laia Manzanares (\"La desconocida\") protagonizan este delicado thriller psicológico con los más inesperados elementos sobrenaturales...",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "0",
+          "ratingValue": "5.6",
           "reviewCount": "0"
         },
         "sameAs": "https://www.imdb.com/title/tt16379280/"
+      },
+      {
+        "@type": "Movie",
+        "name": "Un hombre llamado Ove",
+        "image": "Un_hombre_llamado_Ove-191014877-large.webp",
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Un hombre llamado Ove - Trailer español (HD)",
+          "embedUrl": "https://www.youtube.com/watch?v=x9MIOIw3cWw"
+        },
+        "genre": ["Comedia", "Drama"],
+        "director": {
+          "@type": "Person",
+          "name": "Hannes Holm"
+        },
+        "description": "Los suecos y sus abuelos gruñones. Una entrañable comedia sobre la vejez y la amistad...",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "0",
+          "reviewCount": "0"
+        },
+        "sameAs": "https://www.imdb.com/title/tt4080728/"
+      },
+      {
+        "@type": "Movie",
+        "name": "Jappeloup. De padre a hijo",
+        "image": "Jappeloup_De_padre_a_hijo-699316801-large.webp",
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "JAPPELOUP. DE PADRE A HIJO (Tráiler Oficial España \"Jappeloup\")",
+          "embedUrl": "https://www.youtube.com/watch?v=AQk_j3VaAVo"
+        },
+        "genre": ["Drama"],
+        "director": {
+          "@type": "Person",
+          "name": "Christian Duguay"
+        },
+        "description": "Escrita y protagonizada por el ganador del César Guillaume Canet (‘No se lo digas a nadie', ‘El caso Farewell')...",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "0",
+          "reviewCount": "0"
+        },
+        "sameAs": "https://www.imdb.com/title/tt2018079/"
+      },
+      {
+        "@type": "Movie",
+        "name": "La mujer de paja",
+        "image": "Woman_of_Straw-144027708-large.webp",
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Woman Of Straw (1964) | HD Trailer",
+          "embedUrl": "https://www.youtube.com/watch?v=s0ZPePnqJ0c"
+        },
+        "genre": ["Thriller", "Drama", "Clásico"],
+        "director": {
+          "@type": "Person",
+          "name": "Basil Dearden"
+        },
+        "description": "Charles Ritchmon, un magnate inglés de las finanzas que lleva años inmovilizado en una silla de ruedas...",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "0",
+          "reviewCount": "0"
+        },
+        "sameAs": "https://www.imdb.com/title/tt0058754/"
       },
       {
         "@type": "Movie",
@@ -50,7 +116,7 @@
         "description": "Orgullosamente recuperamos para Atlàntida Mallorca Film Fest este clásico del cine balear rodado íntegramente en la Serra de Tramuntana...",
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "0",
+          "ratingValue": "7.5",
           "reviewCount": "0"
         },
         "sameAs": "https://www.imdb.com/title/tt0772726/",
@@ -63,6 +129,28 @@
             "jobTitle": "Actor"
           }
         ]
+      },
+      {
+        "@type": "Movie",
+        "name": "El síndrome Baumbacher",
+        "image": "El_saindrome_Baumbacher-399319369-large.webp",
+        "trailer": {
+          "@type": "VideoObject",
+          "name": "Baumbacher Sendromu / Baumbacher Syndrome - Fragman",
+          "embedUrl": "https://www.youtube.com/watch?v=4HFBKWU6ieg"
+        },
+        "genre": ["Comedia", "Drama"],
+        "director": {
+          "@type": "Person",
+          "name": "Gregory Kirchhoff"
+        },
+        "description": "Un amable y mágico cuento sobre la fama y sus impredecibles consecuencias...",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "0",
+          "reviewCount": "0"
+        },
+        "sameAs": "https://www.imdb.com/title/tt9409448/"
       },
       {
         "@type": "Movie",

@@ -34,5 +34,4 @@ jobs:
             **/.github/**
             **/README.md
             **/deploy.sh
-
-# Plantilla: Angel Martinez Carvajal
+            json/*.json
