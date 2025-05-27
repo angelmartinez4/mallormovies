@@ -1,12 +1,11 @@
 import {getUser} from './user.js';
 import {generarPfpSvg} from './graficos.js'
 
-// Función para cargar datos de usuarios
 async function loadUsers(forceRefresh = false) {
     try {
         let url = 'json/users.json';
         
-        // Añadir timestamp para evitar caché si se solicita refresh
+        // Solo añadir timestamp si se solicita refresh
         if (forceRefresh) {
             url += '?t=' + Date.now();
         }
@@ -20,12 +19,12 @@ async function loadUsers(forceRefresh = false) {
     }
 }
 
-// Función para cargar ratings
+// Función para cargar ratings (simplificada)
 async function loadRatings(forceRefresh = false) {
     try {
         let url = 'json/ratings.json';
         
-        // Añadir timestamp para evitar caché si se solicita refresh
+        // Solo añadir timestamp si se solicita refresh
         if (forceRefresh) {
             url += '?t=' + Date.now();
         }
@@ -66,7 +65,7 @@ function calculateAverageRating(username, ratingsData) {
     return sum / userRatings.length;
 }
 
-// guardar usuarios en JSON
+// guardar usuarios en JSON (simplificado)
 async function saveUsers(usersData) {
     try {
         const dataToSave = {
@@ -91,6 +90,7 @@ async function saveUsers(usersData) {
             throw new Error(result.error || 'Error desconocido al guardar');
         }
         
+        console.log('Usuarios guardados exitosamente');
         return true;
     } catch (error) {
         console.error('Error guardando usuarios:', error);
@@ -132,12 +132,14 @@ async function updateFriendButton(targetUsername, usersData) {
     }
 }
 
-// Función para alternar amistad
 async function toggleFriendship(targetUsername) {
     const currentUser = getUser();
     if (!currentUser) return;
     
+    console.log(`Iniciando toggleFriendship para: ${targetUsername}`);
+    
     try {
+        // Cargar datos actuales
         const usersData = await loadUsers();
         const currentUserData = usersData[currentUser];
         
@@ -146,7 +148,7 @@ async function toggleFriendship(targetUsername) {
             return;
         }
         
-        // Inicializar friends si no existe
+        // inicializar friends si no existe
         if (!currentUserData.friends) {
             currentUserData.friends = [];
         }
@@ -163,54 +165,10 @@ async function toggleFriendship(targetUsername) {
         }
         
         await saveUsers(usersData);
+        console.log('Cambios guardados en servidor');
         
-        await new Promise(resolve => setTimeout(resolve, 200));
-        
-        // Recargar datos frescos del servidor FORZANDO refresh (sin caché)
-        const freshUsersData = await loadUsers(true);
-        
-        // Actualizar la barra lateral de amigos con datos frescos
-        const friendsSidebar = document.querySelector('friends-sidebar');
-        if (friendsSidebar) {
-            // Forzar que la sidebar también use datos sin cache
-            friendsSidebar.loadFriends = async function() {
-                try {
-                    const currentUsername = getUser();
-                    if (!currentUsername) {
-                        this.hideSidebar();
-                        return;
-                    }
-                    
-                    const currentUser = freshUsersData[currentUsername];
-                    if (!currentUser || !currentUser.friends || currentUser.friends.length === 0) {
-                        this.friendsList.innerHTML = '<p class="text-muted p-3">No tienes amigos 😂</p>';
-                        return;
-                    }
-                    
-                    const friends = currentUser.friends.map(username => {
-                        const user = freshUsersData[username];
-                        return {
-                            id: username,
-                            name: user?.name ?? "Desconocido",
-                            image: user?.image,
-                            fallbackSVG: generarPfpSvg(username)
-                        };
-                    });
-
-                    this.renderFriends(friends);
-                } catch (error) {
-                    console.error('Error cargando amigos:', error);
-                    this.friendsList.innerHTML = '<p class="text-muted p-3">Error cargando amigos</p>';
-                }
-            };
-            
-            await friendsSidebar.loadFriends();
-        } else {
-            console.log('No se encontró el sidebar');
-        }
-        
-        // actualizar boton amigos
-        await updateFriendButton(targetUsername, freshUsersData);
+        // Refrescar la página para mostrar los cambios
+        window.location.reload();
         
     } catch (error) {
         console.error('Error al actualizar amistad:', error);
@@ -240,8 +198,11 @@ async function renderUserProfile() {
         return;
     }
 
-    const usersData = await loadUsers(true); // Forzar refresh también aquí
-    const ratingsData = await loadRatings(true); // Cargar ratings
+    console.log(`Renderizando perfil para usuario: ${username}`);
+    
+    // Forzar refresh en la carga inicial también
+    const usersData = await loadUsers(true);
+    const ratingsData = await loadRatings(true);
     const userData = usersData[username];
     
     if (!userData) {
@@ -374,6 +335,8 @@ async function renderUserProfile() {
             </div>
         </div>
     `;
+    
+    console.log('Perfil renderizado completamente');
 }
 
 // Cargar el perfil cuando se carga la página
