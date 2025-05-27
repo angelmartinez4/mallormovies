@@ -34,71 +34,79 @@
     <link href="plantilla/css/style.css" rel="stylesheet">
     <link href="nuestro.css" rel="stylesheet">
 
-      <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://example.com/users/kjorda02",
-        "name": "Krishna Jordà",
-        "identifier": "kjorda02",
-        "homeLocation": {
-          "@type": "Place",
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 43.36029,
-            "longitude": -5.84476
-          }
-        },
-        "favoriteGenre": "Thriller policiaco",
-        "favoriteDirector": {
-          "@type": "Person",
-          "name": "Quentin Tarantino"
-        }
-      },
-      {
-        "@type": "Movie",
-        "@id": "https://www.imdb.com/title/tt0033467/",
-        "name": "Citizen Kane",
-        "image": "citizen_kane-217208961-large.webp",
-        "genre": ["Drama", "Clásico"],
-        "director": {
-          "@type": "Person",
-          "name": "Orson Welles"
-        },
-        "description": "Una historia de poder, traición y la pérdida de la inocencia en una de las películas más influyentes de la historia del cine.",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "8.3",
-          "reviewCount": "20000"
-        },
-        "trailer": {
-          "@type": "VideoObject",
-          "name": "Citizen Kane - Tráiler",
-          "embedUrl": "https://www.youtube.com/watch?v=8dxh3lwdOFw"
-        },
-        "sameAs": "https://www.imdb.com/title/tt0033467/"
-      },
-      {
-        "@type": "Review",
-        "author": {
-          "@id": "https://example.com/users/kjorda02"
-        },
-        "itemReviewed": {
-          "@id": "https://www.imdb.com/title/tt0033467/"
-        },
-        "reviewBody": "Wowowowwo",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 9.7,
-          "bestRating": 10,
-          "worstRating": 1
-        },
-        "datePublished": "2025-04-26"
-      }
-    ]
-  }
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+            {
+                "@type": "Person",
+                "@id": "https://example.com/users/kjorda02",
+                "name": "Krishna Jordà",
+                "identifier": "kjorda02",
+                "homeLocation": {
+                "@type": "Place",
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": 43.36029,
+                    "longitude": -5.84476
+                }
+                },
+                "favoriteGenre": "Thriller policiaco",
+                "favoriteDirector": {
+                "@type": "Person",
+                "name": "Quentin Tarantino"
+                }
+            }
+    }
+  </script>
+  <script type="aplication/ld+json">
+    {
+        "@context": "https://schema.org",
+            {
+                "@type": "Review",
+                "author": {
+                "@id": "https://example.com/users/kjorda02"
+                },
+                "itemReviewed": {
+                "@id": "https://www.imdb.com/title/tt0033467/"
+                },
+                "reviewBody": "Wowowowwo",
+                "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": 9.7,
+                "bestRating": 10,
+                "worstRating": 1
+                },
+                "datePublished": "2025-04-26"
+            }
+    }
+  </script>
+  <script type="aplication/ld+json">
+    {
+        "@context": "https://schema.org",
+            {
+                "@type": "Movie",
+                "@id": "https://www.imdb.com/title/tt0033467/",
+                "name": "Citizen Kane",
+                "image": "citizen_kane-217208961-large.webp",
+                "genre": ["Drama", "Clásico"],
+                "director": {
+                "@type": "Person",
+                "name": "Orson Welles"
+                },
+                "description": "Una historia de poder, traición y la pérdida de la inocencia en una de las películas más influyentes de la historia del cine.",
+                "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "8.3",
+                "reviewCount": "20000"
+                },
+                "trailer": {
+                "@type": "VideoObject",
+                "name": "Citizen Kane - Tráiler",
+                "embedUrl": "https://www.youtube.com/watch?v=8dxh3lwdOFw"
+                },
+                "sameAs": "https://www.imdb.com/title/tt0033467/"
+            }
+    }
   </script>
 </head>
 
@@ -117,7 +125,7 @@
                     <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
                         <div class="owl-carousel header-carousel position-relative">
                             <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/citizen_kane_big.webp'>">
-                                <img class="img-fluid" src="imgs/citizen_kane_big.webp" alt="">
+                                <img class="img-fluid" src="imgs/citizen_kane_big.webp" alt="Portada de la pelicula">
                                 <div class="owl-carousel-inner">
                                     <div class="container">
                                         <div class="row justify-content-start">
@@ -131,7 +139,7 @@
                                 </div>
                             </div>
                             <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/indiana_jones_big.webp'>">
-                                <img class="img-fluid" src="imgs/indiana_jones_big.webp" alt="">
+                                <img class="img-fluid" src="imgs/indiana_jones_big.webp" alt="Portada de la pelicula">
                                 <div class="owl-carousel-inner">
                                     <div class="container">
                                         <div class="row justify-content-start">
@@ -145,7 +153,7 @@
                                 </div>
                             </div>
                             <div class="owl-carousel-item position-relative" data-dot="<img src='imgs/robo_big.webp'>">
-                                <img class="img-fluid" src="imgs/robo_big.webp" alt="">
+                                <img class="img-fluid" src="imgs/robo_big.webp" alt="Portada de la pelicula">
                                 <div class="owl-carousel-inner">
                                     <div class="container">
                                         <div class="row justify-content-start">
