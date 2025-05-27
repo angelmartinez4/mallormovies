@@ -9,7 +9,7 @@ class NavBar extends HTMLElement {
         connectedCallback() {
             this.innerHTML = `
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
+            <header class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
                 <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
                     <h2 class="m-0 text-primary">MallorMovies</h2>
                 </a>

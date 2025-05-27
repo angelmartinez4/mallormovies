@@ -12,7 +12,9 @@ async function getCard(item, index, rol) {
     return `
         <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="service-item rounded overflow-hidden bg-dark">
-                <img class="img-fluid" src="imgs/${item.image}" alt="">
+                <figure>
+                    <img class="img-fluid" src="imgs/${item.image}" alt="imagen de portada de ${item.name}">
+                </figure>
                 <div class="position-relative p-4 pt-0">
                     <div class="service-icon bg-dark">
                         ${generarValoracionMedia(val)}

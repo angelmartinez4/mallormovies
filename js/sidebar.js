@@ -33,7 +33,7 @@ class FriendsSidebar extends HTMLElement {
             👥
         </button>
         <!-- Sidebar -->
-        <div id="friendsSidebar" class="friends-sidebar">
+        <aside id="friendsSidebar" class="friends-sidebar">
             <div class="sidebar-header">
                 <h5>Amigos</h5>
                 <button class="btn-close d-lg-none" id="closeSidebar"></button>
