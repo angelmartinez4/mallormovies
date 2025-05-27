@@ -1,50 +1,12 @@
 import {generarValoracionMedia} from './graficos.js';
 
-async function loadIMDBRating(url) {
-    var rating;
-    var runtime;
-    var year;
-    const regex = /\/title\/(tt\d+)/;
-    const imdbcode = regex.exec(url)[1];
-
-    try {
-      const response = await fetch('https://graph.imdbapi.dev/v1', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          query: `{
-            title(id: "${imdbcode}") {
-                rating {
-                    aggregate_rating
-                    votes_count
-                }
-                start_year
-                runtime_minutes
-            }
-          }`
-        })
-      });
-  
-      const data = await response.json();
-      rating = [data.data.title.rating.aggregate_rating, data.data.title.rating.votes_count];
-      runtime = data.data.title.runtime_minutes;
-      year = data.data.title.start_year;
-    } catch (error) {
-      console.error('Error fetching IMDB data:', error);
-    }
-
-    return rating[0];
-  }
-
 async function getCard(item, index, rol) {
     if (rol != " "){
         if (!item.participant?.some(p => p.jobTitle?.toLowerCase() === rol.toLowerCase())) return '';
     }
 
     console.log(item.sameAs);
-    const val = await loadIMDBRating(item.sameAs);
+    const val = item.aggregateRating.ratingValue;
     
 
     return `
