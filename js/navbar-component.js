@@ -37,12 +37,12 @@ class NavBar extends HTMLElement {
             }
             else {
                 const profileImage = (user && user.image) ? 
-                    `<img src="${user.image}" class="flex-grow-0 user-select-none" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;"/>` : 
+                    `<img src="${user.image}" alt="Icono de usuario" class="flex-grow-0 user-select-none" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;"/>` : 
                     `<div style="width: 32px; height: 32px; flex-shrink: 0; vertical-align:middle; display: inline-block; align-items: center; justify-content: center; border-radius: 50%; overflow: hidden;" class="user-select-none">${generarPfpSvg(user)}</div>`;
                 c.innerHTML = `
                     ${profileImage}
                     <a href="users.html?username=${user}" class="ms-3 text-white">${user}</a>
-                    <img src="./icon/exit.svg" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />
+                    <img src="./icon/exit.svg" alt="Icono para cerrar sesion" class="ms-4 me-4" style="cursor: pointer;" onclick="salir()" />
                 `;
             }
         }
