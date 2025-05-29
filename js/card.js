@@ -30,7 +30,6 @@ async function getCard(item, index, rol) {
 
 async function filtrarDirector(){
     const container = document.getElementById('peliculas');
-    const moviesArray = movies['@graph'];
 
     const htmlDirector = await Promise.all(
         moviesArray.map(async (item, index) => await getCard(item, index, "director")).filter(card => card)
@@ -44,7 +43,6 @@ async function filtrarDirector(){
 
 async function filtrarActor(){
     const container = document.getElementById('peliculas');
-    const moviesArray = movies['@graph'];
 
     const htmlActor = await Promise.all(
         moviesArray.map(async (item, index) => await getCard(item, index, "actor")).filter(card => card)
@@ -58,11 +56,12 @@ async function filtrarActor(){
 
 async function filtrarTecnico(){
     const container = document.getElementById('peliculas');
-    const moviesArray = movies['@graph'];
 
     const htmlTecnico = await Promise.all(
         moviesArray.map(async (item, index) => await getCard(item, index, "Técnico de efectos visuales")).filter(card => card)
     );
+
+    numero_peliculas.innerHTML = `${moviesArray.length} Peliculas con participantes de Mallorca`;
 
     container.innerHTML = htmlTecnico.join('');
 }
@@ -78,9 +77,8 @@ function addEvent() {
     filtrar_tec.addEventListener("click", filtrarTecnico);
 }
 
-async function renderItems(data) {
+async function renderItems() {
     const container = document.getElementById('peliculas');
-    const moviesArray = data['@graph'];
 
     // Use Promise.all to wait for all async getCard calls
     const htmlCards = await Promise.all(
@@ -91,6 +89,7 @@ async function renderItems(data) {
 }
 
 let moviesArray;
+let numero_peliculas;
 async function loadMovies() {
     try {
         const response = await fetch('json/movies.json');
@@ -98,9 +97,9 @@ async function loadMovies() {
 
         moviesArray = movies['@graph'];
         
-        const numero_peliculas = document.getElementById('N-peliculas');
+        numero_peliculas = document.getElementById('N-peliculas');
 
-        numero_peliculas.innerHTML = `${movies['@graph'].length} Peliculas con participantes de Mallorca`;
+        numero_peliculas.innerHTML = `${moviesArray.length} Peliculas con participantes de Mallorca`;
 
         await renderItems();
     } catch (error) {
