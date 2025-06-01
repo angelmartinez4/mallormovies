@@ -35,7 +35,7 @@ class NavBar extends HTMLElement {
             const d = document.getElementById('userNavBar1');
             
             if (user == null) {
-                c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
+                c.innerHTML = `<a href="login.html" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block text-dark">Log in<i class="fa fa-arrow-right ms-3"></i></a>`;
                 d.innerHTML = `<a href="login.html" class="nav-item nav-link">LOG IN</a>`;
             }
             else {
