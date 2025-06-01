@@ -90,7 +90,6 @@ async function saveUsers(usersData) {
             throw new Error(result.error || 'Error desconocido al guardar');
         }
         
-        console.log('Usuarios guardados exitosamente');
         return true;
     } catch (error) {
         console.error('Error guardando usuarios:', error);
@@ -124,9 +123,6 @@ async function updateFriendButton(targetUsername, usersData) {
     if (friendButton) {
         friendButton.className = `btn ${isFriend ? 'btn-outline-danger' : 'btn-primary'}`;
         friendButton.textContent = isFriend ? 'Eliminar amigo' : 'Añadir amigo';
-        
-        // Debug: mostrar estado actual
-        console.log(`Botón actualizado - Usuario: ${targetUsername}, Es amigo: ${isFriend}`);
     } else {
         console.log('No se encontró el botón de amistad');
     }
@@ -134,12 +130,9 @@ async function updateFriendButton(targetUsername, usersData) {
 
 async function toggleFriendship(targetUsername) {
     const currentUser = getUser();
-    if (!currentUser) return;
-    
-    console.log(`Iniciando toggleFriendship para: ${targetUsername}`);
-    
+    if (!currentUser) return;    
     try {
-        // Cargar datos actuales
+        // cargar datos actuales
         const usersData = await loadUsers();
         const currentUserData = usersData[currentUser];
         
@@ -156,18 +149,15 @@ async function toggleFriendship(targetUsername) {
         const friendsList = currentUserData.friends;
         const friendIndex = friendsList.indexOf(targetUsername);
         
-        if (friendIndex > -1) { // Eliminar amigo
+        if (friendIndex > -1) { // eliminar amigo
             friendsList.splice(friendIndex, 1);
-            console.log(`Eliminado ${targetUsername} de la lista de amigos`);
-        } else { // Añadir amigo
+        } else { // añadir amigo
             friendsList.push(targetUsername);
-            console.log(`Añadido ${targetUsername} a la lista de amigos`);
         }
         
         await saveUsers(usersData);
-        console.log('Cambios guardados en servidor');
         
-        // Refrescar la página para mostrar los cambios
+        // refrescar
         window.location.reload();
         
     } catch (error) {
@@ -197,10 +187,8 @@ async function renderUserProfile() {
         `;
         return;
     }
-
-    console.log(`Renderizando perfil para usuario: ${username}`);
     
-    // Forzar refresh en la carga inicial también
+    // forzar refresh en la carga inicial
     const usersData = await loadUsers(true);
     const ratingsData = await loadRatings(true);
     const userData = usersData[username];
@@ -220,13 +208,12 @@ async function renderUserProfile() {
     const isFriend = currentUserData ? areFriends(currentUserData, username) : false;
     const showFriendButton = currentUser && currentUser !== username;
 
-    // Calcular puntuación promedio dinámicamente
+    // calcular puntuacion promedio dinamicamente
     const avgRating = calculateAverageRating(username, ratingsData);
 
-    // Determinar imagen de perfil
     let profileImageHtml;
     if (userData.image) {
-        // Es una URL de imagen
+        // es una URL de imagen
         profileImageHtml = `<img src="${userData.image}" 
                                  alt="Foto de perfil de ${userData.name}" 
                                  class="friend-avatar mb-3" 
@@ -335,12 +322,9 @@ async function renderUserProfile() {
             </div>
         </div>
     `;
-    
-    console.log('Perfil renderizado completamente');
 }
 
-// Cargar el perfil cuando se carga la página
+// cargar el perfil cuando se carga la página
 document.addEventListener('DOMContentLoaded', renderUserProfile);
 
-// Hacer la función toggleFriendship accesible globalmente
 window.toggleFriendship = toggleFriendship;

@@ -1,6 +1,6 @@
 import {getUser} from './user.js';
 import {generarPfpSvg} from './graficos.js'
-// Sidebar de amigos
+// sidebar de amigos
 class FriendsSidebar extends HTMLElement {
     constructor() {
         super();
@@ -49,7 +49,7 @@ class FriendsSidebar extends HTMLElement {
         this.toggleBtn?.addEventListener('click', () => this.toggleSidebar());
         this.closeBtn?.addEventListener('click', () => this.closeSidebar());
         
-        // Cerrar al hacer click fuera en móvil
+        // cerrar al hacer click fuera en movil
         document.addEventListener('click', (e) => {
             if (window.innerWidth < 992 && 
                 this.sidebar.classList.contains('show') && 
@@ -62,7 +62,7 @@ class FriendsSidebar extends HTMLElement {
     
     async loadFriends() {
         try {
-            // Obtener el usuario loggeado
+            // usuario loggeado
             const currentUsername = getUser();
             if (!currentUsername) {
                 this.hideSidebar();
@@ -95,20 +95,6 @@ class FriendsSidebar extends HTMLElement {
         }
     }
 
-    /* // Como el sidebar esta en la misma row que el main content esto fallaba y queda
-    // el carrusel y pelis a la izquierda
-    hideSidebar() {
-        const mainContent = document.querySelector('.main-content');
-        const sidebarCol = document.getElementById("sidebarCol");
-        this.sidebar.style.display = 'none';
-        this.toggleBtn.style.display = 'none';
-        // Ajustar contenido principal cuando no hay sidebar
-        sidebarCol.style.display = "none";
-        mainContent.classList.remove("col-lg-9", "col-xl-10"); // ta mal
-        mainContent.classList.add("col-12");
-      }
-      */  
-
     hideSidebar() {
         const sidebarCol = document.getElementById("sidebarCol"); // div.col-lg-3 ...
         const mainCol = sidebarCol.nextElementSibling; // debería ser div.col-lg-9 ...
@@ -116,7 +102,7 @@ class FriendsSidebar extends HTMLElement {
         this.toggleBtn.style.display = 'none';
         sidebarCol.style.display = "none";
 
-        // Cambiar clases de la columna principal para que ocupe todo el ancho
+        // cambiar clases de la columna principal para que ocupe todo el ancho
         mainCol.classList.remove("col-lg-9", "col-xl-10");
         mainCol.classList.add("col-12");
     }
